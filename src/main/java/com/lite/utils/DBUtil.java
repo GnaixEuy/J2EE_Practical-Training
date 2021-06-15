@@ -1,9 +1,10 @@
 package com.lite.utils;
 
 /**
+ * 数据库工具类
+ *
  * @author GnaixEuy
- * @Date 2021/06/15
- * @Description
+ * @date 2021/06/15
  */
 
 import java.sql.*;
@@ -16,7 +17,7 @@ public class DBUtil {
     private static String dbUrl;
     private static String dbUserId;
     private static String dbUserPassword;
-
+    private static int connectionNum;
 
     static {
         String driverTypePath;
@@ -26,6 +27,7 @@ public class DBUtil {
             dbUrl = resourceBundle.getString("dbUrl");
             dbUserId = resourceBundle.getString("dbUserId");
             dbUserPassword = resourceBundle.getString("dbUserPassword");
+            connectionNum = Integer.parseInt(resourceBundle.getString("connectionNum"));
             Class.forName(driverTypePath);
         } catch ( Exception e ) {
             System.out.println("erro");
@@ -34,10 +36,11 @@ public class DBUtil {
     }
 
     /**
+     * 获取一个connection，获取失败时返回一个null
+     *
      * @return connection
      * @throws SQLException
      * @author GnaixEuy
-     * @deprecated 获取一个connection，获取失败时返回一个null
      */
     public Connection getConnection() throws SQLException {
         Connection connection;
@@ -51,10 +54,11 @@ public class DBUtil {
     }
 
     /**
+     * 传入一个connection来进行关闭，正确关闭时候返回true，反之返回false
+     *
      * @param connection
      * @return boolean
      * @author GnaixEuy
-     * @deprecated 传入一个connection来进行关闭，正确关闭时候返回true，反之返回false
      */
     public boolean closeConnection(Connection connection) {
         try {
@@ -69,9 +73,10 @@ public class DBUtil {
     }
 
     /**
+     * 关闭所有connection，错误时抛出异常
+     *
      * @throws Exception
      * @author GnaixEuy
-     * @deprecated 关闭所有connection，错误时抛出异常
      */
     public void closeAllConnection(HashMap<Connection, Boolean> connectionHashMap) throws Exception {
         //遍历hashmap关闭所有连接
@@ -83,5 +88,15 @@ public class DBUtil {
                 }
             }
         }
+    }
+
+    /**
+     * 获取配置文件中预先设定的Connection数量，用于监听器初始化connectionHashMap时提供参数
+     *
+     * @return int
+     * @author GnaixEuy
+     */
+    public int getConnectionNum() {
+        return connectionNum;
     }
 }
