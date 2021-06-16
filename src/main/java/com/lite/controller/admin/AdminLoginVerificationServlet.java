@@ -8,8 +8,8 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "AdminLoginVerificationServlet.do", value = "/AdminLoginVerificationServlet.do")
-public class AdminLoginVerificationServletdo extends HttpServlet {
+@WebServlet(name = "AdminLoginVerificationServlet", value = "/AdminLoginVerificationServlet.do")
+public class AdminLoginVerificationServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //非法访问转跳
