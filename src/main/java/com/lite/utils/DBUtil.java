@@ -19,6 +19,9 @@ public class DBUtil {
     private static String dbUserPassword;
     private static int connectionNum;
 
+    private PreparedStatement preparedStatement = null;
+    private ResultSet resultSet = null;
+
     static {
         String driverTypePath;
         try {
@@ -59,6 +62,7 @@ public class DBUtil {
      * @param connection
      * @return boolean
      * @author GnaixEuy
+     *
      */
     public boolean closeConnection(Connection connection) {
         try {
@@ -98,5 +102,40 @@ public class DBUtil {
      */
     public int getConnectionNum() {
         return connectionNum;
+    }
+
+    public int update(Connection connection, String sql, Object... params) {
+        int ret = 0;
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            if ( params != null ) {
+                for ( int i = 0; i < params.length; i++ ) {
+                    preparedStatement.setObject(i + 1, params[i]);
+                }
+            }
+            ret = preparedStatement.executeUpdate();
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        return ret;
+    }
+
+    public ResultSet query(Connection connection, String sql, Object... params) {
+        try {
+            preparedStatement = connection.prepareStatement(sql);
+            if ( params != null ) {
+                for ( int i = 0; i < params.length; i++ ) {
+                    preparedStatement.setObject(i + 1, params[i]);
+                }
+            }
+            resultSet = null;
+            resultSet = preparedStatement.executeQuery();
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        } finally {
+            //暂时不关闭，外边调用端手动关闭
+            //一旦关闭数据库的链接，数据库获取到到数据集就清空了
+        }
+        return resultSet;
     }
 }
