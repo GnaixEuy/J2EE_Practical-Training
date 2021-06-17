@@ -22,7 +22,6 @@ public class CharacterEncodingFilter implements Filter {
 
     @Override
     public void destroy() {
-        Filter.super.destroy();
-        System.out.println("字符集过滤启动");
+        System.out.println("字符集过滤关闭");
     }
 }

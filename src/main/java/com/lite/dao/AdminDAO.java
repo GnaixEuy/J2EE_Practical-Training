@@ -25,6 +25,6 @@ public interface AdminDAO {
      * @param admin
      * @return
      */
-    public int update(HttpServletRequest request, AdminBean admin);
+    public int updateAdminInfo(HttpServletRequest request, AdminBean admin);
 
 }

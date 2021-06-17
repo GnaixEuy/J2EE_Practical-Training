@@ -30,4 +30,18 @@ public class AdminServiceImpl implements AdminService {
         return ret == 1;
     }
 
+    /**
+     * 修改管理员密码
+     *
+     * @param request
+     * @param adminBean
+     * @param newPassword
+     * @return boolean
+     */
+
+    @Override
+    public boolean ChangeAdminPassword(HttpServletRequest request, AdminBean adminBean, String newPassword) {
+        adminBean.setAdminPassword(newPassword);
+        return adminDAO.updateAdminInfo(request, adminBean) == 1;
+    }
 }
