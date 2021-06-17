@@ -2,6 +2,8 @@ package com.lite.dao;
 
 import com.lite.bean.UserBean;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * 用户接口
  *
@@ -24,13 +26,13 @@ public interface UserDAO {
      * @param user
      * @return int
      */
-    public int update(UserBean user);
+    public int update( UserBean user);
 
     /**
      * 用户注销
      *
      * @param user
-     * @return
+     * @return 
      */
     public int delete(UserBean user);
 
