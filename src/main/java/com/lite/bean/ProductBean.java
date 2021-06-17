@@ -17,7 +17,7 @@ public class ProductBean {
     //存入数据库交给productMaterials
     private String productMaterials;
     //程序运行中交给productMaterialsList
-    private List<String> productMaterialsList;
+    private List<String> productMaterialsList;//配料
 
     public ProductBean(Integer id, String productName, Double productPrice, Integer productStore, String productType, String productMaterials) {
         this.id = id;
