@@ -17,6 +17,7 @@ public class AdminBackStageMainServlet extends HttpServlet {
         HttpSession session = request.getSession();
         AdminBean user = (AdminBean) session.getAttribute("user");
         session.setAttribute("adminName", user.getAdminName());
-        request.getRequestDispatcher("view/BackStageMain.jsp").forward(request, response);
+//        request.getRequestDispatcher("view/BackStageMain.jsp").forward(request, response);
+        response.sendRedirect("view/BackStageMain.jsp");
     }
 }
