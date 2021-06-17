@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 17/06/2021 00:15:03
+ Date: 17/06/2021 23:04:49
 */
 
 SET NAMES utf8mb4;
@@ -23,9 +23,9 @@ SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE IF EXISTS `admin`;
 CREATE TABLE `admin`
 (
-    `id`            int(11)      NOT NULL AUTO_INCREMENT,
-    `adminname`     varchar(255) NOT NULL,
-    `adminpassword` varchar(255) DEFAULT NULL,
+    `id`             varchar(255) NOT NULL,
+    `admin_name`     varchar(255) NOT NULL,
+    `admin_password` varchar(255) NOT NULL,
     PRIMARY KEY (`id`),
     UNIQUE KEY `admin_id_uindex` (`id`)
 ) ENGINE = InnoDB
@@ -35,6 +35,8 @@ CREATE TABLE `admin`
 -- Records of admin
 -- ----------------------------
 BEGIN;
+INSERT INTO `admin`
+VALUES ('123123', 'no', '1111');
 COMMIT;
 
 -- ----------------------------
@@ -64,11 +66,12 @@ COMMIT;
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE `products`
 (
-    `Id`            int(255)       NOT NULL AUTO_INCREMENT,
-    `product_name`  varchar(255)   NOT NULL,
-    `product_price` decimal(10, 2) NOT NULL,
-    `product_store` int(255)       NOT NULL,
-    `type`          varchar(10)    NOT NULL,
+    `Id`                int(255)       NOT NULL AUTO_INCREMENT,
+    `product_name`      varchar(255)   NOT NULL,
+    `product_price`     decimal(10, 2) NOT NULL,
+    `product_store`     int(255)       NOT NULL,
+    `type`              varchar(10)    NOT NULL,
+    `product_materials` varchar(255) DEFAULT NULL,
     PRIMARY KEY (`Id`) USING BTREE
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8

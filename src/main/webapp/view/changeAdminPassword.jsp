@@ -10,17 +10,17 @@
     <title>管理员密码修改</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/static/css/bootstrap.css"/>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/static/JavaScript/jquery-3.6.0.min.js"></script>
+    <script src="${pageContext.request.contextPath}/static/js/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#changePassword").click(function () {
-                    if ($("#passwordtext").val() == $("#passwordtext2").val()) {
-                        alert("ok")
-                        $("#passwordform").submit();
-                    } else {
-                        alert("两次密码不一致")
-                        $("#passwordtext2").val("")
-                    }
+                if ($("#passwordtext").val() == $("#passwordtext2").val()) {
+                    alert("ok")
+                    $("#passwordform").submit();
+                } else {
+                    alert("两次密码不一致")
+                    $("#passwordtext2").val("")
+                }
                 }
             )
         });
