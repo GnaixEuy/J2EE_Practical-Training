@@ -16,715 +16,276 @@
     <link href="https://cdn.jsdelivr.net/gh/mt-theme/metron-assets@3.0.2/metron/plugins/global/plugins.bundle.css"
           rel="stylesheet" type="text/css">
 
-    <link href="src/main/webapp/models/apperances/style.bundle.css" rel="stylesheet" type="text/css"> <!-- 最重要的全局样式 -->
-    <link href="src/main/webapp/models/apperances/style-1.css" rel="stylesheet" type="text/css"> <!-- 文本框美化 -->
+    <link href="static/CSS/style.bundle.css" rel="stylesheet" type="text/css"> <!-- 最重要的全局样式 -->
+    <link href="static/CSS/style-1.css" rel="stylesheet" type="text/css"> <!-- 文本框美化 -->
 
     <!-- 外部css -->
 
     <script charset="UTF-8" async=""
-            src="https://api.geetest.com/gettype.php?gt=3a7e9768bd7054439d89064e0686ccb8&amp;callback=geetest_1623807749408"></script>
-    <style type="text/css">.apexcharts-canvas {
-        position: relative;
-        user-select: none;
-        /* cannot give overflow: hidden as it will crop tooltips which overflow outside chart area */
-    }
+            src="https://api.geetest.com/gettype.php?gt=3a7e9768bd7054439d89064e0686ccb8&amp;callback=geetest_1623807749408">
 
+    </script>
+    <style type="text/css">
 
-    /* scrollbar is not visible by default for legend, hence forcing the visibility */
-    .apexcharts-canvas ::-webkit-scrollbar {
-        -webkit-appearance: none;
-        width: 6px;
-    }
 
-    .apexcharts-canvas ::-webkit-scrollbar-thumb {
-        border-radius: 4px;
-        background-color: rgba(0, 0, 0, .5);
-        box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-        -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
-    }
+        /* scrollbar is not visible by default for legend, hence forcing the visibility */
+        .apexcharts-canvas ::-webkit-scrollbar {
+            -webkit-appearance: none;
+            width: 6px;
+        }
 
-    .apexcharts-canvas.apexcharts-theme-dark {
-        background: #424242;
-    }
+        .apexcharts-canvas ::-webkit-scrollbar-thumb {
+            border-radius: 4px;
+            background-color: rgba(0, 0, 0, .5);
+            box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+            -webkit-box-shadow: 0 0 1px rgba(255, 255, 255, .5);
+        }
 
-    .apexcharts-inner {
-        position: relative;
-    }
 
-    .apexcharts-text tspan {
-        font-family: inherit;
-    }
+        .apexcharts-text tspan {
+            font-family: inherit;
+        }
 
-    .legend-mouseover-inactive {
-        transition: 0.15s ease all;
-        opacity: 0.20;
-    }
+        .apexcharts-tooltip * {
+            font-family: inherit;
+        }
 
-    .apexcharts-series-collapsed {
-        opacity: 0;
-    }
 
-    .apexcharts-tooltip {
-        border-radius: 5px;
-        box-shadow: 2px 2px 6px -4px #999;
-        cursor: default;
-        font-size: 14px;
-        left: 62px;
-        opacity: 0;
-        pointer-events: none;
-        position: absolute;
-        top: 20px;
-        overflow: hidden;
-        white-space: nowrap;
-        z-index: 12;
-        transition: 0.15s ease all;
-    }
+        .apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
+            background: rgba(0, 0, 0, 0.7);
+            border-bottom: 1px solid #333;
+        }
 
-    .apexcharts-tooltip.apexcharts-active {
-        opacity: 1;
-        transition: 0.15s ease all;
-    }
-
-    .apexcharts-tooltip.apexcharts-theme-light {
-        border: 1px solid #e3e3e3;
-        background: rgba(255, 255, 255, 0.96);
-    }
-
-    .apexcharts-tooltip.apexcharts-theme-dark {
-        color: #fff;
-        background: rgba(30, 30, 30, 0.8);
-    }
-
-    .apexcharts-tooltip * {
-        font-family: inherit;
-    }
-
-
-    .apexcharts-tooltip-title {
-        padding: 6px;
-        font-size: 15px;
-        margin-bottom: 4px;
-    }
-
-    .apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
-        background: #ECEFF1;
-        border-bottom: 1px solid #ddd;
-    }
-
-    .apexcharts-tooltip.apexcharts-theme-dark .apexcharts-tooltip-title {
-        background: rgba(0, 0, 0, 0.7);
-        border-bottom: 1px solid #333;
-    }
-
-    .apexcharts-tooltip-text-value,
-    .apexcharts-tooltip-text-z-value {
-        display: inline-block;
-        font-weight: 600;
-        margin-left: 5px;
-    }
-
-    .apexcharts-tooltip-text-z-label:empty,
-    .apexcharts-tooltip-text-z-value:empty {
-        display: none;
-    }
-
-    .apexcharts-tooltip-text-value,
-    .apexcharts-tooltip-text-z-value {
-        font-weight: 600;
-    }
-
-    .apexcharts-tooltip-marker {
-        width: 12px;
-        height: 12px;
-        position: relative;
-        top: 0px;
-        margin-right: 10px;
-        border-radius: 50%;
-    }
-
-    .apexcharts-tooltip-series-group {
-        padding: 0 10px;
-        display: none;
-        text-align: left;
-        justify-content: left;
-        align-items: center;
-    }
-
-    .apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {
-        opacity: 1;
-    }
-
-    .apexcharts-tooltip-series-group.apexcharts-active,
-    .apexcharts-tooltip-series-group:last-child {
-        padding-bottom: 4px;
-    }
-
-    .apexcharts-tooltip-series-group-hidden {
-        opacity: 0;
-        height: 0;
-        line-height: 0;
-        padding: 0 !important;
-    }
-
-    .apexcharts-tooltip-y-group {
-        padding: 6px 0 5px;
-    }
-
-    .apexcharts-tooltip-candlestick {
-        padding: 4px 8px;
-    }
-
-    .apexcharts-tooltip-candlestick > div {
-        margin: 4px 0;
-    }
-
-    .apexcharts-tooltip-candlestick span.value {
-        font-weight: bold;
-    }
-
-    .apexcharts-tooltip-rangebar {
-        padding: 5px 8px;
-    }
-
-    .apexcharts-tooltip-rangebar .category {
-        font-weight: 600;
-        color: #777;
-    }
-
-    .apexcharts-tooltip-rangebar .series-name {
-        font-weight: bold;
-        display: block;
-        margin-bottom: 5px;
-    }
-
-    .apexcharts-xaxistooltip {
-        opacity: 0;
-        padding: 9px 10px;
-        pointer-events: none;
-        color: #373d3f;
-        font-size: 13px;
-        text-align: center;
-        border-radius: 2px;
-        position: absolute;
-        z-index: 10;
-        background: #ECEFF1;
-        border: 1px solid #90A4AE;
-        transition: 0.15s ease all;
-    }
-
-    .apexcharts-xaxistooltip.apexcharts-theme-dark {
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid rgba(0, 0, 0, 0.5);
-        color: #fff;
-    }
-
-    .apexcharts-xaxistooltip:after,
-    .apexcharts-xaxistooltip:before {
-        left: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-    }
-
-    .apexcharts-xaxistooltip:after {
-        border-color: rgba(236, 239, 241, 0);
-        border-width: 6px;
-        margin-left: -6px;
-    }
-
-    .apexcharts-xaxistooltip:before {
-        border-color: rgba(144, 164, 174, 0);
-        border-width: 7px;
-        margin-left: -7px;
-    }
-
-    .apexcharts-xaxistooltip-bottom:after,
-    .apexcharts-xaxistooltip-bottom:before {
-        bottom: 100%;
-    }
-
-    .apexcharts-xaxistooltip-top:after,
-    .apexcharts-xaxistooltip-top:before {
-        top: 100%;
-    }
-
-    .apexcharts-xaxistooltip-bottom:after {
-        border-bottom-color: #ECEFF1;
-    }
-
-    .apexcharts-xaxistooltip-bottom:before {
-        border-bottom-color: #90A4AE;
-    }
-
-    .apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:after {
-        border-bottom-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .apexcharts-xaxistooltip-bottom.apexcharts-theme-dark:before {
-        border-bottom-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .apexcharts-xaxistooltip-top:after {
-        border-top-color: #ECEFF1
-    }
-
-    .apexcharts-xaxistooltip-top:before {
-        border-top-color: #90A4AE;
-    }
-
-    .apexcharts-xaxistooltip-top.apexcharts-theme-dark:after {
-        border-top-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .apexcharts-xaxistooltip-top.apexcharts-theme-dark:before {
-        border-top-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .apexcharts-xaxistooltip.apexcharts-active {
-        opacity: 1;
-        transition: 0.15s ease all;
-    }
-
-    .apexcharts-yaxistooltip {
-        opacity: 0;
-        padding: 4px 10px;
-        pointer-events: none;
-        color: #373d3f;
-        font-size: 13px;
-        text-align: center;
-        border-radius: 2px;
-        position: absolute;
-        z-index: 10;
-        background: #ECEFF1;
-        border: 1px solid #90A4AE;
-    }
-
-    .apexcharts-yaxistooltip.apexcharts-theme-dark {
-        background: rgba(0, 0, 0, 0.7);
-        border: 1px solid rgba(0, 0, 0, 0.5);
-        color: #fff;
-    }
-
-    .apexcharts-yaxistooltip:after,
-    .apexcharts-yaxistooltip:before {
-        top: 50%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-    }
-
-    .apexcharts-yaxistooltip:after {
-        border-color: rgba(236, 239, 241, 0);
-        border-width: 6px;
-        margin-top: -6px;
-    }
-
-    .apexcharts-yaxistooltip:before {
-        border-color: rgba(144, 164, 174, 0);
-        border-width: 7px;
-        margin-top: -7px;
-    }
-
-    .apexcharts-yaxistooltip-left:after,
-    .apexcharts-yaxistooltip-left:before {
-        left: 100%;
-    }
-
-    .apexcharts-yaxistooltip-right:after,
-    .apexcharts-yaxistooltip-right:before {
-        right: 100%;
-    }
-
-    .apexcharts-yaxistooltip-left:after {
-        border-left-color: #ECEFF1;
-    }
-
-    .apexcharts-yaxistooltip-left:before {
-        border-left-color: #90A4AE;
-    }
-
-    .apexcharts-yaxistooltip-left.apexcharts-theme-dark:after {
-        border-left-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .apexcharts-yaxistooltip-left.apexcharts-theme-dark:before {
-        border-left-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .apexcharts-yaxistooltip-right:after {
-        border-right-color: #ECEFF1;
-    }
-
-    .apexcharts-yaxistooltip-right:before {
-        border-right-color: #90A4AE;
-    }
-
-    .apexcharts-yaxistooltip-right.apexcharts-theme-dark:after {
-        border-right-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .apexcharts-yaxistooltip-right.apexcharts-theme-dark:before {
-        border-right-color: rgba(0, 0, 0, 0.5);
-    }
-
-    .apexcharts-yaxistooltip.apexcharts-active {
-        opacity: 1;
-    }
-
-    .apexcharts-yaxistooltip-hidden {
-        display: none;
-    }
-
-    .apexcharts-xcrosshairs,
-    .apexcharts-ycrosshairs {
-        pointer-events: none;
-        opacity: 0;
-        transition: 0.15s ease all;
-    }
-
-    .apexcharts-xcrosshairs.apexcharts-active,
-    .apexcharts-ycrosshairs.apexcharts-active {
-        opacity: 1;
-        transition: 0.15s ease all;
-    }
-
-    .apexcharts-ycrosshairs-hidden {
-        opacity: 0;
-    }
-
-    .apexcharts-selection-rect {
-        cursor: move;
-    }
-
-    .svg_select_boundingRect, .svg_select_points_rot {
-        pointer-events: none;
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .apexcharts-selection-rect + g .svg_select_boundingRect,
-    .apexcharts-selection-rect + g .svg_select_points_rot {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    .apexcharts-selection-rect + g .svg_select_points_l,
-    .apexcharts-selection-rect + g .svg_select_points_r {
-        cursor: ew-resize;
-        opacity: 1;
-        visibility: visible;
-    }
-
-    .svg_select_points {
-        fill: #efefef;
-        stroke: #333;
-        rx: 2;
-    }
-
-    .apexcharts-canvas.apexcharts-zoomable .hovering-zoom {
-        cursor: crosshair
-    }
-
-    .apexcharts-canvas.apexcharts-zoomable .hovering-pan {
-        cursor: move
-    }
-
-    .apexcharts-zoom-icon,
-    .apexcharts-zoomin-icon,
-    .apexcharts-zoomout-icon,
-    .apexcharts-reset-icon,
-    .apexcharts-pan-icon,
-    .apexcharts-selection-icon,
-    .apexcharts-menu-icon,
-    .apexcharts-toolbar-custom-icon {
-        cursor: pointer;
-        width: 20px;
-        height: 20px;
-        line-height: 24px;
-        color: #6E8192;
-        text-align: center;
-    }
-
-    .apexcharts-zoom-icon svg,
-    .apexcharts-zoomin-icon svg,
-    .apexcharts-zoomout-icon svg,
-    .apexcharts-reset-icon svg,
-    .apexcharts-menu-icon svg {
-        fill: #6E8192;
-    }
-
-    .apexcharts-selection-icon svg {
-        fill: #444;
-        transform: scale(0.76)
-    }
-
-    .apexcharts-theme-dark .apexcharts-zoom-icon svg,
-    .apexcharts-theme-dark .apexcharts-zoomin-icon svg,
-    .apexcharts-theme-dark .apexcharts-zoomout-icon svg,
-    .apexcharts-theme-dark .apexcharts-reset-icon svg,
-    .apexcharts-theme-dark .apexcharts-pan-icon svg,
-    .apexcharts-theme-dark .apexcharts-selection-icon svg,
-    .apexcharts-theme-dark .apexcharts-menu-icon svg,
-    .apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg {
-        fill: #f3f4f5;
-    }
-
-    .apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg,
-    .apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,
-    .apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg {
-        fill: #008FFB;
-    }
-
-    .apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,
-    .apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,
-    .apexcharts-theme-light .apexcharts-zoomin-icon:hover svg,
-    .apexcharts-theme-light .apexcharts-zoomout-icon:hover svg,
-    .apexcharts-theme-light .apexcharts-reset-icon:hover svg,
-    .apexcharts-theme-light .apexcharts-menu-icon:hover svg {
-        fill: #333;
-    }
-
-    .apexcharts-selection-icon,
-    .apexcharts-menu-icon {
-        position: relative;
-    }
-
-    .apexcharts-reset-icon {
-        margin-left: 5px;
-    }
-
-    .apexcharts-zoom-icon,
-    .apexcharts-reset-icon,
-    .apexcharts-menu-icon {
-        transform: scale(0.85);
-    }
-
-    .apexcharts-zoomin-icon,
-    .apexcharts-zoomout-icon {
-        transform: scale(0.7)
-    }
-
-    .apexcharts-zoomout-icon {
-        margin-right: 3px;
-    }
-
-    .apexcharts-pan-icon {
-        transform: scale(0.62);
-        position: relative;
-        left: 1px;
-        top: 0px;
-    }
-
-    .apexcharts-pan-icon svg {
-        fill: #fff;
-        stroke: #6E8192;
-        stroke-width: 2;
-    }
-
-    .apexcharts-pan-icon.apexcharts-selected svg {
-        stroke: #008FFB;
-    }
-
-    .apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
-        stroke: #333;
-    }
-
-    .apexcharts-toolbar {
-        position: absolute;
-        z-index: 11;
-        max-width: 176px;
-        text-align: right;
-        border-radius: 3px;
-        padding: 0px 6px 2px 6px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-    }
-
-    .apexcharts-menu {
-        background: #fff;
-        position: absolute;
-        top: 100%;
-        border: 1px solid #ddd;
-        border-radius: 3px;
-        padding: 3px;
-        right: 10px;
-        opacity: 0;
-        min-width: 110px;
-        transition: 0.15s ease all;
-        pointer-events: none;
-    }
-
-    .apexcharts-menu.apexcharts-menu-open {
-        opacity: 1;
-        pointer-events: all;
-        transition: 0.15s ease all;
-    }
-
-    .apexcharts-menu-item {
-        padding: 6px 7px;
-        font-size: 12px;
-        cursor: pointer;
-    }
-
-    .apexcharts-theme-light .apexcharts-menu-item:hover {
-        background: #eee;
-    }
-
-    .apexcharts-theme-dark .apexcharts-menu {
-        background: rgba(0, 0, 0, 0.7);
-        color: #fff;
-    }
-
-    @media screen and (min-width: 768px) {
-        .apexcharts-canvas:hover .apexcharts-toolbar {
+        .apexcharts-tooltip-series-group.apexcharts-active .apexcharts-tooltip-marker {
             opacity: 1;
         }
-    }
 
-    .apexcharts-datalabel.apexcharts-element-hidden {
-        opacity: 0;
-    }
-
-    .apexcharts-pie-label,
-    .apexcharts-datalabels,
-    .apexcharts-datalabel,
-    .apexcharts-datalabel-label,
-    .apexcharts-datalabel-value {
-        cursor: default;
-        pointer-events: none;
-    }
-
-    .apexcharts-pie-label-delay {
-        opacity: 0;
-        animation-name: opaque;
-        animation-duration: 0.3s;
-        animation-fill-mode: forwards;
-        animation-timing-function: ease;
-    }
-
-    .apexcharts-canvas .apexcharts-element-hidden {
-        opacity: 0;
-    }
-
-    .apexcharts-hide .apexcharts-series-points {
-        opacity: 0;
-    }
-
-    .apexcharts-gridline,
-    .apexcharts-annotation-rect,
-    .apexcharts-tooltip .apexcharts-marker,
-    .apexcharts-area-series .apexcharts-area,
-    .apexcharts-line,
-    .apexcharts-zoom-rect,
-    .apexcharts-toolbar svg,
-    .apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
-    .apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
-    .apexcharts-radar-series path,
-    .apexcharts-radar-series polygon {
-        pointer-events: none;
-    }
-
-
-    /* markers */
-
-    .apexcharts-marker {
-        transition: 0.15s ease all;
-    }
-
-    @keyframes opaque {
-        0% {
-            opacity: 0;
+        .apexcharts-tooltip-candlestick > div {
+            margin: 4px 0;
         }
-        100% {
+
+        .apexcharts-tooltip-candlestick span.value {
+            font-weight: bold;
+        }
+
+        .apexcharts-tooltip-rangebar .category {
+            font-weight: 600;
+            color: #777;
+        }
+
+        .apexcharts-tooltip-rangebar .series-name {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .apexcharts-selection-rect + g .svg_select_boundingRect,
+        .apexcharts-selection-rect + g .svg_select_points_rot {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .apexcharts-selection-rect + g .svg_select_points_l,
+        .apexcharts-selection-rect + g .svg_select_points_r {
+            cursor: ew-resize;
             opacity: 1;
+            visibility: visible;
         }
-    }
 
+        .apexcharts-canvas.apexcharts-zoomable .hovering-zoom {
+            cursor: crosshair
+        }
 
-    /* Resize generated styles */
+        .apexcharts-canvas.apexcharts-zoomable .hovering-pan {
+            cursor: move
+        }
 
-    @keyframes resizeanim {
-        from {
+        .apexcharts-zoom-icon svg,
+        .apexcharts-zoomin-icon svg,
+        .apexcharts-zoomout-icon svg,
+        .apexcharts-reset-icon svg,
+        .apexcharts-menu-icon svg {
+            fill: #6E8192;
+        }
+
+        .apexcharts-selection-icon svg {
+            fill: #444;
+            transform: scale(0.76)
+        }
+
+        .apexcharts-theme-dark .apexcharts-zoom-icon svg,
+        .apexcharts-theme-dark .apexcharts-zoomin-icon svg,
+        .apexcharts-theme-dark .apexcharts-zoomout-icon svg,
+        .apexcharts-theme-dark .apexcharts-reset-icon svg,
+        .apexcharts-theme-dark .apexcharts-pan-icon svg,
+        .apexcharts-theme-dark .apexcharts-selection-icon svg,
+        .apexcharts-theme-dark .apexcharts-menu-icon svg,
+        .apexcharts-theme-dark .apexcharts-toolbar-custom-icon svg {
+            fill: #f3f4f5;
+        }
+
+        .apexcharts-canvas .apexcharts-zoom-icon.apexcharts-selected svg,
+        .apexcharts-canvas .apexcharts-selection-icon.apexcharts-selected svg,
+        .apexcharts-canvas .apexcharts-reset-zoom-icon.apexcharts-selected svg {
+            fill: #008FFB;
+        }
+
+        .apexcharts-theme-light .apexcharts-selection-icon:not(.apexcharts-selected):hover svg,
+        .apexcharts-theme-light .apexcharts-zoom-icon:not(.apexcharts-selected):hover svg,
+        .apexcharts-theme-light .apexcharts-zoomin-icon:hover svg,
+        .apexcharts-theme-light .apexcharts-zoomout-icon:hover svg,
+        .apexcharts-theme-light .apexcharts-reset-icon:hover svg,
+        .apexcharts-theme-light .apexcharts-menu-icon:hover svg {
+            fill: #333;
+        }
+
+        .apexcharts-pan-icon svg {
+            fill: #fff;
+            stroke: #6E8192;
+            stroke-width: 2;
+        }
+
+        .apexcharts-pan-icon.apexcharts-selected svg {
+            stroke: #008FFB;
+        }
+
+        .apexcharts-pan-icon:not(.apexcharts-selected):hover svg {
+            stroke: #333;
+        }
+
+        .apexcharts-toolbar {
+            position: absolute;
+            z-index: 11;
+            max-width: 176px;
+            text-align: right;
+            border-radius: 3px;
+            padding: 0px 6px 2px 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .apexcharts-menu {
+            background: #fff;
+            position: absolute;
+            top: 100%;
+            border: 1px solid #ddd;
+            border-radius: 3px;
+            padding: 3px;
+            right: 10px;
+            opacity: 0;
+            min-width: 110px;
+            transition: 0.15s ease all;
+            pointer-events: none;
+        }
+
+        .apexcharts-theme-light .apexcharts-menu-item:hover {
+            background: #eee;
+        }
+
+        .apexcharts-theme-dark .apexcharts-menu {
+            background: rgba(0, 0, 0, 0.7);
+            color: #fff;
+        }
+
+        @media screen and (min-width: 768px) {
+            .apexcharts-canvas:hover .apexcharts-toolbar {
+                opacity: 1;
+            }
+        }
+
+        .apexcharts-canvas .apexcharts-element-hidden {
             opacity: 0;
         }
-        to {
+
+        .apexcharts-hide .apexcharts-series-points {
             opacity: 0;
         }
-    }
 
-    .resize-triggers {
-        animation: 1ms resizeanim;
-        visibility: hidden;
-        opacity: 0;
-    }
+        .apexcharts-gridline,
+        .apexcharts-annotation-rect,
+        .apexcharts-tooltip .apexcharts-marker,
+        .apexcharts-area-series .apexcharts-area,
+        .apexcharts-line,
+        .apexcharts-zoom-rect,
+        .apexcharts-toolbar svg,
+        .apexcharts-area-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+        .apexcharts-line-series .apexcharts-series-markers .apexcharts-marker.no-pointer-events,
+        .apexcharts-radar-series path,
+        .apexcharts-radar-series polygon {
+            pointer-events: none;
+        }
 
-    .resize-triggers,
-    .resize-triggers > div,
-    .contract-trigger:before {
-        content: " ";
-        display: block;
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 100%;
-        width: 100%;
-        overflow: hidden;
-    }
 
-    .resize-triggers > div {
-        background: #eee;
-        overflow: auto;
-    }
+        /* markers */
 
-    .contract-trigger:before {
-        width: 200%;
-        height: 200%;
-    }
+        .apexcharts-marker {
+            transition: 0.15s ease all;
+        }
 
-    /* 手动扒下来的 */
-    /* 头像 */
-    .max-h-100px {
-        max-height: 100px !important;
-    }
+        @keyframes opaque {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
 
-    .shadow {
-        -webkit-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
-    }
 
-    .rounded-circle {
-        border-radius: 50% !important;
-    }
+        /* Resize generated styles */
 
-    .bg-white {
-        background-color: #fff !important;
-    }
+        @keyframes resizeanim {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 0;
+            }
+        }
 
-    .d-flex {
-        display: -webkit-box !important;
-        display: -ms-flexbox !important;
-        display: flex !important;
-    }
+        .resize-triggers > div {
+            background: #eee;
+            overflow: auto;
+        }
 
-    .flex-center {
-        -webkit-box-pack: center;
-        -ms-flex-pack: center;
-        justify-content: center;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-    }
+        /* 手动扒下来的 */
+        /* 头像 */
+        .max-h-100px {
+            max-height: 100px !important;
+        }
 
-    .mb-15, .my-15 {
-        margin-bottom: 3.75rem !important;
-    }
+        .shadow {
+            -webkit-box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+            box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
+        }
+
+        .rounded-circle {
+            border-radius: 50% !important;
+        }
+
+        .bg-white {
+            background-color: #fff !important;
+        }
+
+        .d-flex {
+            display: -webkit-box !important;
+            display: -ms-flexbox !important;
+            display: flex !important;
+        }
+
+        .flex-center {
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+
+        .mb-15, .my-15 {
+            margin-bottom: 3.75rem !important;
+        }
 
 
     </style>
@@ -740,8 +301,6 @@
     <div class="login login-1 login-signin-on d-flex flex-row-fluid" id="kt_login">
         <div class="d-flex flex-center bgi-size-cover bgi-no-repeat flex-row-fluid"
              style="background-image: url('https://z3.ax1x.com/2021/05/05/gKBbUH.png');">
-
-
             <div class="login-form text-center text-white p-7 position-relative overflow-hidden">
                 <div class="d-flex flex-center mb-15">
                     <a href="/">
@@ -754,7 +313,8 @@
                     <div class="mb-10">
                         <h3>登录用户中心</h3>
                     </div>
-                    <form class="form fv-plugins-bootstrap fv-plugins-framework" id="login_form">
+                    <form action="AdminLoginVerificationServlet.do"
+                          class="form fv-plugins-bootstrap fv-plugins-framework" id="login_form" method="post">
                         <div id="login_form_1">
                             <div class="form-group mt-5 fv-plugins-icon-container">
                                 <input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8"
@@ -771,32 +331,26 @@
                         </div>
                         <div id="login_form_2" style="display: none;">
                             <div class="form-group mt-5">
-                                <!-- <input class="form-control h-auto text-white placeholder-white opacity-70 bg-dark-o-70 rounded-pill border-0 py-4 px-8" type="number" placeholder="二步验证动态码" name="code_2fa" id="2fa-code" autocomplete="new-password"> -->
-                                <!-- <a href="JavaScript:;" id="reset_acc" class="text-white font-weight-bold">返回输入账号</a> -->
                             </div>
                         </div>
                         <div class="form-group">
-                            <!-- <div class="embed-captcha"><div class="geetest_holder geetest_wind geetest_detect" style="width: 100%;"><div class="geetest_form"><input type="hidden" name="geetest_challenge"><input type="hidden" name="geetest_validate"><input type="hidden" name="geetest_seccode"></div><div class="geetest_btn"><div class="geetest_radar_btn"><div class="geetest_radar"><div class="geetest_ring"><div class="geetest_small"></div></div><div class="geetest_sector" style="transform: rotate(11.9819deg);"><div class="geetest_small"></div></div><div class="geetest_cross"><div class="geetest_h"></div><div class="geetest_v"></div></div><div class="geetest_dot"></div><div class="geetest_scan"><div class="geetest_h"></div></div><div class="geetest_status"><div class="geetest_bg"></div><div class="geetest_hook"></div></div></div><div class="geetest_ie_radar"></div><div class="geetest_radar_tip" tabindex="0" aria-label="点击按钮进行验证" style="outline-width: 0px;"><span class="geetest_radar_tip_content">点击按钮进行验证</span><span class="geetest_reset_tip_content">请点击重试</span><span class="geetest_radar_error_code"></span></div><a class="geetest_logo" target="_blank" href="https://www.geetest.com/first_page"></a><div class="geetest_other_offline geetest_offline"></div></div><div class="geetest_ghost_success"><div class="geetest_success_btn"><div class="geetest_success_box"><div class="geetest_success_show"><div class="geetest_success_pie"></div><div class="geetest_success_filter"></div><div class="geetest_success_mask"></div></div><div class="geetest_success_correct"><div class="geetest_success_icon"></div></div></div><div class="geetest_success_radar_tip"><span class="geetest_success_radar_tip_content"></span><span class="geetest_success_radar_tip_timeinfo"></span></div><a class="geetest_success_logo" target="_blank" href="https://www.geetest.com/first_page"></a><div class="geetest_success_offline geetest_offline"></div></div></div><div class="geetest_slide_icon"></div></div><div class="geetest_wait"><span class="geetest_wait_dot geetest_dot_1"></span><span class="geetest_wait_dot geetest_dot_2"></span><span class="geetest_wait_dot geetest_dot_3"></span></div><div class="geetest_fullpage_click"><div class="geetest_fullpage_ghost"></div><div class="geetest_fullpage_click_wrap"><div class="geetest_fullpage_click_box"></div><div class="geetest_fullpage_pointer"><div class="geetest_fullpage_pointer_out"></div><div class="geetest_fullpage_pointer_in"></div></div></div></div><div class="geetest_goto" style="display: none;"><div class="geetest_goto_ghost"></div><div class="geetest_goto_wrap"><div class="geetest_goto_content"><div class="geetest_goto_content_tip"></div></div><div class="geetest_goto_cancel"></div><a class="geetest_goto_confirm"></a></div></div><div class="geetest_panel"><div class="geetest_panel_ghost"></div><div class="geetest_panel_box"><div class="geetest_other_offline geetest_panel_offline"></div><div class="geetest_panel_loading"><div class="geetest_panel_loading_icon"></div><div class="geetest_panel_loading_content"></div></div><div class="geetest_panel_success"><div class="geetest_panel_success_box"><div class="geetest_panel_success_show"><div class="geetest_panel_success_pie"></div><div class="geetest_panel_success_filter"></div><div class="geetest_panel_success_mask"></div></div><div class="geetest_panel_success_correct"><div class="geetest_panel_success_icon"></div></div></div><div class="geetest_panel_success_title"></div></div><div class="geetest_panel_error"><div class="geetest_panel_error_icon"></div><div class="geetest_panel_error_title"></div><div class="geetest_panel_error_content"></div><div class="geetest_panel_error_code"><div class="geetest_panel_error_code_text"></div></div></div><div class="geetest_panel_footer"><div class="geetest_panel_footer_logo"></div><div class="geetest_panel_footer_copyright"></div></div><div class="geetest_panel_next"></div></div></div></div></div> -->
                         </div>
-                        <!-- <div class="form-group d-flex flex-wrap justify-content-between align-items-center px-8">
-                        <label class="checkbox checkbox-outline checkbox-white text-white m-0">
-                        <input type="checkbox" name="remember" id="remember-me" checked="checked">记住我
-                        <span></span>
-                        </label>
-                        <a href="/password/reset" class="text-white font-weight-bold">忘记密码 ?</a>
-                        </div> -->
+                        <div id="select_your_identify">
+                            <input class="identfy_radio" name="identity" type="radio" value="前台">前台
+                            <input class="identfy_radio" name="identity" type="radio" value="后台">后台<br>
+                        </div>
                         <div class="form-group text-center mt-10" style="white-space:nowrap;">
-                            <button type="button" id="login_submit"
-                                    class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3">登录
-                            </button>
-                            <!-- <span class="m-3">或</span>
-                            <a class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3" data-toggle="modal" data-target="#telegram-login-modal">使用 Telegram 登录</a> -->
+                            <input class="btn btn-pill btn-outline-white font-weight-bold opacity-90 px-15 py-3"
+                                   id="login_submit" type="submit"
+                                   type="button"
+                                   value="登录">
                         </div>
                         <div></div>
                     </form>
                     <div class="mt-10">
                         <span class="opacity-70 mr-4">听说你没有账号 ?</span>
-                        <a href="" class="text-white font-weight-bold">立即注册</a><!-- 后面加上自己的注册界面地址 -->
+
+                        <a class="text-white font-weight-bold" href="userregister.jsp">立即注册</a>
                     </div>
                 </div>
                 <div class="modal fade" id="telegram-login-modal" data-backdrop="static" tabindex="-1" role="dialog"
@@ -836,11 +390,6 @@
             'geetest': true,
             'recaptcha': false
         },
-        'telegram': {
-            bot: "cwv587bot",
-            token: "vN0iaqDySbnq3HQ1",
-            number: "264794",
-        },
         'register': {
             'code': false,
         },
@@ -865,6 +414,4 @@
         offline: 0
     }, handlerEmbed);
 </script>
-
-<!--<svg id="SvgjsSvg1001" width="2" height="0" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:svgjs="http://svgjs.com/svgjs" style="overflow: hidden; top: -100%; left: -100%; position: absolute; opacity: 0;"><defs id="SvgjsDefs1002"></defs><polyline id="SvgjsPolyline1003" points="0,0"></polyline><path id="SvgjsPath1004" d="M0 0 "></path></svg></body></html>-->
 </body>

@@ -40,5 +40,6 @@
     <orderEntry type="library" name="Maven: org.json:json:20210307" level="project" />
     <orderEntry type="library" name="plugins.bundle" level="application" />
     <orderEntry type="library" name="style_https.1.5.8" level="application" />
+    <orderEntry type="library" name="plugins.bundle" level="application" />
   </component>
 </module>

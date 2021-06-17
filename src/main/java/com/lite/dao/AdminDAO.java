@@ -2,15 +2,29 @@ package com.lite.dao;
 
 import com.lite.bean.AdminBean;
 
+import javax.servlet.http.HttpServletRequest;
+
 /**
  * @author GnaixEuy
  * @date 2021/6/16 23:04
  */
 public interface AdminDAO {
-    //登入信息
-    public int query(AdminBean admin);
 
-    //修改密码
-    public int update(AdminBean admin);
+    /**
+     * 查询验证登入信息
+     *
+     * @param admin
+     * @return int
+     */
+
+    public int queryIsLegal(HttpServletRequest request, AdminBean admin);
+
+    /**
+     * 修改密码
+     *
+     * @param admin
+     * @return
+     */
+    public int update(HttpServletRequest request, AdminBean admin);
 
 }

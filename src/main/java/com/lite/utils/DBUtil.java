@@ -7,8 +7,11 @@ package com.lite.utils;
  * @date 2021/06/15
  */
 
+import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.ResourceBundle;
 
 public class DBUtil {
@@ -62,7 +65,6 @@ public class DBUtil {
      * @param connection
      * @return boolean
      * @author GnaixEuy
-     *
      */
     public boolean closeConnection(Connection connection) {
         try {
@@ -104,6 +106,14 @@ public class DBUtil {
         return connectionNum;
     }
 
+    /**
+     * 需要从connectionHashMap里面拿到connection来进行操作
+     *
+     * @param connection
+     * @param sql
+     * @param params
+     * @return int
+     */
     public int update(Connection connection, String sql, Object... params) {
         int ret = 0;
         try {
@@ -120,6 +130,14 @@ public class DBUtil {
         return ret;
     }
 
+    /**
+     * 需要从connectionHashMap里面拿到connection来进行操作
+     *
+     * @param connection
+     * @param sql
+     * @param params
+     * @return Result
+     */
     public ResultSet query(Connection connection, String sql, Object... params) {
         try {
             preparedStatement = connection.prepareStatement(sql);
@@ -137,5 +155,48 @@ public class DBUtil {
             //一旦关闭数据库的链接，数据库获取到到数据集就清空了
         }
         return resultSet;
+    }
+
+
+    /**
+     * 获取服务器内已经缓存的可用connection
+     *
+     * @param request
+     * @return Connection
+     * @author GnaixEuy
+     */
+    public Connection getCon(HttpServletRequest request) {
+        ServletContext application = request.getServletContext();
+        HashMap connectionHashMap = (HashMap<Connection, Boolean>) application.getAttribute("connectionHashMap");
+        Iterator iterator = connectionHashMap.keySet().iterator();
+        Connection connection;
+        while ( iterator.hasNext() ) {
+            connection = (Connection) iterator.next();
+            boolean isFree = (boolean) connectionHashMap.get(connection);
+            if ( isFree ) {
+                connectionHashMap.put(connection, false);
+                return connection;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 完成操作后释放占用的connection
+     *
+     * @param request
+     * @param connection
+     * @return
+     */
+    public boolean closeCon(HttpServletRequest request, Connection connection) {
+        try {
+            ServletContext application = request.getServletContext();
+            HashMap connectionHashMap = (HashMap<Connection, Boolean>) application.getAttribute("connectionHashMap");
+            connectionHashMap.put(connection, true);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
     }
 }

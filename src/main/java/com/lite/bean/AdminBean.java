@@ -17,6 +17,11 @@ public class AdminBean {
         this.adminPassword = adminPassword;
     }
 
+    public AdminBean(Integer adminId, String adminPassword) {
+        this.adminId = adminId;
+        this.adminPassword = adminPassword;
+    }
+
     public Integer getId() {
         return adminId;
     }
