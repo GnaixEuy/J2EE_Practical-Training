@@ -7,26 +7,26 @@ package com.lite.bean;
  * @date 2021/6/16 16:17
  */
 public class AdminBean {
-    private Integer adminId;
+    private String adminId;
     private String adminName;
     private String adminPassword;
 
-    public AdminBean(Integer adminId, String adminName, String adminPassword) {
+    public AdminBean(String adminId, String adminName, String adminPassword) {
         this.adminId = adminId;
         this.adminName = adminName;
         this.adminPassword = adminPassword;
     }
 
-    public AdminBean(Integer adminId, String adminPassword) {
+    public AdminBean(String adminId, String adminPassword) {
         this.adminId = adminId;
         this.adminPassword = adminPassword;
     }
 
-    public Integer getId() {
+    public String getId() {
         return adminId;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.adminId = id;
     }
 

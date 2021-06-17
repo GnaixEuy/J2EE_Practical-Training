@@ -25,9 +25,23 @@ public class AdminServiceImpl implements AdminService {
      * @return
      */
     @Override
-    public boolean LoginIsLegal(HttpServletRequest request, AdminBean adminBean) {
-        int ret = adminDAO.queryIsLegal(request, adminBean);
+    public boolean LoginIsLegal(AdminBean adminBean) {
+        int ret = adminDAO.queryIsLegal(adminBean);
         return ret == 1;
     }
 
+    /**
+     * 修改管理员密码
+     *
+     * @param request
+     * @param adminBean
+     * @param newPassword
+     * @return boolean
+     */
+
+    @Override
+    public boolean ChangeAdminPassword(AdminBean adminBean, String newPassword) {
+        adminBean.setAdminPassword(newPassword);
+        return adminDAO.updateAdminInfo(adminBean) == 1;
+    }
 }

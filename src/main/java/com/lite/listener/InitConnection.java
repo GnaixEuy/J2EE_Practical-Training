@@ -38,9 +38,7 @@ public class InitConnection implements ServletContextListener {
         } catch ( Exception e ) {
             e.printStackTrace();
         }
-        //交给全局应用程序共享对象来保管
-        ServletContext application = sce.getServletContext();
-        application.setAttribute("connectionHashMap", connectionHashMap);
+        DBUtil.setConnectionHashMap(connectionHashMap);
     }
 
     /**
@@ -55,7 +53,7 @@ public class InitConnection implements ServletContextListener {
         ServletContext application = sce.getServletContext();
         HashMap<Connection, Boolean> connectionHashMap = (HashMap<Connection, Boolean>) application.getAttribute("connectionHashMap");
         try {
-            dbUtil.closeAllConnection(connectionHashMap);
+            dbUtil.closeAllConnection();
         } catch ( Exception e ) {
             e.printStackTrace();
             System.out.println("清除错误");

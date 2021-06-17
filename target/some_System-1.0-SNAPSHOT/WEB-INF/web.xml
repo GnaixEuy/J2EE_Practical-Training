@@ -14,4 +14,12 @@
         <filter-name>CharacterEncodingFilter</filter-name>
         <url-pattern>*</url-pattern>
     </filter-mapping>
+<!--    <filter>-->
+<!--        <filter-name>AuthFilter</filter-name>-->
+<!--        <filter-class>com.lite.filter.AuthFilter</filter-class>-->
+<!--    </filter>-->
+<!--    <filter-mapping>-->
+<!--        <filter-name>AuthFilter</filter-name>-->
+<!--        <url-pattern>/com.lite.controller/*</url-pattern>-->
+<!--    </filter-mapping>-->
 </web-app>

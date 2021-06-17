@@ -17,7 +17,7 @@ public interface AdminDAO {
      * @return int
      */
 
-    public int queryIsLegal(HttpServletRequest request, AdminBean admin);
+    public int queryIsLegal(AdminBean admin);
 
     /**
      * 修改密码
@@ -25,6 +25,6 @@ public interface AdminDAO {
      * @param admin
      * @return
      */
-    public int update(HttpServletRequest request, AdminBean admin);
+    public int updateAdminInfo(AdminBean admin);
 
 }

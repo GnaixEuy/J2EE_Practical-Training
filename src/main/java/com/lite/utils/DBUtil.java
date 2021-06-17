@@ -16,6 +16,17 @@ import java.util.ResourceBundle;
 
 public class DBUtil {
 
+    private static HashMap<Connection, Boolean> connectionHashMap;
+
+    /**
+     * connectionHashMap放这
+     *
+     * @param connectionHashMap
+     */
+    public static void setConnectionHashMap(HashMap<Connection, Boolean> connectionHashMap) {
+        DBUtil.connectionHashMap = connectionHashMap;
+    }
+
     static ResourceBundle resourceBundle;
     private static String dbUrl;
     private static String dbUserId;
@@ -84,7 +95,7 @@ public class DBUtil {
      * @throws Exception
      * @author GnaixEuy
      */
-    public void closeAllConnection(HashMap<Connection, Boolean> connectionHashMap) throws Exception {
+    public void closeAllConnection() throws Exception {
         //遍历hashmap关闭所有连接
         for ( Connection connection : connectionHashMap.keySet() ) {
             if ( connection != null ) {
@@ -109,14 +120,14 @@ public class DBUtil {
     /**
      * 需要从connectionHashMap里面拿到connection来进行操作
      *
-     * @param connection
      * @param sql
      * @param params
      * @return int
      */
-    public int update(Connection connection, String sql, Object... params) {
+    public int update(String sql, Object... params) {
         int ret = 0;
         try {
+            Connection connection = this.getCon();
             preparedStatement = connection.prepareStatement(sql);
             if ( params != null ) {
                 for ( int i = 0; i < params.length; i++ ) {
@@ -133,13 +144,14 @@ public class DBUtil {
     /**
      * 需要从connectionHashMap里面拿到connection来进行操作
      *
-     * @param connection
      * @param sql
      * @param params
      * @return Result
      */
-    public ResultSet query(Connection connection, String sql, Object... params) {
+    public ResultSet query(String sql, Object... params) {
+        Connection connection = null;
         try {
+            connection = this.getCon();
             preparedStatement = connection.prepareStatement(sql);
             if ( params != null ) {
                 for ( int i = 0; i < params.length; i++ ) {
@@ -150,9 +162,13 @@ public class DBUtil {
             resultSet = preparedStatement.executeQuery();
         } catch ( Exception e ) {
             e.printStackTrace();
+            try {
+                connection.rollback();
+            } catch ( SQLException throwables ) {
+                throwables.printStackTrace();
+            }
         } finally {
-            //暂时不关闭，外边调用端手动关闭
-            //一旦关闭数据库的链接，数据库获取到到数据集就清空了
+            this.restoreCon(connection);
         }
         return resultSet;
     }
@@ -161,18 +177,16 @@ public class DBUtil {
     /**
      * 获取服务器内已经缓存的可用connection
      *
-     * @param request
      * @return Connection
      * @author GnaixEuy
      */
-    public Connection getCon(HttpServletRequest request) {
-        ServletContext application = request.getServletContext();
-        HashMap connectionHashMap = (HashMap<Connection, Boolean>) application.getAttribute("connectionHashMap");
-        Iterator iterator = connectionHashMap.keySet().iterator();
+    public Connection getCon() {
+
+        Iterator<Connection> iterator = connectionHashMap.keySet().iterator();
         Connection connection;
         while ( iterator.hasNext() ) {
-            connection = (Connection) iterator.next();
-            boolean isFree = (boolean) connectionHashMap.get(connection);
+            connection = iterator.next();
+            boolean isFree = connectionHashMap.get(connection);
             if ( isFree ) {
                 connectionHashMap.put(connection, false);
                 return connection;
@@ -184,14 +198,11 @@ public class DBUtil {
     /**
      * 完成操作后释放占用的connection
      *
-     * @param request
      * @param connection
      * @return
      */
-    public boolean closeCon(HttpServletRequest request, Connection connection) {
+    public boolean restoreCon(Connection connection) {
         try {
-            ServletContext application = request.getServletContext();
-            HashMap connectionHashMap = (HashMap<Connection, Boolean>) application.getAttribute("connectionHashMap");
             connectionHashMap.put(connection, true);
         } catch ( Exception e ) {
             e.printStackTrace();

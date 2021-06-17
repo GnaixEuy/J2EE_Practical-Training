@@ -4,9 +4,7 @@ import com.lite.bean.AdminBean;
 import com.lite.dao.AdminDAO;
 import com.lite.utils.DBUtil;
 
-import javax.servlet.http.HttpServletRequest;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
+
 import java.sql.ResultSet;
 
 /**
@@ -17,31 +15,36 @@ public class AdminDaoImpl implements AdminDAO {
     DBUtil dbUtil = new DBUtil();
 
     @Override
-    public int queryIsLegal(HttpServletRequest request, AdminBean admin) {
-        String sql = "select * from admin where id = ? and adminpassword = ?";
-        Integer id = admin.getId();
+    public int queryIsLegal(AdminBean admin) {
+        String sql = "select * from admin where id = ? and admin_password = ?";
+        String id = admin.getId();
         String adminPassword = admin.getAdminPassword();
-        Connection connection = dbUtil.getCon(request);
-        ResultSet resultSet = null;
         int ret = 0;
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(sql);
-            preparedStatement.setString(1, String.valueOf(id));
-            preparedStatement.setString(2, adminPassword);
-            resultSet = preparedStatement.executeQuery();
-            if ( resultSet != null ) {
+            ResultSet resultSet = dbUtil.query(sql, id, adminPassword);
+            if ( resultSet.next() ) {
                 ret = 1;
+                admin.setAdminName(resultSet.getString("admin_name"));
             }
         } catch ( Exception e ) {
             e.printStackTrace();
-        } finally {
-            dbUtil.closeCon(request, connection);
         }
         return ret;
     }
 
     @Override
-    public int update(HttpServletRequest request, AdminBean admin) {
-        return 0;
+    public int updateAdminInfo(AdminBean admin) {
+        String sql = "UPDATE admin SET admin_name = ?, admin_password = ? WHERE Id = ?";
+        String id = admin.getId();
+        String adminName = admin.getAdminName();
+        String adminPassword = admin.getAdminPassword();
+        int ret = 0;
+        try {
+            ret = dbUtil.update(sql, adminName, adminPassword, id);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            return 0;
+        }
+        return ret;
     }
 }
