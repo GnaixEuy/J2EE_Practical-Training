@@ -38,5 +38,7 @@
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.23" level="project" />
     <orderEntry type="library" name="Maven: com.google.protobuf:protobuf-java:3.11.4" level="project" />
     <orderEntry type="library" name="Maven: org.json:json:20210307" level="project" />
+    <orderEntry type="library" name="plugins.bundle" level="application" />
+    <orderEntry type="library" name="style_https.1.5.8" level="application" />
   </component>
 </module>
