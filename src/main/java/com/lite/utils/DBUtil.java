@@ -125,9 +125,10 @@ public class DBUtil {
      * @return int
      */
     public int update(String sql, Object... params) {
+        Connection connection = null;
         int ret = 0;
         try {
-            Connection connection = this.getCon();
+            connection = this.getCon();
             preparedStatement = connection.prepareStatement(sql);
             if ( params != null ) {
                 for ( int i = 0; i < params.length; i++ ) {
@@ -137,8 +138,12 @@ public class DBUtil {
             ret = preparedStatement.executeUpdate();
         } catch ( Exception e ) {
             e.printStackTrace();
+        } finally {
+            if ( !this.restoreCon(connection) ) {
+                ret = 0;
+            }
+            return ret;
         }
-        return ret;
     }
 
     /**
@@ -202,12 +207,15 @@ public class DBUtil {
      * @return
      */
     public boolean restoreCon(Connection connection) {
-        try {
-            connectionHashMap.put(connection, true);
-        } catch ( Exception e ) {
-            e.printStackTrace();
-            return false;
+        if ( connection != null ) {
+            try {
+                connectionHashMap.put(connection, true);
+            } catch ( Exception e ) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
         }
-        return true;
+        return false;
     }
 }

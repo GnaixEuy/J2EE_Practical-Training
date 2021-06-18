@@ -7,13 +7,17 @@ package com.lite.bean;
  * @date 2021/6/16 22:58
  */
 public class UserBean {
-    private Integer userId;
+    private String userId;
     private String userName;
     private String userPassword;
     private Double userBalance;
     private String userPhone;
 
-    public UserBean(Integer userId, String userName, String userPassword, Double userBalance, String userPhone) {
+    public UserBean(String userId) {
+        this.userId = userId;
+    }
+
+    public UserBean(String userId, String userName, String userPassword, Double userBalance, String userPhone) {
         this.userId = userId;
         this.userName = userName;
         this.userPassword = userPassword;
@@ -21,11 +25,11 @@ public class UserBean {
         this.userPhone = userPhone;
     }
 
-    public Integer getUserId() {
+    public String getUserId() {
         return userId;
     }
 
-    public void setUserId(Integer userId) {
+    public void setUserId(String userId) {
         this.userId = userId;
     }
 
