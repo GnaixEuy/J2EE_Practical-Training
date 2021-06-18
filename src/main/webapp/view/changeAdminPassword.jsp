@@ -15,7 +15,6 @@
         $(document).ready(function () {
             $("#changePassword").click(function () {
                 if ($("#passwordtext").val() == $("#passwordtext2").val()) {
-                    alert("ok")
                     $("#passwordform").submit();
                 } else {
                     alert("两次密码不一致")

@@ -20,16 +20,21 @@
     <link rel="shortcut icon" href="favicon.ico">
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
-<%--    ${pageContext.request.contextPath}/view/portal.css--%>
     <!-- FontAwesome JS-->
-<%--    invalid--%>
-    <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>
-<%--    src/main/webapp/static/js/all.min.js--%>
-<%--    ${pageContext.request.contextPath}/static/js/all.min.js--%>
-<%--    invalid--%>
-    <script src="src/main/webapp/static/js/jquery-3.6.0.min.js"></script>
-<%--    static/js/jquery-3.6.0.min.js--%>
+    <script defer src="${pageContext.request.contextPath}/static/plugins/fontawesome/js/all.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.js"></script>
+
+    <script>
+        window.onload = function () {
+            var o = document.getElementById("usermanager")
+            o.onclick = function () {
+                document.getElementById("submenu-1").classList.add("show")
+                o.classList.remove("collapsed")
+            }
+        }
+    </script>
+
 </head>
 
 <body class="app">
@@ -89,7 +94,7 @@
                                         <div class="row gx-2 justify-content-between align-items-center">
                                             <div class="col-auto">
                                                 <img class="profile-image"
-                                                     src="assets/images/profiles/profile-1.png" alt="">
+                                                     src="static/images/profiles/profile-1.png" alt="">
                                             </div>
                                             <!--//col-->
                                             <div class="col">
@@ -166,7 +171,7 @@
                                         <div class="row gx-2 justify-content-between align-items-center">
                                             <div class="col-auto">
                                                 <img class="profile-image"
-                                                     src="assets/images/profiles/profile-2.png" alt="">
+                                                     src="static/images/profiles/profile-2.png" alt="">
                                             </div>
                                             <!--//col-->
                                             <div class="col">
@@ -303,7 +308,8 @@
                     <li class="nav-item has-submenu">
 
                         <a class="nav-link submenu-toggle" href="#" data-toggle="collapse"
-                           data-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1">
+                           data-target="#submenu-1" aria-expanded="false" aria-controls="submenu-1"
+                           id="usermanager">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-files"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -489,4 +495,6 @@
 </div>
 
 </body>
+<script src="${pageContext.request.contextPath}/static/js/app.js"></script>
+<script src="${pageContext.request.contextPath}/static/plugins/popper.min.js"></script>
 </html>

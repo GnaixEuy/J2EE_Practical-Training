@@ -8,8 +8,6 @@
         <error-code>404</error-code>
         <location>/view/404.jsp</location>
     </error-page>
-
-
     <listener>
         <listener-class>com.lite.listener.InitConnection</listener-class>
     </listener>

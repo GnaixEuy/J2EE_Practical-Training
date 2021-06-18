@@ -20,7 +20,7 @@ public class AllUserServlet extends HttpServlet {
         HttpSession session = request.getSession();
         try {
             AdminBean adminBean = (AdminBean) session.getAttribute("user");
-            if ( !"".equals(adminBean.getAdminName()) ) {
+            if ( adminBean != null && !"".equals(adminBean.getAdminName()) ) {
                 UserServiceImpl userService = new UserServiceImpl();
                 List<UserBean> allUser = userService.getAllUser();
                 request.setAttribute("list", allUser);

@@ -26,12 +26,12 @@ public class DeleteUserServlet extends HttpServlet {
             } else {
                 String msg = "删除失败";
                 request.setAttribute("msg", msg);
-                request.getRequestDispatcher("view/error.jsp").forward(request, response);
+                request.getRequestDispatcher("/view/error.jsp").forward(request, response);
             }
         } else {
             String msg = "身份异常";
             request.setAttribute("msg", msg);
-            request.getRequestDispatcher("view/error.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/error.jsp").forward(request, response);
         }
     }
 
