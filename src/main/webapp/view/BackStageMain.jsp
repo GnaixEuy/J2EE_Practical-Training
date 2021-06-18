@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: GnaixEuy
@@ -280,7 +281,8 @@
                     <!--//nav-item-->
                     <li class="nav-item">
 
-                        <a class="nav-link" href="orders.html" target="content">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/AllUserServlet.do"
+                           target="content">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">

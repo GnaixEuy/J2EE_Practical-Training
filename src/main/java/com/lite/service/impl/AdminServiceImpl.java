@@ -15,12 +15,11 @@ import java.sql.Connection;
  */
 public class AdminServiceImpl implements AdminService {
 
-    AdminDAO adminDAO = new AdminDaoImpl();
+    private AdminDAO adminDAO = new AdminDaoImpl();
 
     /**
      * 验证后台登入权限
      *
-     * @param request
      * @param adminBean
      * @return
      */
@@ -33,7 +32,6 @@ public class AdminServiceImpl implements AdminService {
     /**
      * 修改管理员密码
      *
-     * @param request
      * @param adminBean
      * @param newPassword
      * @return boolean

@@ -3,6 +3,7 @@ package com.lite.dao;
 import com.lite.bean.UserBean;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 用户接口
@@ -43,6 +44,21 @@ public interface UserDAO {
      * @return int
      */
     public int queryHistory(UserBean user);
+
+    /**
+     * 获取所有用户信息
+     *
+     * @return List<UserBean>
+     */
+    public List<UserBean> queryAllUser();
+
+    /**
+     * 用户登入验证
+     *
+     * @param userBean
+     * @return boolean
+     */
+    public boolean isUserLegal(UserBean userBean);
 
     /**
      * 通过ID查询用户信息
