@@ -50,14 +50,11 @@ public class InitConnection implements ServletContextListener {
     @Override
     @SuppressWarnings("unchecked")
     public void contextDestroyed(ServletContextEvent sce) {
-        ServletContext application = sce.getServletContext();
-        HashMap<Connection, Boolean> connectionHashMap = (HashMap<Connection, Boolean>) application.getAttribute("connectionHashMap");
         try {
             dbUtil.closeAllConnection();
         } catch ( Exception e ) {
             e.printStackTrace();
             System.out.println("清除错误");
         }
-        connectionHashMap.clear();
     }
 }

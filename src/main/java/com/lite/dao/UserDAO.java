@@ -63,10 +63,10 @@ public interface UserDAO {
     /**
      * 通过ID查询用户信息
      *
-     * @param userId
+     * @param userBean
      * @return
      */
-    public UserBean queryUserInfo(Integer userId);
+    public boolean queryUserInfo(UserBean userBean);
 
     /**
      * 通过名字查询用户信息
@@ -74,5 +74,5 @@ public interface UserDAO {
      * @param userName
      * @return
      */
-    public UserBean queryUserInfo(String userName);
+    public List<UserBean> queryUserInfoByName(String userName);
 }

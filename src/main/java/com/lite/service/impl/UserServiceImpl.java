@@ -36,10 +36,35 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    /**
+     * 通过id 查询用户所有信息
+     *
+     * @param id
+     * @return
+     */
     @Override
     public UserBean getUserBeanById(String id) {
-        return null;
+        UserBean userBean = new UserBean(id);
+        boolean b = userDao.queryUserInfo(userBean);
+        if ( b ) {
+            return userBean;
+        } else {
+            return null;
+        }
     }
+
+    @Override
+    public boolean userLoginVerification(String loginId, String loginPassword, UserBean userInfoToSession) {
+        boolean ret = false;
+        UserBean userBean = this.getUserBeanById(loginId);
+        if ( userBean != null ) {
+            if ( loginPassword.equals(userBean.getUserPassword()) ) {
+                ret = true;
+            }
+        }
+        return ret;
+    }
+
 
     @Override
     public boolean updateUserTelephone() {

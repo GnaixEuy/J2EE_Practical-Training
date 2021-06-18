@@ -24,6 +24,16 @@ public interface UserService {
     public boolean deleteUserById(String id);
 
     /**
+     * 用户登入验证
+     *
+     * @param loginId
+     * @param loginPassword
+     * @param userInfoToSession
+     * @return boolean
+     */
+    public boolean userLoginVerification(String loginId, String loginPassword, UserBean userInfoToSession);
+
+    /**
      * 获取所有会员对象
      *
      * @return List<UserBean>

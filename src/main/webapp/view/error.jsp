@@ -10,17 +10,23 @@
     <title>erro</title>
 </head>
 <body>
-<%
-    String msg = (String) request.getAttribute("msg");
-    if ( msg.equals("管理员信息不存在") ) {
-%>
-<script type="text/javascript">
-    alert("${requestScope.msg}")
-    window.location.href = "login.html"
-</script>
-<%
-    }
-%>
+<c:choose>
+    　　<c:when test="${\"管理员信息不存在\".equals(requestScope.msg)}">
+    <script type="text/javascript">
+        alert("${requestScope.msg}")
+        window.location.href = "login.html"
+    </script>
+</c:when>
 
+    　　<c:when test="${\"用户信息不存在\".equals(requestScope.msg)}">
+    <script type="text/javascript">
+        alert("${requestScope.msg}")
+        window.location.href = "用户登入界面"
+    </script>
+</c:when>
+
+    　　<c:otherwise>code..</c:otherwise>
+
+</c:choose>
 </body>
 </html>

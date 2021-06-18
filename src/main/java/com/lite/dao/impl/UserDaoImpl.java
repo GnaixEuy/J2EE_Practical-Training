@@ -67,12 +67,32 @@ public class UserDaoImpl implements UserDAO {
     }
 
     @Override
-    public UserBean queryUserInfo(Integer userId) {
-        return null;
+    public boolean queryUserInfo(UserBean userBean) {
+        String sql = "select * from users where id = ?";
+        String userId = userBean.getUserId();
+        boolean isLive = false;
+        try {
+            ResultSet resultSet = dbUtil.query(sql, userId);
+
+            while ( resultSet.next() ) {
+                isLive = true;
+                String username = resultSet.getString("username");
+                String password = resultSet.getString("password");
+                String phone = resultSet.getString("Phone");
+                double balance = resultSet.getDouble("balance");
+                userBean.setUserName(username);
+                userBean.setUserPassword(password);
+                userBean.setUserPhone(phone);
+                userBean.setUserBalance(balance);
+            }
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        return isLive;
     }
 
     @Override
-    public UserBean queryUserInfo(String userName) {
+    public List<UserBean> queryUserInfoByName(String userName) {
         return null;
     }
 
