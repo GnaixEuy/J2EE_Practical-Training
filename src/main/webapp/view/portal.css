@@ -598,21 +598,21 @@ progress {
 }
 
 .row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
+    --bs-gutter-x: auto;
+    --bs-gutter-y: auto;
     display: flex;
     flex-wrap: wrap;
     margin-top: calc(var(--bs-gutter-y) * -1);
-    margin-right: calc(var(--bs-gutter-x) / -2);
-    margin-left: calc(var(--bs-gutter-x) / -2)
+    margin-right: calc(var(--bs-gutter-x));
+    margin-left: calc(var(--bs-gutter-x))
 }
 
 .row > * {
     flex-shrink: 0;
     width: 100%;
     max-width: 100%;
-    padding-right: calc(var(--bs-gutter-x) / 2);
-    padding-left: calc(var(--bs-gutter-x) / 2);
+    padding-right: calc(var(--bs-gutter-x));
+    padding-left: calc(var(--bs-gutter-x));
     margin-top: var(--bs-gutter-y)
 }
 
@@ -7414,6 +7414,14 @@ progress {
         justify-content: space-between !important
     }
 
+    .site{
+        width: 100%;
+        padding-right: calc(var(--bs-gutter-x) / 2);
+        padding-left: calc(var(--bs-gutter-x) / 2);
+        margin-right: auto;
+        margin-left: auto;
+
+    }
     .justify-content-sm-around {
         justify-content: space-around !important
     }
@@ -11853,4 +11861,25 @@ button.close:focus {
     .app-auth-wrapper .app-auth-body {
         width: 100%
     }
+}
+
+/*
+用于将signup的div居中
+by 徐宇杰
+*/
+.auth-main{
+    position: absolute;
+}
+
+.g-6 {
+    flex: 0 0 auto;
+    width: 100%
+}
+.md-7 {
+    flex: 0 0 auto;
+    width: 100%
+}
+.m-12 {
+    flex: 0 0 auto;
+    width: 100%
 }
