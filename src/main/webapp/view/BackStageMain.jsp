@@ -8,6 +8,7 @@
 <html>
 <head>
     <title>卡卡西奶茶店管理系统后台</title>
+<%--    卡卡西奶茶店管理系统后台--%>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,9 +19,15 @@
     <link rel="shortcut icon" href="favicon.ico">
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
+<%--    ${pageContext.request.contextPath}/view/portal.css--%>
     <!-- FontAwesome JS-->
+<%--    invalid--%>
     <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>
-    <script src="static/js/jquery-3.6.0.min.js"></script>
+<%--    src/main/webapp/static/js/all.min.js--%>
+<%--    ${pageContext.request.contextPath}/static/js/all.min.js--%>
+<%--    invalid--%>
+    <script src="src/main/webapp/static/js/jquery-3.6.0.min.js"></script>
+<%--    static/js/jquery-3.6.0.min.js--%>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
 </head>
 
@@ -478,5 +485,6 @@
     <iframe frameborder="0" width="100%" height="100%" name="content" style="margin-left: 20%; background-color: red">
     </iframe>
 </div>
+
 </body>
 </html>
