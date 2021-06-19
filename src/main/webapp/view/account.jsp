@@ -117,7 +117,7 @@
                                data-toggle="modal" data-target="#myModal"
                                href="${pageContext.request.contextPath}/DeleteUserServlet.do?deleteId=${user.userId}">删除用户</a>
                             <a class="btn app-btn-secondary"
-                               href="${pageContext.request.contextPath}/view/editor.jsp?id=${user.userId}&username=${user.userName}&userpassword=${user.userPassword}&userphone=${user.userPhone}"
+                               href="${pageContext.request.contextPath}/UpdateUserInfoServlet.do?id=${user.userId}"
                                style="margin-left: 40px">修改信息</a>
                         </div><!--//app-card-footer-->
                     </div><!--//app-card-->

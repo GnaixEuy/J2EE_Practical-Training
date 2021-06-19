@@ -56,4 +56,31 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return ret;
     }
+
+    @Override
+    public int deleteProduct(String productId) {
+        String sql = "DELETE FROM products WHERE product_id = ?";
+        return dbUtil.update(sql, productId);
+    }
+
+    @Override
+    public ProductBean queryProductInfoByName(String name) {
+        String sql = "SELECT * from products WHERE product_name = ?";
+        ResultSet resultSet = dbUtil.query(sql, name);
+        ProductBean productBean = null;
+        try {
+            if ( resultSet.next() ) {
+                String productId = resultSet.getString("product_id");
+                String productName = resultSet.getString("product_name");
+                double productPrice = resultSet.getDouble("product_price");
+                int productStore = resultSet.getInt("product_store");
+                String productType = resultSet.getString("product_type");
+                String productMaterials = resultSet.getString("product_materials");
+                productBean = new ProductBean(productId, productName, productPrice, productStore, productType, productMaterials);
+            }
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        return productBean;
+    }
 }

@@ -82,7 +82,8 @@
                                         <div class="row gx-2 justify-content-between align-items-center">
                                             <div class="col-auto">
                                                 <img class="profile-image"
-                                                     src="static/images/profiles/profile-1.png" alt="">
+                                                     src="${pageContext.request.contextPath}/view/assets/images/profiles/profile-1.png"
+                                                     alt="">
                                             </div>
                                             <!--//col-->
                                             <div class="col">
@@ -159,7 +160,8 @@
                                         <div class="row gx-2 justify-content-between align-items-center">
                                             <div class="col-auto">
                                                 <img class="profile-image"
-                                                     src="static/images/profiles/profile-2.png" alt="">
+                                                     src="${pageContext.request.contextPath}/view/assets/images/profiles/profile-2.png"
+                                                     alt="">
                                             </div>
                                             <!--//col-->
                                             <div class="col">

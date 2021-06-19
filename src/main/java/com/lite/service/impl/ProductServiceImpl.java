@@ -34,4 +34,15 @@ public class ProductServiceImpl implements ProductService {
     public int getProductsNumInWareHourse() {
         return productDAO.queryAllProductsNum();
     }
+
+    @Override
+    public boolean deleteProductById(String id) {
+        return 1 == productDAO.deleteProduct(id);
+    }
+
+    @Override
+    public ProductBean getProductInfoByName(String name) {
+        return productDAO.queryProductInfoByName(name);
+    }
+
 }

@@ -1,5 +1,4 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,37 +14,36 @@
     <div class="m-12 md-7 g-6 auth-main text-center p-5">
         <div class="d-flex flex-column align-content-end site">
             <div class="app-auth-body mx-auto">
-                <div class="app-auth-branding mb-4"><a class="app-logo"><img class="logo-icon mr-2"
-                                                                             src="${pageContext.request.contextPath}/static/images/app-logo.svg"
-                                                                             alt="logo"></a></div>
+                <div class="app-auth-branding mb-4"><a class="app-logo">
+                    <img class="logo-icon mr-2"
+                         src="${pageContext.request.contextPath}/static/images/app-logo.svg"
+                         alt="logo"></a></div>
                 <h2 class="auth-heading text-center mb-4">信息修改</h2>
-
-                <%--        文本框--%>
                 <div class="auth-form-container text-left mx-auto">
                     <form class="auth-form auth-signup-form" method="post"
                           action="${pageContext.request.contextPath}/UpDealServlet.do">
                         <div class="email mb-3">
-                            <label class="sr-only">账号${userId}</label>
+                            <label class="sr-only">账号</label>
 
                             <input id="signup-name" readonly name="id" type="text" class="form-control signup-name"
-                                   placeholder="请输入账号" value="${userId}">
+                                   placeholder="请输入账号" value="${requestScope.edituser.userId}">
                         </div>
                         <div class="email mb-3">
                             <label class="sr-only" for="signup-email">姓名</label>
                             <input id="signup-email" name="name" type="text" class="form-control signup-email"
-                                   placeholder="请输入姓名"  value="${userName}">
+                                   placeholder="请输入姓名" value=${requestScope.edituser.userName}>
                         </div>
                         <div class="password mb-3">
                             <label class="sr-only" for="signup-password">Password</label>
                             <input id="signup-password" name="password" type="password"
                                    class="form-control signup-password" placeholder="请输入密码"
-                                   required="required" value="${userPassword}">
+                                   required="required" value=${requestScope.edituser.userPassword}>
                         </div>
                         <div class="password mb-3">
                             <label class="sr-only" for="signup-phone">电话</label>
                             <input id="signup-phone" name="telephone" type="password"
                                    class="form-control signup-password" placeholder="请输入电话"
-                                   required="required" value="${userPhone}">
+                                   required="required" value="${requestScope.edituser.userPhone}">
                         </div>
 
                         <%--              </div>--%>

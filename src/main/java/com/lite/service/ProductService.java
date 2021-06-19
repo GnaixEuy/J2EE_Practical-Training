@@ -13,4 +13,9 @@ public interface ProductService {
     public List<ProductBean> queryAllProductInfo();
 
     public int getProductsNumInWareHourse();
+
+    public boolean deleteProductById(String id);
+
+    public ProductBean getProductInfoByName(String name);
+
 }
