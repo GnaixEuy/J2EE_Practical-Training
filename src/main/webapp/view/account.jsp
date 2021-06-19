@@ -19,7 +19,7 @@
 
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
 
-<%--    <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>--%>
+    <%--    <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>--%>
     <script src="static/js/jquery-3.6.0.min.js"></script>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap-grid.min.css" rel="stylesheet">
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
@@ -116,9 +116,8 @@
                             <a class="btn app-btn-secondary"
                                data-toggle="modal" data-target="#myModal"
                                href="${pageContext.request.contextPath}/DeleteUserServlet.do?deleteId=${user.userId}">删除用户</a>
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
                             <a class="btn app-btn-secondary"
-                               href="${pageContext.request.contextPath}/UpdateUserServlet.do?id=${user.userId}"
+                               href="${pageContext.request.contextPath}/view/editor.jsp?id=${user.userId}&username=${user.userName}&userpassword=${user.userPassword}&userphone=${user.userPhone}"
                                style="margin-left: 40px">修改信息</a>
                         </div><!--//app-card-footer-->
                     </div><!--//app-card-->
@@ -128,25 +127,6 @@
         </div>
     </div>
 </div>
-<!-- 模态框（Modal） -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-     aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
-                </button>
-                <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
-            </div>
-            <div class="modal-body">在这里添加一些文本</div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                <button type="button" class="btn btn-primary">提交更改</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal -->
-</div>
-<!-- 模态框（Modal） -->
 </body>
 </html>
 

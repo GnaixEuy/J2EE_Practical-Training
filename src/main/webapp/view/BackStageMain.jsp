@@ -349,7 +349,7 @@
                                 </li>
                                 <li class="submenu-item">
                                     <a class="submenu-link"
-                                       href="${pageContext.request.contextPath}/view/edituser.jsp" target="content">修改账户</a></li>
+                                       href="${pageContext.request.contextPath}/view/editor.jsp" target="content">修改账户</a></li>
                             </ul>
                         </div>
                     </li>
@@ -499,7 +499,7 @@
 <!--//app-header-->
 
 <div class="col-md-10 col-sm-8">
-    <iframe frameborder="0" width="100%" height="100%" name="content" style="margin-left: 20%; background-color: red">
+    <iframe frameborder="0" width="100%" height="100%" name="content" style="margin-left: 19%;">
     </iframe>
 </div>
 

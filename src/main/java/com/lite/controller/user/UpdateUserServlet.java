@@ -16,14 +16,27 @@ import java.io.IOException;
 public class UpdateUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         try {
             String id = request.getParameter("id");
             UserService userService = new UserServiceImpl();
             UserBean userBean = userService.getUserBeanById(id);
             System.out.println("进来了");
             request.setAttribute("edituser", userBean);
-            request.getRequestDispatcher("view/edituser.jsp").forward(request, response);
+            request.getRequestDispatcher("/view/editor.jsp").forward(request, response);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            String id = request.getParameter("id");
+            UserService userService = new UserServiceImpl();
+            UserBean userBean = userService.getUserBeanById(id);
+            System.out.println("进来了");
+            request.setAttribute("edituser", userBean);
+            request.getRequestDispatcher("/view/editor.jsp").forward(request, response);
         } catch ( Exception e ) {
             e.printStackTrace();
         }

@@ -17,21 +17,21 @@
 %>
 <script type="text/javascript">
     alert("${requestScope.msg}")
-    window.location.href = "login.html"
+    window.location.href = "view/adminlogin.jsp"
 </script>
 <%
 } else if ( "用户信息不存在".equals(msg) ) {
 %>
 <script type="text/javascript">
     alert("${requestScope.msg}")
-    window.location.href = "login.html"
+    window.location.href = "view/userlogin.html"
 </script>
 <%
 } else {
 %>
 <script type="text/javascript">
     alert("错误处理")
-    window.location.href = "login.html"
+    window.location.href = "index.jsp"
 </script>
 <%
     }

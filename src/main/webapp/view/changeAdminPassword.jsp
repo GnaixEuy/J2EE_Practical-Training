@@ -48,7 +48,7 @@
                                 </div>
                             </form>
 
-<%--                            <div class="auth-option text-center pt-5"><a class="app-link" href="login.html" >Log in</a> <span class="px-2">|</span> <a class="app-link" href="login.html" >Sign up</a></div>--%>
+<%--                            <div class="auth-option text-center pt-5"><a class="app-link" href="userlogin.html" >Log in</a> <span class="px-2">|</span> <a class="app-link" href="userlogin.html" >Sign up</a></div>--%>
                         </div>
                     </div>
                     <footer class="app-auth-footer">

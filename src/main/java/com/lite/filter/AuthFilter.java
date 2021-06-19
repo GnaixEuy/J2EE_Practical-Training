@@ -22,7 +22,7 @@ public class AuthFilter implements Filter {
         Object user = session.getAttribute("user");
         if ( user == null ) {
             String msg = "非法访问";
-            request.getRequestDispatcher("login.html");
+            request.getRequestDispatcher("userlogin.html");
         } else {
             chain.doFilter(request, response);
         }

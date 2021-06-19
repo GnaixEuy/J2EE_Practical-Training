@@ -69,7 +69,7 @@
                 </form><!--//auth-form-->
 
                 <div class="auth-option text-center pt-5">已经有一个账户？ <a class="text-link"
-                                                                      href="">登录</a>
+                                                                      href="Desktop/java/some_System/src/main/webapp/view/adminlogin.jsp">登录</a>
                     <%--            后期加入登录页面的地址--%>
                 </div>
             </div><!--//auth-form-container-->

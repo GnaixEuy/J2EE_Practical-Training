@@ -1,22 +1,10 @@
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
+<%@page isELIgnored="false" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>用户登录</title>
+    <title>修改信息</title>
 
-    <!-- Meta -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
-    <link rel="shortcut icon" href="favicon.ico">
-
-    <!-- FontAwesome JS-->
-    <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>
-
-    <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
 
 
@@ -37,26 +25,27 @@
                     <form class="auth-form auth-signup-form" method="post"
                           action="${pageContext.request.contextPath}/UpDealServlet.do">
                         <div class="email mb-3">
-                            <label class="sr-only" for="signup-email">账号</label>
-                            <input id="signup-name" name="id" type="text" class="form-control signup-name"
-                                   placeholder="请输入账号" required="required" value="${requestScope.edituser.userId}" readonly>
+                            <label class="sr-only">账号${userId}</label>
+
+                            <input id="signup-name" readonly name="id" type="text" class="form-control signup-name"
+                                   placeholder="请输入账号" value="${userId}">
                         </div>
                         <div class="email mb-3">
                             <label class="sr-only" for="signup-email">姓名</label>
                             <input id="signup-email" name="name" type="text" class="form-control signup-email"
-                                   placeholder="请输入姓名" required="required" value="${requestScope.edituser.userName}">
+                                   placeholder="请输入姓名"  value="${userName}">
                         </div>
                         <div class="password mb-3">
                             <label class="sr-only" for="signup-password">Password</label>
                             <input id="signup-password" name="password" type="password"
                                    class="form-control signup-password" placeholder="请输入密码"
-                                   required="required" value="${requestScope.edituser.userPassword}">
+                                   required="required" value="${userPassword}">
                         </div>
                         <div class="password mb-3">
                             <label class="sr-only" for="signup-phone">电话</label>
                             <input id="signup-phone" name="telephone" type="password"
                                    class="form-control signup-password" placeholder="请输入电话"
-                                   required="required" value="${requestScope.edituser.userPhone}">
+                                   required="required" value="${userPhone}">
                         </div>
 
                         <%--              </div>--%>
