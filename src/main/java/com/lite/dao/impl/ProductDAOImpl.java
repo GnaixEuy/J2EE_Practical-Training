@@ -17,7 +17,7 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public List<ProductBean> queryAllProduct() {
-        String sql = "select * from product";
+        String sql = "select * from products";
         ResultSet resultSet = dbUtil.query(sql);
         List<ProductBean> list = new ArrayList<ProductBean>(this.queryAllProductsNum());
         ProductBean productBean = null;
@@ -28,7 +28,7 @@ public class ProductDAOImpl implements ProductDAO {
                 double productPrice = resultSet.getDouble("product_price");
                 int productStore = resultSet.getInt("product_store");
                 String productType = resultSet.getString("product_type");
-                String productMeteria = resultSet.getString("product_meteria");
+                String productMeteria = resultSet.getString("product_materials");
                 productBean = new ProductBean(productId, productName, productPrice, productStore, productType, productMeteria);
                 list.add(productBean);
             }
@@ -44,12 +44,16 @@ public class ProductDAOImpl implements ProductDAO {
 
     @Override
     public int queryAllProductsNum() {
-        String sql = "SELECT COUNT(product_id) as num FROM products";
+        String sql = "SELECT COUNT(product_id) FROM products";
+        int ret = 0;
         try {
-            return dbUtil.query(sql).getInt("num");
+            ResultSet resultSet = dbUtil.query(sql);
+            if ( resultSet.next() ) {
+                ret = resultSet.getInt(1);
+            }
         } catch ( Exception e ) {
             e.printStackTrace();
         }
-        return 0;
+        return ret;
     }
 }

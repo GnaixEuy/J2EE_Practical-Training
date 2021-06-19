@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>卡卡西奶茶店管理系统后台</title>
-<%--    卡卡西奶茶店管理系统后台--%>
+    <%--    卡卡西奶茶店管理系统后台--%>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -22,25 +22,6 @@
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
     <!-- FontAwesome JS-->
     <script defer src="${pageContext.request.contextPath}/static/plugins/fontawesome/js/all.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.js"></script>
-
-    <script>
-        window.onload = function () {
-            var o = document.getElementById("usermanager")
-            o.onclick = function () {
-                document.getElementById("submenu-1").classList.add("show")
-                document.getElementById("submenu-2").classList.remove("show")
-                o.classList.remove("collapsed")
-            }
-            var t = document.getElementById("user")
-            t.onclick = function () {
-                document.getElementById("submenu-2").classList.add("show")
-                document.getElementById("submenu-1").classList.remove("show")
-                t.classList.remove("collapsed")
-            }
-        }
-    </script>
 
 
 </head>
@@ -51,7 +32,6 @@
         <div class="container-fluid py-2">
             <div class="app-header-content">
                 <div class="row justify-content-between align-items-center">
-
                     <div class="col-auto">
                         <a id="sidepanel-toggler" class="sidepanel-toggler d-inline-block d-xl-none" href="#">
                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30"
@@ -295,7 +275,7 @@
                     <li class="nav-item">
 
                         <a class="nav-link" href="#"
-                           >
+                        >
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-card-list"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -324,7 +304,7 @@
 											<path fill-rule="evenodd"
                                                   d="M4 2h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 1a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h7a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H4z"/>
 											<path
-                                                     d="M6 0h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1H4a2 2 0 0 1 2-2z"/>
+                                                    d="M6 0h7a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2v-1a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H6a1 1 0 0 0-1 1H4a2 2 0 0 1 2-2z"/>
 										</svg>
 									</span>
                             <span class="nav-link-text">会员信息管理</span>
@@ -342,14 +322,17 @@
                             <ul class="submenu-list list-unstyled">
                                 <li class="submenu-item">
                                     <a class="submenu-link"
-                                       href="${pageContext.request.contextPath}/view/signup.jsp" target="content">新增会员</a>
+                                       href="${pageContext.request.contextPath}/view/signup.jsp"
+                                       target="content">新增会员</a>
                                 </li>
                                 <li class="submenu-item">
-                                    <a class="submenu-link" href="${pageContext.request.contextPath}/AllUserServlet.do" target="content">全体信息</a>
+                                    <a class="submenu-link" href="${pageContext.request.contextPath}/AllUserServlet.do"
+                                       target="content">全体信息</a>
                                 </li>
                                 <li class="submenu-item">
                                     <a class="submenu-link"
-                                       href="${pageContext.request.contextPath}/view/editor.jsp" target="content">修改账户</a></li>
+                                       href="${pageContext.request.contextPath}/view/editor.jsp"
+                                       target="content">修改账户</a></li>
                             </ul>
                         </div>
                     </li>
@@ -384,7 +367,9 @@
                                 <li class="submenu-item"><a class="submenu-link" href="signup.html">删除商品</a>
                                 </li>
                                 <li class="submenu-item"><a class="submenu-link"
-                                                            href="reset-password.html">所有商品</a></li>
+                                                            target="content"
+                                                            href="${pageContext.request.contextPath}/AllProductsServlet.do">所有商品</a>
+                                </li>
                                 <li class="submenu-item"><a class="submenu-link" href="404.html">修改商品</a>
                                 </li>
                             </ul>
@@ -504,6 +489,12 @@
 </div>
 
 </body>
-<script src="${pageContext.request.contextPath}/static/js/app.js"></script>
-<script src="${pageContext.request.contextPath}/static/plugins/popper.min.js"></script>
 </html>
+
+<!-- Javascript -->
+<script src="${pageContext.request.contextPath}/view/assets/plugins/popper.min.js"></script>
+<script src="${pageContext.request.contextPath}/view/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+
+<!-- Page Specific JS -->
+<script src="${pageContext.request.contextPath}/view/assets/js/app.js"></script>
