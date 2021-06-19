@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: GnaixEuy
@@ -10,23 +11,30 @@
     <title>erro</title>
 </head>
 <body>
-<c:choose>
-    　　<c:when test="${\"管理员信息不存在\".equals(requestScope.msg)}">
-    <script type="text/javascript">
-        alert("${requestScope.msg}")
-        window.location.href = "login.html"
-    </script>
-</c:when>
-
-    　　<c:when test="${\"用户信息不存在\".equals(requestScope.msg)}">
-    <script type="text/javascript">
-        alert("${requestScope.msg}")
-        window.location.href = "用户登入界面"
-    </script>
-</c:when>
-
-    　　<c:otherwise>code..</c:otherwise>
-
-</c:choose>
+<%
+    String msg = request.getParameter("msg");
+    if ( "管理员信息不存在".equals(msg) ) {
+%>
+<script type="text/javascript">
+    alert("${requestScope.msg}")
+    window.location.href = "login.html"
+</script>
+<%
+} else if ( "用户信息不存在".equals(msg) ) {
+%>
+<script type="text/javascript">
+    alert("${requestScope.msg}")
+    window.location.href = "login.html"
+</script>
+<%
+} else {
+%>
+<script type="text/javascript">
+    alert("错误处理")
+    window.location.href = "login.html"
+</script>
+<%
+    }
+%>
 </body>
 </html>

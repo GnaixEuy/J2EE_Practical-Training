@@ -65,9 +65,12 @@ public class UserServiceImpl implements UserService {
         return ret;
     }
 
-
     @Override
-    public boolean updateUserTelephone() {
-        return false;
+    public boolean updateUserInfo(String id, String userName, String userPassword, String userTelephone) {
+        UserBean user = this.getUserBeanById(id);
+        user.setUserName(userName);
+        user.setUserPassword(userPassword);
+        user.setUserPhone(userTelephone);
+        return 1 == userDao.update(user);
     }
 }

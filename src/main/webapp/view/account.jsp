@@ -14,16 +14,16 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
     <link rel="shortcut icon" href="favicon.ico">
-    <!-- App CSS -->
+
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
-    <!-- FontAwesome JS-->
-    <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>
+
+<%--    <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>--%>
     <script src="static/js/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap-grid.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
 <div class="app-content pt-3 p-md-3 p-lg-4 ">
@@ -31,7 +31,7 @@
         <h1 class="app-page-title">会员信息</h1>
         <div class="row gy-4">
             <c:forEach items="${list}" var="user" varStatus="status">
-                <div class="col-6 col-lg-6" style=" position: relative;">
+                <div class="col-6 col-lg-6" style="position: relative;">
                     <div class="app-card app-card-account shadow-sm d-flex flex-column align-items-start">
                         <div class="app-card-header p-3 border-bottom-1">
                             <div class="row align-items-center gx-3">
@@ -43,7 +43,6 @@
                                                   d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                                         </svg>
                                     </div><!--//icon-holder-->
-
                                 </div><!--//col-->
                                 <div class="col-auto">
                                     <h4 class="app-card-title">${user.userId}</h4>
@@ -114,9 +113,14 @@
                             </div><!--//item-->
                         </div><!--//app-card-body-->
                         <div class="app-card-footer p-4 ">
-                            <a class="btn app-btn-secondary" href="#">删除用户</a>
+                            <a class="btn app-btn-secondary"
+                               data-toggle="modal" data-target="#myModal"
+                               href="${pageContext.request.contextPath}/DeleteUserServlet.do?deleteId=${user.userId}">删除用户</a>
+                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">开始演示模态框</button>
+                            <a class="btn app-btn-secondary"
+                               href="${pageContext.request.contextPath}/UpdateUserServlet.do?id=${user.userId}"
+                               style="margin-left: 40px">修改信息</a>
                         </div><!--//app-card-footer-->
-
                     </div><!--//app-card-->
                 </div>
                 <!--//col-->
@@ -124,6 +128,27 @@
         </div>
     </div>
 </div>
-</body>
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;
+                </button>
+                <h4 class="modal-title" id="myModalLabel">模态框（Modal）标题</h4>
+            </div>
+            <div class="modal-body">在这里添加一些文本</div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary">提交更改</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal -->
+</div>
+<!-- 模态框（Modal） -->
 </body>
 </html>
+
+
+

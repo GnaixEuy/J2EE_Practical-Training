@@ -53,14 +53,6 @@ public interface UserDAO {
     public List<UserBean> queryAllUser();
 
     /**
-     * 用户登入验证
-     *
-     * @param userBean
-     * @return boolean
-     */
-    public boolean isUserLegal(UserBean userBean);
-
-    /**
      * 通过ID查询用户信息
      *
      * @param userBean
@@ -68,11 +60,4 @@ public interface UserDAO {
      */
     public boolean queryUserInfo(UserBean userBean);
 
-    /**
-     * 通过名字查询用户信息
-     *
-     * @param userName
-     * @return
-     */
-    public List<UserBean> queryUserInfoByName(String userName);
 }

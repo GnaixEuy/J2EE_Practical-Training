@@ -53,7 +53,7 @@ public interface UserService {
      *
      * @return boolean
      */
-    public boolean updateUserTelephone();
+    public boolean updateUserInfo(String id, String userName, String userPassword, String userTelephone);
 
 
 }

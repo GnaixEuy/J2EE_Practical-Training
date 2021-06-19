@@ -15,9 +15,6 @@ import java.io.IOException;
 public class DeleteUserServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        Object user = session.getAttribute("user");
-        if ( user != null ) {
             String deleteId = request.getParameter("deleteId");
             UserService userService = new UserServiceImpl();
             boolean b = userService.deleteUserById(deleteId);
@@ -28,11 +25,6 @@ public class DeleteUserServlet extends HttpServlet {
                 request.setAttribute("msg", msg);
                 request.getRequestDispatcher("/view/error.jsp").forward(request, response);
             }
-        } else {
-            String msg = "身份异常";
-            request.setAttribute("msg", msg);
-            request.getRequestDispatcher("/view/error.jsp").forward(request, response);
-        }
     }
 
 }

@@ -25,7 +25,13 @@ public class UserDaoImpl implements UserDAO {
 
     @Override
     public int update(UserBean user) {
-        return 0;
+        String sql = "UPDATE users SET username = ?, password = ? , Phone = ?, balance = ? WHERE id = ?";
+        String userId = user.getUserId();
+        String userName = user.getUserName();
+        String userPassword = user.getUserPassword();
+        String userPhone = user.getUserPhone();
+        Double userBalance = user.getUserBalance();
+        return dbUtil.update(sql, userName, userPassword, userPhone, userBalance, userId);
     }
 
     @Override
@@ -66,6 +72,7 @@ public class UserDaoImpl implements UserDAO {
         return 0;
     }
 
+
     @Override
     public boolean queryUserInfo(UserBean userBean) {
         String sql = "select * from users where id = ?";
@@ -91,13 +98,5 @@ public class UserDaoImpl implements UserDAO {
         return isLive;
     }
 
-    @Override
-    public List<UserBean> queryUserInfoByName(String userName) {
-        return null;
-    }
 
-    @Override
-    public boolean isUserLegal(UserBean userBean) {
-        return false;
-    }
 }

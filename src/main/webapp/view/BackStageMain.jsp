@@ -260,7 +260,7 @@
                 <ul class="app-menu list-unstyled accordion" id="menu-accordion">
                     <li class="nav-item">
 
-                        <a class="nav-link active" href="index.html">
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/UpdateUserServlet.do">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -342,13 +342,14 @@
                             <ul class="submenu-list list-unstyled">
                                 <li class="submenu-item">
                                     <a class="submenu-link"
-                                       href="notifications.html">通知</a></li>
+                                       href="${pageContext.request.contextPath}/view/signup.jsp" target="content">新增会员</a>
+                                </li>
                                 <li class="submenu-item">
-                                    <a class="submenu-link" href="${pageContext.request.contextPath}/AllUserServlet.do" target="content">账户</a>
+                                    <a class="submenu-link" href="${pageContext.request.contextPath}/AllUserServlet.do" target="content">全体信息</a>
                                 </li>
                                 <li class="submenu-item">
                                     <a class="submenu-link"
-                                       href="settings.html">修改账户</a></li>
+                                       href="${pageContext.request.contextPath}/view/edituser.jsp" target="content">修改账户</a></li>
                             </ul>
                         </div>
                     </li>
