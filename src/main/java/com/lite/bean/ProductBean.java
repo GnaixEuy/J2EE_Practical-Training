@@ -9,7 +9,7 @@ import java.util.List;
  * @date 2021/6/17 08:20
  */
 public class ProductBean {
-    private Integer id;
+    private String id;
     private String productName;
     private Double productPrice;
     private Integer productStore;
@@ -19,7 +19,7 @@ public class ProductBean {
     //程序运行中交给productMaterialsList
     private List<String> productMaterialsList;//配料
 
-    public ProductBean(Integer id, String productName, Double productPrice, Integer productStore, String productType, String productMaterials) {
+    public ProductBean(String id, String productName, Double productPrice, Integer productStore, String productType, String productMaterials) {
         this.id = id;
         this.productName = productName;
         this.productPrice = productPrice;
@@ -31,11 +31,11 @@ public class ProductBean {
         productMaterialsList.addAll(Arrays.asList(productMaterialStrings));
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

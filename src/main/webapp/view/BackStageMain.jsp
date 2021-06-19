@@ -384,7 +384,7 @@
                                 <li class="submenu-item"><a class="submenu-link" href="signup.html">删除商品</a>
                                 </li>
                                 <li class="submenu-item"><a class="submenu-link"
-                                                            href="reset-password.html">查看库存</a></li>
+                                                            href="reset-password.html">所有商品</a></li>
                                 <li class="submenu-item"><a class="submenu-link" href="404.html">修改商品</a>
                                 </li>
                             </ul>
@@ -498,8 +498,8 @@
 </header>
 <!--//app-header-->
 
-<div class="col-md-10 col-sm-8">
-    <iframe frameborder="0" width="100%" height="100%" name="content" style="margin-left: 19%;">
+<div class="app-wrapper">
+    <iframe frameborder="0" width="100%" height="100%" name="content">
     </iframe>
 </div>
 
