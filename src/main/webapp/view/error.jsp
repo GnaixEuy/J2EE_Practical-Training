@@ -24,14 +24,14 @@
 %>
 <script type="text/javascript">
     alert("${requestScope.msg}")
-    window.location.href = "view/userlogin.html"
+    window.location.href = "view/UserLogin.jsp"
 </script>
 <%
 } else {
 %>
 <script type="text/javascript">
     alert("错误处理")
-    window.location.href = "index.jsp"
+    window.location.href = "index1.jsp"
 </script>
 <%
     }

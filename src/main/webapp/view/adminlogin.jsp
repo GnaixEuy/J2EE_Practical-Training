@@ -19,10 +19,10 @@
     <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
 
     <!-- FontAwesome JS-->
-    <script defer src="assets/plugins/fontawesome/js/all.min.js"></script>
+    <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
 
     <!-- App CSS -->
-    <link id="theme-style" rel="stylesheet" href="assets/css/portal.css">
+    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
 </head>
 
 <body class="app app-login p-0">
@@ -31,11 +31,12 @@
         <div class="d-flex flex-column align-content-end">
             <div class="app-auth-body mx-auto">
                 <div class="app-auth-branding mb-4"><a class="app-logo" href="index.html"><img class="logo-icon mr-2"
-                                                                                               src="assets/images/app-logo.svg"
+                                                                                               src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
                                                                                                alt="logo"></a></div>
                 <h2 class="auth-heading text-center mb-5">进入后台</h2>
                 <div class="auth-form-container text-left">
-                    <form class="auth-form login-form" method="post" action="../AdminLoginVerificationServlet.do">
+                    <form class="auth-form login-form" method="post"
+                          action="${pageContext.request.contextPath}/AdminLoginVerificationServlet.do">
                         <div class="email mb-3">
                             <label class="sr-only" for="signin-email">账号</label>
                             <input id="signin-email" name="username" type="text" class="form-control signin-email"

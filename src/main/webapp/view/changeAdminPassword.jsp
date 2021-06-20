@@ -63,8 +63,12 @@
                         </div>
                     </form>
 
-                    <div class="auth-option text-center pt-5"><a class="app-link" href="login.html">Log in</a> <span
-                            class="px-2">|</span> <a class="app-link" href="login.html">Sign up</a></div>
+                    <div class="auth-option text-center pt-5"><a class="app-link"
+                                                                 href="${pageContext.request.contextPath}/view/UserLogin.jsp">Log
+                        in</a> <span
+                            class="px-2">|</span> <a class="app-link"
+                                                     href="${pageContext.request.contextPath}/view/signup.jsp">Sign
+                        up</a></div>
                 </div><!--//auth-form-container-->
 
 
