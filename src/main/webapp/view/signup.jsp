@@ -37,8 +37,8 @@
                     <form class="auth-form auth-signup-form" method="post"
                           action="${pageContext.request.contextPath}/RegisterUserServlet.do">
                         <div class="email mb-3">
-                            <label class="sr-only" for="signup-email">账号</label>
-                            <input id="signup-name" name="id" type="text" class="form-control signup-name"
+                            <label class="sr-only" for="signup-id">账号</label>
+                            <input id="signup-id" name="id" type="text" class="form-control signup-name"
                                    placeholder="请输入账号" required="required">
                         </div>
                         <div class="email mb-3">
@@ -69,7 +69,7 @@
                 </form><!--//auth-form-->
 
                 <div class="auth-option text-center pt-5">已经有一个账户？ <a class="text-link"
-                                                                      href="Desktop/java/some_System/src/main/webapp/view/adminlogin.jsp">登录</a>
+                                                                      href="${pageContext.request.contextPath}/view/adminlogin.jsp">登录</a>
                     <%--            后期加入登录页面的地址--%>
                 </div>
             </div><!--//auth-form-container-->

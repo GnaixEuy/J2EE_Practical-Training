@@ -7,9 +7,12 @@ import com.lite.bean.AdminBean;
 import com.lite.bean.UserBean;
 import com.lite.service.impl.UserServiceImpl;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
@@ -25,6 +28,8 @@ public class AllUserServlet extends HttpServlet {
                 List<UserBean> allUser = userService.getAllUser();
                 request.setAttribute("list", allUser);
                 request.getRequestDispatcher("/view/account.jsp").forward(request, response);
+            } else {
+                response.sendRedirect("view/error.jsp");
             }
         } catch ( Exception e ) {
             e.printStackTrace();

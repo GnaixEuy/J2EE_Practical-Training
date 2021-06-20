@@ -12,10 +12,20 @@ public interface ProductService {
 
     public List<ProductBean> queryAllProductInfo();
 
+    /**
+     * 获取店内产品数
+     *
+     * @return
+     */
     public int getProductsNumInWareHourse();
 
     public boolean deleteProductById(String id);
 
+    public List<ProductBean> getProductInfoByName_blurry(String name);
+
+    public ProductBean queryProductInfoById(String id);
+
     public ProductBean getProductInfoByName(String name);
+
 
 }

@@ -35,13 +35,13 @@
                         </div>
                         <div class="password mb-3">
                             <label class="sr-only" for="signup-password">Password</label>
-                            <input id="signup-password" name="password" type="password"
+                            <input id="signup-password" name="password" type="text"
                                    class="form-control signup-password" placeholder="请输入密码"
                                    required="required" value=${requestScope.edituser.userPassword}>
                         </div>
                         <div class="password mb-3">
                             <label class="sr-only" for="signup-phone">电话</label>
-                            <input id="signup-phone" name="telephone" type="password"
+                            <input id="signup-phone" name="telephone" type="text"
                                    class="form-control signup-password" placeholder="请输入电话"
                                    required="required" value="${requestScope.edituser.userPhone}">
                         </div>

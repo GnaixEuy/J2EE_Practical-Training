@@ -43,12 +43,19 @@
 
                 <div class="auth-form-container text-left">
 
-                    <form class="auth-form resetpass-form">
+                    <form class="auth-form resetpass-form" method="post"
+                          action="${pageContext.request.contextPath}/AdminChangePasswordServlet.do">
                         <div class="email mb-3">
-                            <label class="sr-only" for="reg-email">Your Email</label>
-                            <input id="reg-email" name="reg-email" type="email" class="form-control login-email"
-                                   placeholder="Your Email" required="required">
+                            <label class="sr-only" for="passwordtext">更改密码</label>
+                            <input id="passwordtext" name="passwordtext" type="text" class="form-control login-email"
+                                   placeholder="新密码" required="required">
                         </div><!--//form-group-->
+
+                        <div class="email mb-3">
+                            <label class="sr-only" for="passwordtext2">确认密码</label>
+                            <input id="passwordtext2" name="passwordtext2" type="text" class="form-control login-email"
+                                   placeholder="确认密码" required="required">
+                        </div>
                         <div class="text-center">
                             <button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">Reset
                                 Password

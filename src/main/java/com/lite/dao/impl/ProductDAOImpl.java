@@ -5,6 +5,7 @@ import com.lite.dao.ProductDAO;
 import com.lite.utils.DBUtil;
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,18 +21,8 @@ public class ProductDAOImpl implements ProductDAO {
         String sql = "select * from products";
         ResultSet resultSet = dbUtil.query(sql);
         List<ProductBean> list = new ArrayList<ProductBean>(this.queryAllProductsNum());
-        ProductBean productBean = null;
         try {
-            while ( resultSet.next() ) {
-                String productId = resultSet.getString("product_id");
-                String productName = resultSet.getString("product_name");
-                double productPrice = resultSet.getDouble("product_price");
-                int productStore = resultSet.getInt("product_store");
-                String productType = resultSet.getString("product_type");
-                String productMeteria = resultSet.getString("product_materials");
-                productBean = new ProductBean(productId, productName, productPrice, productStore, productType, productMeteria);
-                list.add(productBean);
-            }
+            resultToList(resultSet, list);
         } catch ( Exception e ) {
             e.printStackTrace();
         }
@@ -64,10 +55,44 @@ public class ProductDAOImpl implements ProductDAO {
     }
 
     @Override
-    public ProductBean queryProductInfoByName(String name) {
-        String sql = "SELECT * from products WHERE product_name = ?";
-        ResultSet resultSet = dbUtil.query(sql, name);
+    public ProductBean queryProductInfo(String type, String name) {
+        String sql = "SELECT * from products WHERE ? = ?";
+        ResultSet resultSet = dbUtil.query(sql, type, name);
         ProductBean productBean = null;
+        return this.resultSetToProductBean(resultSet, productBean);
+    }
+
+    @Override
+    public List<ProductBean> queryProductInfoByName_blurry(String name) {
+        String sql = "SELECT * from products WHERE product_name like ?";
+        String nameNew = '%' + name + '%';
+        ResultSet resultSet = dbUtil.query(sql, nameNew);
+        List<ProductBean> list = new ArrayList<>(this.queryAllProductsNum());
+        try {
+            resultToList(resultSet, list);
+            return list;
+        } catch ( Exception e ) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private void resultToList(ResultSet resultSet, List<ProductBean> list) throws SQLException {
+        ProductBean productBean;
+        while ( resultSet.next() ) {
+            String productId = resultSet.getString("product_id");
+            String productName = resultSet.getString("product_name");
+            double productPrice = resultSet.getDouble("product_price");
+            int productStore = resultSet.getInt("product_store");
+            String productType = resultSet.getString("product_type");
+            String productMaterials = resultSet.getString("product_materials");
+            productBean = new ProductBean(productId, productName, productPrice, productStore, productType, productMaterials);
+            list.add(productBean);
+        }
+    }
+
+
+    private ProductBean resultSetToProductBean(ResultSet resultSet, ProductBean productBean) {
         try {
             if ( resultSet.next() ) {
                 String productId = resultSet.getString("product_id");

@@ -69,9 +69,9 @@
                                         <div class="item-label"><strong>Name</strong></div>
                                         <div class="item-data">${user.userName}</div>
                                     </div><!--//col-->
-                                    <div class="col text-right">
-                                        <a class="btn-sm app-btn-secondary" href="#">Change</a>
-                                    </div><!--//col-->
+                                        <%--                                    <div class="col text-right">--%>
+                                        <%--                                        <a class="btn-sm app-btn-secondary" href="${pageContext.request.contextPath}/UpdateUserInfoServlet.do?id=${user.userId}">Change</a>--%>
+                                        <%--                                    </div><!--//col-->--%>
                                 </div><!--//row-->
                             </div><!--//item-->
                             <div class="item border-bottom py-3">
@@ -80,9 +80,9 @@
                                         <div class="item-label"><strong>密码</strong></div>
                                         <div class="item-data">${user.userPassword}</div>
                                     </div><!--//col-->
-                                    <div class="col text-right">
-                                        <a class="btn-sm app-btn-secondary" href="#">Change</a>
-                                    </div><!--//col-->
+                                        <%--                                    <div class="col text-right">--%>
+                                        <%--                                        <a class="btn-sm app-btn-secondary" href="${pageContext.request.contextPath}/UpdateUserInfoServlet.do?id=${user.userId}">Change</a>--%>
+                                        <%--                                    </div><!--//col-->--%>
                                 </div><!--//row-->
                             </div><!--//item-->
                             <div class="item border-bottom py-3">
@@ -93,9 +93,9 @@
                                                 ${user.userPhone}
                                         </div>
                                     </div><!--//col-->
-                                    <div class="col text-right">
-                                        <a class="btn-sm app-btn-secondary" href="#">Change</a>
-                                    </div><!--//col-->
+                                        <%--                                    <div class="col text-right">--%>
+                                        <%--                                        <a class="btn-sm app-btn-secondary" href="${pageContext.request.contextPath}/UpdateUserInfoServlet.do?id=${user.userId}">Change</a>--%>
+                                        <%--                                    </div><!--//col-->--%>
                                 </div><!--//row-->
                             </div><!--//item-->
                             <div class="item border-bottom py-3">
@@ -106,9 +106,9 @@
                                                 ${user.userBalance}
                                         </div>
                                     </div><!--//col-->
-                                    <div class="col text-right">
-                                        <a class="btn-sm app-btn-secondary" href="#">Change</a>
-                                    </div><!--//col-->
+                                        <%--                                    <div class="col text-right">--%>
+                                        <%--                                        <a class="btn-sm app-btn-secondary" href="${pageContext.request.contextPath}/UpdateUserInfoServlet.do?id=${user.userId}">Change</a>--%>
+                                        <%--                                    </div><!--//col-->--%>
                                 </div><!--//row-->
                             </div><!--//item-->
                         </div><!--//app-card-body-->

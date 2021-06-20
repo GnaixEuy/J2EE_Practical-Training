@@ -9,10 +9,7 @@
 <html>
 <head>
     <title>查询所有商品</title>
-
     <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
-
-
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
 </head>
 <body class="app" style="padding: unset">
@@ -21,15 +18,16 @@
         <div class="container-xl">
             <div class="row g-3 mb-4 align-items-center justify-content-between">
                 <div class="col-auto">
-                    <h1 class="app-page-title mb-0">My Docs</h1>
+                    <h1 class="app-page-title mb-0">上架产品目录</h1>
                 </div>
                 <div class="col-auto">
                     <div class="page-utilities">
                         <div class="row g-3 justify-content-start justify-content-md-end align-items-center">
                             <div class="col-auto">
-                                <form class="docs-search-form row gx-1 align-items-center">
+                                <form class="docs-search-form row gx-1 align-items-center" method="post"
+                                      action="${pageContext.request.contextPath}/QueryProductByNameServlet.do">
                                     <div class="col-auto">
-                                        <input type="text" id="search-docs" name="searchdocs"
+                                        <input type="text" id="search-docs" name="productName"
                                                class="form-control search-docs" placeholder="Search">
                                     </div>
                                     <div class="col-auto" style="margin-left: 5px">
@@ -43,8 +41,9 @@
                                         <option value="option-5">Presentation</option>
                                         <option value="option-6">Zip file</option>
                                     </select>
-                                    <a class="w-auto btn app-btn-primary" href="#" style="margin-left: 15px">Upload
-                                        File</a>
+                                    <a class="w-auto btn app-btn-primary"
+                                       href="${pageContext.request.contextPath}/view/addProduct.jsp"
+                                       style="margin-left: 15px">添加商品</a>
                                 </form>
                             </div>
                         </div><!--//row-->
@@ -54,8 +53,6 @@
 
             <div class="row g-4">
                 <c:forEach items="${ProductsList}" var="product" varStatus="i">
-
-
                     <div class="col-6 col-md-4 col-xl-3 col-xxl-2">
                         <div class="app-card app-card-doc shadow-sm  h-100">
                             <div class="app-card-thumb-holder p-3">
@@ -73,9 +70,16 @@
                                         <li><span class="text-muted">类型:</span> ${product.productType}</li>
                                         <li><span class="text-muted">价格:</span> ${product.productPrice}</li>
                                         <li><span class="text-muted">原料:</span>
-                                            <c:forEach items="${product.productMaterialsList}" var="MaterialsList">
+
+                                            <c:forEach items="${product.productMaterialsList}" var="MaterialsList"
+                                                       varStatus="t">
                                                 &lt;${MaterialsList}&gt;
+                                                <c:if test="${t.index % 3 == 0 && t.index != 0}">
+                                                    <br>
+                                                </c:if>
                                             </c:forEach>
+
+
                                         </li>
                                     </ul>
                                 </div><!--//app-doc-meta-->

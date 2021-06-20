@@ -6,9 +6,11 @@ package com.lite.controller.user; /**
 import com.lite.service.UserService;
 import com.lite.service.impl.UserServiceImpl;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "DeleteUserServlet", value = "/DeleteUserServlet.do")
@@ -19,7 +21,7 @@ public class DeleteUserServlet extends HttpServlet {
             UserService userService = new UserServiceImpl();
             boolean b = userService.deleteUserById(deleteId);
             if ( b ) {
-                request.getRequestDispatcher("success.html");
+                request.getRequestDispatcher("/AllUserservlet.do");
             } else {
                 String msg = "删除失败";
                 request.setAttribute("msg", msg);

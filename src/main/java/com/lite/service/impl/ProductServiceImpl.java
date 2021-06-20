@@ -41,8 +41,19 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public ProductBean getProductInfoByName(String name) {
-        return productDAO.queryProductInfoByName(name);
+    public List<ProductBean> getProductInfoByName_blurry(String name) {
+        return productDAO.queryProductInfoByName_blurry(name);
     }
 
+    @Override
+    public ProductBean queryProductInfoById(String id) {
+        String type = "product_id";
+        return productDAO.queryProductInfo(type, id);
+    }
+
+    @Override
+    public ProductBean getProductInfoByName(String name) {
+        String type = "product_name";
+        return productDAO.queryProductInfo(type, name);
+    }
 }
