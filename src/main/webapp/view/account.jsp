@@ -54,7 +54,8 @@
                                 <div class="row justify-content-between align-items-center">
                                     <div class="col-auto">
                                         <div class="item-label mb-2"><strong>Photo</strong></div>
-                                        <div class="item-data"><img class="profile-image" src="static/images/user.png"
+                                        <div class="item-data"><img class="profile-image"
+                                                                    src="view/assets/images/user.png"
                                                                     alt="">
                                         </div>
                                     </div><!--//col-->

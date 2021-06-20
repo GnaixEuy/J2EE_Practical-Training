@@ -16,14 +16,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
     <link rel="shortcut icon" href="favicon.ico">
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
     <!-- FontAwesome JS-->
-    <script defer src="${pageContext.request.contextPath}/static/plugins/fontawesome/js/all.min.js"></script>
-
-
+    <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
 </head>
 
 <body class="app">
@@ -204,7 +201,7 @@
                         <div class="app-utility-item app-user-dropdown dropdown">
                             <a class="dropdown-toggle" id="user-dropdown-toggle" data-toggle="dropdown" href="#"
                                role="button" aria-expanded="false"><img
-                                    src="${pageContext.request.contextPath}/static/images/user.png"
+                                    src="${pageContext.request.contextPath}/view/assets/images/user.png"
                                     alt="user profile"></a>
                             <ul class="dropdown-menu" aria-labelledby="user-dropdown-toggle">
                                 <li><a class="dropdown-item" href="account.html">Account</a></li>
@@ -232,7 +229,7 @@
             <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
             <div class="app-branding">
                 <a class="app-logo" href="index.html"><img class="logo-icon mr-2"
-                                                           src="${pageContext.request.contextPath}/static/images/app-logo.svg"
+                                                           src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
                                                            alt="logo"><span class="logo-text">PORTAL</span></a>
 
             </div>
