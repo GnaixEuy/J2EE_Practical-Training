@@ -7,7 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Place favicon.ico in the root directory -->
-    <link rel="shortcut icon" type="image/x-icon" href="${pageContext.request.contextPath}/view/assets/img/logo/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon"
+          href="${pageContext.request.contextPath}/view/assets/img/logo/favicon.png">
 
     <!-- All CSS -->
     <link rel="stylesheet" href="view/assets/css/animate.css">
@@ -46,7 +47,8 @@
                         </div>
                         <div class="header-info">
                             <i class="far fa-envelope-open"></i>
-                            <a href="/cdn-cgi/l/email-protection#1c6f696c6c736e685c7b717d7570327f7371"><span class="__cf_email__" data-cfemail="ed9e989d9d829f99ad8a808c8481c38e8280">[email&#160;protected]</span></a>
+                            <a href="/cdn-cgi/l/email-protection#1c6f696c6c736e685c7b717d7570327f7371"><span
+                                    class="__cf_email__" data-cfemail="ed9e989d9d829f99ad8a808c8481c38e8280">[email&#160;protected]</span></a>
                         </div>
                     </div>
                 </div>
@@ -79,8 +81,10 @@
                                 <li class="has-dropdown">
                                     <a href="#">登入</a>
                                     <ul class="sub-menu">
-                                        <li><a href="${pageContext.request.contextPath}/view/adminlogin.jsp">管理员模块</a></li>
-                                        <li><a href="${pageContext.request.contextPath}/view/UserLogin.jsp">会员模块</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/view/adminlogin.jsp">管理员模块</a>
+                                        </li>
+                                        <li><a href="${pageContext.request.contextPath}/view/UserLogin.jsp">会员模块</a>
+                                        </li>
                                     </ul>
                                 </li>
                                 <li><a href="about.html">About</a></li>
@@ -209,8 +213,10 @@
         <div class="sidebar-widget">
             <div class="info-wdget">
                 <h4 class="widget-title">Email Address</h4>
-                <p> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9ef7f0f8f1defbe6fff3eef2fbb0fdf1f3">[email&#160;protected]</a> </p>
-                <p> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a8cdd0c9c5d8c4cd86c5c9c1c4e8c0ddc586cbc7c5">[email&#160;protected]</a> </p>
+                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                      data-cfemail="9ef7f0f8f1defbe6fff3eef2fbb0fdf1f3">[email&#160;protected]</a></p>
+                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                      data-cfemail="a8cdd0c9c5d8c4cd86c5c9c1c4e8c0ddc586cbc7c5">[email&#160;protected]</a></p>
             </div>
         </div>
         <!-- end side widget -->
@@ -288,7 +294,7 @@
                                     </a>
                                 </div>
                                 <div class="home-slide-shape" data-animation="zoomIn" data-delay="0.2s">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    <svg xmlns="http://www.w3.org/2000/svg"
                                          width="659px" height="657px">
                                         <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
                                               d="M404.619,98.175 C435.465,137.384 470.409,169.818 506.015,194.454 C541.384,219.602 577.416,236.952 604.940,257.895 C632.599,278.653 651.758,302.991 656.547,337.786 C661.846,371.693 652.776,416.057 635.756,456.388 C562.446,626.457 369.620,701.287 201.054,630.161 C32.989,558.367 -44.639,362.971 27.363,195.425 C45.542,152.856 71.175,116.687 102.501,84.718 C133.643,53.202 170.478,25.887 206.801,11.504 C243.244,-3.033 279.180,-4.649 311.323,11.602 C343.892,27.086 372.668,60.438 404.619,98.175 L404.619,98.175 Z"/>
@@ -316,7 +322,7 @@
                                         <span>watch videos</span></a>
                                 </div>
                                 <div class="home-slide-shape" data-animation="zoomIn" data-delay="0.2s">
-                                    <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                                    <svg xmlns="http://www.w3.org/2000/svg"
                                          width="659px" height="657px">
                                         <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
                                               d="M404.619,98.175 C435.465,137.384 470.409,169.818 506.015,194.454 C541.384,219.602 577.416,236.952 604.940,257.895 C632.599,278.653 651.758,302.991 656.547,337.786 C661.846,371.693 652.776,416.057 635.756,456.388 C562.446,626.457 369.620,701.287 201.054,630.161 C32.989,558.367 -44.639,362.971 27.363,195.425 C45.542,152.856 71.175,116.687 102.501,84.718 C133.643,53.202 170.478,25.887 206.801,11.504 C243.244,-3.033 279.180,-4.649 311.323,11.602 C343.892,27.086 372.668,60.438 404.619,98.175 L404.619,98.175 Z"/>
@@ -422,7 +428,8 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="about-thumb">
                         <img src="view/assets/img/thumb/thumb-1.jpg" alt="thumb">
-                        <span class="about-thumb-shape" style="background-image: url(view/assets/img/thumb/thumb-2.jpg)">
+                        <span class="about-thumb-shape"
+                              style="background-image: url(view/assets/img/thumb/thumb-2.jpg)">
 							a
 						</span>
                     </div>
@@ -450,7 +457,8 @@
     <!--    about-area end    -->
 
     <!--    service-area start    -->
-    <div class="service-area service-area-2 pt-130 pb-130" style="background-image: url(view/assets/img/shape/shape-1.png)">
+    <div class="service-area service-area-2 pt-130 pb-130"
+         style="background-image: url(view/assets/img/shape/shape-1.png)">
         <div class="container">
             <div class="row justify-content-center mb-55">
                 <div class="col-xl-6 col-lg-8 col-md-10">
@@ -1499,7 +1507,9 @@
 					<span id="scrollUp">
 						<i class="far fa-angle-up"></i>
 					</span>
-                        <p class="copyright">Copyright &copy; 2020.Company name All rights reserved.<a target="_blank" href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></p>
+                        <p class="copyright">Copyright &copy; 2020.Company name All rights reserved.<a target="_blank"
+                                                                                                       href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
+                        </p>
                     </div>
                 </div>
             </div>

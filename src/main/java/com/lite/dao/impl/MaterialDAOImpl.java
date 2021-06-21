@@ -33,7 +33,7 @@ public class MaterialDAOImpl implements MaterialDAO {
 
     @Override
     public List<MaterialBean> queryAllMaterials() {
-        String sql = "SELECT * FROM material";
+        String sql = "SELECT * FROM material ORDER BY material_id";
         ResultSet resultSet = dbUtil.query(sql);
         List<MaterialBean> materialBeanList = new ArrayList<>();
         try {

@@ -210,7 +210,7 @@
                                     <hr class="dropdown-divider">
                                 </li>
                                 <li><a class="dropdown-item"
-                                       href="${pageContext.request.contextPath}/view/adminlogin.jsp">Log Out</a></li>
+                                       href="${pageContext.request.contextPath}/AdminExitServlet.do">Log Out</a></li>
                             </ul>
                         </div>
                         <!--//app-user-dropdown-->
@@ -363,7 +363,7 @@
                         <div id="submenu-2" class="collapse submenu submenu-2" data-parent="#menu-accordion">
                             <ul class="submenu-list list-unstyled">
                                 <li class="submenu-item"><a class="submenu-link"
-                                                            href="<c:url value="/view/addProduct.jsp"/>"
+                                                            href="${pageContext.request.contextPath}/AddProductInitServlet.do"
                                                             target="content">
                                     增加商品
                                 </a>
@@ -374,7 +374,7 @@
                                                             target="content"
                                                             href="${pageContext.request.contextPath}/AllProductsServlet.do">所有商品</a>
                                 </li>
-                                <li class="submenu-item"><a class="submenu-link" href="404.html">修改商品</a>
+                                <li class="submenu-item"><a target="content" class="submenu-link" href="#">修改商品</a>
                                 </li>
                             </ul>
                         </div>
@@ -384,7 +384,8 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="charts.html">
+                        <a target="content" class="nav-link"
+                           href="${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-bar-chart-line"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -442,7 +443,7 @@
                         <li class="nav-item">
 
                             <a class="nav-link"
-                               href="/view/changeAdminPassword.jsp" target="content">
+                               href="${pageContext.request.contextPath}/view/changeAdminPassword.jsp" target="content">
 										<span class="nav-icon">
 											<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download"
                                                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -469,7 +470,7 @@
 												<path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 											</svg>
 										</span>
-                                <span class="nav-link-text">修改管理员密码</span>
+                                <span class="nav-link-text">修改管理员密码(${sessionScope.user.adminName})</span>
                             </a>
                             <!--//nav-link-->
                         </li>
