@@ -31,7 +31,7 @@ public class ProductBean {
         for ( String s : productMaterialsList ) {
             tmp.append(s).append(",");
         }
-        tmp.replace(tmp.lastIndexOf(","), tmp.lastIndexOf(","), "");
+        tmp.replace(tmp.length() - 1, tmp.length(), "");
         this.productMaterials = String.valueOf(tmp);
     }
 
