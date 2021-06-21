@@ -35,13 +35,13 @@
     <div class="workinghny-form-grid">
       <div class="slot-w3l-comingsoon">
         <div class="slot-w3content">
-          <h3>Coming Soon!</h3>
-          <h1>Our New website <br>is on its way</h1>
-          <p class="text-5 text-light mb-3">Get notified when we launch.</p>
+<%--          <h3>意见输入框</h3>--%>
+          <h1>您的满意是我们<br>永恒的追求</h1>
+          <p class="text-5 text-light mb-3"></p>
 
           <form action="#" method="post" class="w3hny-subscribe-form">
             <input type="email" name="subscribe-form-email" class="form-control required" required=""
-                   placeholder="Enter Your Email Here..">
+                   placeholder="请输入您对我们的意见">
             <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
           </form>
 
@@ -50,17 +50,17 @@
       <!-- /form -->
       <div class="main-hotair">
         <div class="content-wthree">
-          <h2>Contact Now</h2>
+          <h2>咔咔西会员登陆</h2>
           <form action="" method="post" class="signin-form">
             <div class="input-grids">
-              <input type="text" name="w3lName" id="w3lName" placeholder="Your Name*" class="contact-input" autofocus
+              <input type="text" name="w3lName" id="w3lName" placeholder="用户名" class="contact-input" autofocus
                      required=""/>
-              <input type="email" name="w3lSender" id="w3lSender" placeholder="Your Email*" class="contact-input"
+              <input type="email" name="w3lSender" id="w3lSender" placeholder="密码" class="contact-input"
                      autofocus
                      required=""/>
-              <textarea name="w3lMessage" id="w3lMessage" placeholder="Your Query*" required="" autofocus></textarea>
+<%--              <textarea name="w3lMessage" id="w3lMessage" placeholder="Your Query*" required="" autofocus></textarea>--%>
             </div>
-            <button class="btn" type="submit">Send Message</button>
+            <button class="btn" type="submit">登陆</button></br>
 
           </form>
           <div class="social-login">
@@ -92,11 +92,11 @@
       <!-- //form -->
     </div>
     <!-- copyright-->
-    <div class="copyright text-center">
-      <p class="copy-footer-29">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank"
-                                                                                          href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-      </p>
-    </div>
+<%--    <div class="copyright text-center">--%>
+<%--      <p class="copy-footer-29">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank"--%>
+<%--                                                                                          href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>--%>
+<%--      </p>--%>
+<%--    </div>--%>
     <!-- //copyright-->
   </div>
 </div>
