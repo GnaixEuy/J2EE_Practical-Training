@@ -114,4 +114,23 @@ public class ProductDAOImpl implements ProductDAO {
         String sql = "INSERT INTO products (product_id, product_name, product_price,product_store,product_type,product_materials) VALUES(?,?,?,?,?,?)";
         return dbUtil.update(sql, productBean.getId(), productBean.getProductName(), productBean.getProductPrice(), productBean.getProductStore(), productBean.getProductType(), productBean.getProductMaterials());
     }
+
+
+    @Override
+    public List<String> getAllProductType() {
+        String sql = "select * from typeInfo";
+        ResultSet resultSet = dbUtil.query(sql);
+        List list = new ArrayList<String>();
+        String typeName;
+        try {
+            while ( resultSet.next() ) {
+                typeName = resultSet.getString("type_name");
+                list.add(typeName);
+            }
+        } catch ( SQLException throwables ) {
+            throwables.printStackTrace();
+        }
+        return list;
+    }
+
 }

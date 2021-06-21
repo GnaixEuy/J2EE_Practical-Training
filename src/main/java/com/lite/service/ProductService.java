@@ -29,4 +29,8 @@ public interface ProductService {
 
     public boolean addProduct(String productId, String productName, Double productPrice, Integer productStore, String productType, List<String> productMaterialsList);
 
+    public List<String> getAllProductType();
+
+    public List<ProductBean> queryProductByType(String type);
+
 }

@@ -33,13 +33,16 @@
                                     <div class="col-auto" style="margin-left: 5px">
                                         <button type="submit" class="btn app-btn-secondary">Search</button>
                                     </div>
-                                    <select class="form-select w-auto" style="margin-left: 15px">
-                                        <option selected="" value="option-1">All</option>
-                                        <option value="option-2">Text file</option>
-                                        <option value="option-3">Image</option>
-                                        <option value="option-4">Spreadsheet</option>
-                                        <option value="option-5">Presentation</option>
-                                        <option value="option-6">Zip file</option>
+                                    <select class="form-select w-auto" style="margin-left: 15px" id="typelist"
+                                            onchange="window.location=this.value;"
+                                    >
+                                        <option selected="" value="option-1"><a
+                                                href="${pageContext.request.contextPath}/AllProductsServlet.do?type=all">所有</a>
+                                        </option>
+                                        <c:forEach items="${requestScope.allProductTypeList}" var="ProductType"
+                                                   varStatus="i">
+                                            <option value="${pageContext.request.contextPath}/AllProductsServlet.do?type=${ProductType}">${ProductType}</option>
+                                        </c:forEach>
                                     </select>
                                     <a class="w-auto btn app-btn-primary"
                                        href="${pageContext.request.contextPath}/AddProductInitServlet.do"
@@ -78,8 +81,6 @@
                                                     <br>
                                                 </c:if>
                                             </c:forEach>
-
-
                                         </li>
                                     </ul>
                                 </div><!--//app-doc-meta-->

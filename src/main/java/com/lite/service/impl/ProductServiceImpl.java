@@ -64,5 +64,16 @@ public class ProductServiceImpl implements ProductService {
         return 1 == productDAO.addProduct(productBean);
     }
 
+    @Override
+    public List<String> getAllProductType() {
+        return productDAO.getAllProductType();
+    }
+
+    @Override
+    public List<ProductBean> queryProductByType(String type) {
+        List<ProductBean> productBeanList = this.queryAllProductInfo();
+        productBeanList.removeIf(productBean -> !type.equals(productBean.getProductType()));
+        return productBeanList;
+    }
 
 }

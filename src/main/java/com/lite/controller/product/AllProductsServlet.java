@@ -19,9 +19,17 @@ import java.util.List;
 public class AllProductsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String type = request.getParameter("type");
         ProductService productService = new ProductServiceImpl();
-        List<ProductBean> list = productService.queryAllProductInfo();
+        List<ProductBean> list;
+        if ( !"all".equals(type) ) {
+            list = productService.queryProductByType(type);
+        } else {
+            list = productService.queryAllProductInfo();
+        }
+        List<String> allProductTypeList = productService.getAllProductType();
         request.setAttribute("ProductsList", list);
+        request.setAttribute("allProductTypeList", allProductTypeList);
         request.getRequestDispatcher("view/queryProducts.jsp").forward(request, response);
     }
 
