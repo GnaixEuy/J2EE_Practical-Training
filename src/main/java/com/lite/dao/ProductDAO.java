@@ -19,4 +19,6 @@ public interface ProductDAO {
 
     public List<ProductBean> queryProductInfoByName_blurry(String name);
 
+    public int addProduct(ProductBean productBean);
+
 }

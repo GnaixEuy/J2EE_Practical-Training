@@ -42,7 +42,7 @@
                                         <option value="option-6">Zip file</option>
                                     </select>
                                     <a class="w-auto btn app-btn-primary"
-                                       href="${pageContext.request.contextPath}/view/addProduct.jsp"
+                                       href="${pageContext.request.contextPath}/AddProductInitServlet.do"
                                        style="margin-left: 15px">添加商品</a>
                                 </form>
                             </div>
@@ -52,7 +52,7 @@
             </div><!--//row-->
 
             <div class="row g-4">
-                <c:forEach items="${ProductsList}" var="product" varStatus="i">
+                <c:forEach items="${requestScope.ProductsList}" var="product" varStatus="i">
                     <div class="col-6 col-md-4 col-xl-3 col-xxl-2">
                         <div class="app-card app-card-doc shadow-sm  h-100">
                             <div class="app-card-thumb-holder p-3">

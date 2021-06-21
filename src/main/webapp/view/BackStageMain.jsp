@@ -45,12 +45,15 @@
                     </div>
                     <!--//col-->
                     <div class="app-search-box col">
-                        <form class="app-search-form">
-                            <input type="text" placeholder="Search..." name="search"
-                                   class="form-control search-input">
-                            <button type="submit" class="btn search-btn btn-primary" value="Search"><i
-                                    class="fas fa-search"></i></button>
-                        </form>
+                        <span class="logo-text" style="font-weight: bold">欢迎你管理员：
+                            <span style="color: rgba(107,175,131,0.80);">${sessionScope.adminName}</span>
+                        </span>
+                        <%--                        <form class="app-search-form">--%>
+                        <%--                            <input type="text" placeholder="Search..." name="search"--%>
+                        <%--                                   class="form-control search-input">--%>
+                        <%--                            <button type="submit" class="btn search-btn btn-primary" value="Search"><i--%>
+                        <%--                                    class="fas fa-search"></i></button>--%>
+                        <%--                        </form>--%>
                     </div>
                     <!--//app-search-box-->
 
@@ -329,10 +332,10 @@
                                     <a class="submenu-link" href="${pageContext.request.contextPath}/AllUserServlet.do"
                                        target="content">全体信息</a>
                                 </li>
-                                <li class="submenu-item">
-                                    <a class="submenu-link"
-                                       href="${pageContext.request.contextPath}/view/editor.jsp"
-                                       target="content">修改账户</a></li>
+                                <%--                                <li class="submenu-item">--%>
+                                <%--                                    <a class="submenu-link"--%>
+                                <%--                                       href="${pageContext.request.contextPath}/view/editor.jsp"--%>
+                                <%--                                       target="content">修改账户</a></li>--%>
                             </ul>
                         </div>
                     </li>

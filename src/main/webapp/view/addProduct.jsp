@@ -1,6 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8" %>
-<%@ page import="java.text.DateFormat" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -23,7 +22,7 @@
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
 </head>
 <%
-    long date = Long.parseLong(new SimpleDateFormat("yyyyMMdd").format(new Date().getTime()));
+    long date = Long.parseLong(new SimpleDateFormat("yyyyMMddss").format(new Date().getTime()));
     request.setAttribute("date", date);
 %>
 <body class="app app-signup p-0">
@@ -35,21 +34,19 @@
                                                                              src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
                                                                              alt="logo"></a></div>
                 <h2 class="auth-heading text-center mb-4">新增商品</h2>
-
-                <h1>未完成请不要使用</h1>
                 <form class="auth-form auth-signup-form" method="post"
                       action="${pageContext.request.contextPath}/AddProductServlet.do">
                     <div class="email mb-3">
                         <label class="sr-only" for="productid">商品id</label>
-                        <input id="productid" name="id" type="text" class="form-control signup-name"
+                        <input id="productid" name="productid" type="text" class="form-control signup-name"
                                value="${sessionScope.adminName}${date}"
-                               placeholder="商品编号:${sessionScope.adminName} + ${date}"
+                               placeholder="商品编号:${sessionScope.adminName}${date}"
                                readonly
                                required="required">
                     </div>
                     <div class="email mb-3">
                         <label class="sr-only" for="productname">商品名称</label>
-                        <input id="productname" name="name" type="text" class="form-control signup-email"
+                        <input id="productname" name="productname" type="text" class="form-control signup-email"
                                placeholder="商品名称" required="required">
                     </div>
                     <div class="password mb-3">
@@ -62,6 +59,12 @@
                         <label class="sr-only" for="producttype">种类</label>
                         <input id="producttype" name="producttype" type="text"
                                class="form-control signup-password" placeholder="请输入商品种类"
+                               required="required">
+                    </div>
+                    <div class="password mb-3">
+                        <label class="sr-only" for="productstore">种类</label>
+                        <input id="productstore" name="productstore" type="text"
+                               class="form-control signup-password" placeholder="请输入商品数量"
                                required="required">
                     </div>
                     <div class="password mb-3">

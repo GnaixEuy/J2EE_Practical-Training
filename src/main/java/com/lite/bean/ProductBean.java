@@ -19,6 +19,22 @@ public class ProductBean {
     //程序运行中交给productMaterialsList
     private List<String> productMaterialsList;//配料
 
+    public ProductBean(String id, String productName, Double productPrice, Integer productStore, String productType, List<String> productMaterialsList) {
+        this.id = id;
+        this.productName = productName;
+        this.productPrice = productPrice;
+        this.productStore = productStore;
+        this.productType = productType;
+        this.productMaterialsList = productMaterialsList;
+        this.productMaterials = "";
+        StringBuffer tmp = new StringBuffer();
+        for ( String s : productMaterialsList ) {
+            tmp.append(s).append(",");
+        }
+        tmp.replace(tmp.lastIndexOf(","), tmp.lastIndexOf(","), "");
+        this.productMaterials = String.valueOf(tmp);
+    }
+
     public ProductBean(String id, String productName, Double productPrice, Integer productStore, String productType, String productMaterials) {
         this.id = id;
         this.productName = productName;
