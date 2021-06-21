@@ -108,4 +108,10 @@ public class ProductDAOImpl implements ProductDAO {
         }
         return productBean;
     }
+
+    @Override
+    public int addProduct(ProductBean productBean) {
+        String sql = "INSERT INTO products (product_id, product_name, product_price,product_store,product_type,product_materials) VALUES(?,?,?,?,?,?)";
+        return dbUtil.update(sql, productBean.getId(), productBean.getProductName(), productBean.getProductPrice(), productBean.getProductStore(), productBean.getProductType(), productBean.getProductMaterials());
+    }
 }

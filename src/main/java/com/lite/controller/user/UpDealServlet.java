@@ -6,9 +6,11 @@ package com.lite.controller.user; /**
 import com.lite.service.UserService;
 import com.lite.service.impl.UserServiceImpl;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "UpDealServlet", value = "/UpDealServlet.do")
@@ -21,7 +23,12 @@ public class UpDealServlet extends HttpServlet {
         String password = request.getParameter("password");
         String telephone = request.getParameter("telephone");
         UserService userService = new UserServiceImpl();
-        userService.getUserBeanById(id);
+        boolean b = userService.updateUserInfo(id, name, password, telephone);
+        if ( b ) {
+            response.sendRedirect("success.html");
+        } else {
+            request.getRequestDispatcher("/view/error.jsp");
+        }
     }
 }
 
