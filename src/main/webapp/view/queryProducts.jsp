@@ -37,11 +37,13 @@
                                             onchange="window.location=this.value;"
                                     >
                                         <option selected="" value="option-1"><a
-                                                href="${pageContext.request.contextPath}/AllProductsServlet.do?type=all">所有</a>
+                                                href="${pageContext.request.contextPath}/AllProductsServlet.do?type=all">${requestScope.type}</a>
                                         </option>
                                         <c:forEach items="${requestScope.allProductTypeList}" var="ProductType"
                                                    varStatus="i">
-                                            <option value="${pageContext.request.contextPath}/AllProductsServlet.do?type=${ProductType}">${ProductType}</option>
+                                            <c:if test="${!requestScope.type.equals(ProductType)}">
+                                                <option value="${pageContext.request.contextPath}/AllProductsServlet.do?type=${ProductType}">${ProductType}</option>
+                                            </c:if>
                                         </c:forEach>
                                     </select>
                                     <a class="w-auto btn app-btn-primary"

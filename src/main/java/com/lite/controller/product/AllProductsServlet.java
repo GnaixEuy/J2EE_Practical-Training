@@ -24,8 +24,10 @@ public class AllProductsServlet extends HttpServlet {
         List<ProductBean> list;
         if ( !"all".equals(type) ) {
             list = productService.queryProductByType(type);
+            request.setAttribute("type", type);
         } else {
             list = productService.queryAllProductInfo();
+            request.setAttribute("type", "所有商品");
         }
         List<String> allProductTypeList = productService.getAllProductType();
         request.setAttribute("ProductsList", list);

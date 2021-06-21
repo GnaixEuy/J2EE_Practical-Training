@@ -377,8 +377,8 @@
                                                             target="content"
                                                             href="${pageContext.request.contextPath}/AllProductsServlet.do?type=all">所有商品</a>
                                 </li>
-                                <li class="submenu-item"><a target="content" class="submenu-link" href="#">修改商品</a>
-                                </li>
+                                <%--                                <li class="submenu-item"><a target="content" class="submenu-link" href="#">修改商品</a>--%>
+                                <%--                                </li>--%>
                             </ul>
                         </div>
                     </li>
