@@ -4,7 +4,7 @@
 <head>
     <title>修改信息</title>
 
-    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
+    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
 
 
 </head>
@@ -16,7 +16,7 @@
             <div class="app-auth-body mx-auto">
                 <div class="app-auth-branding mb-4"><a class="app-logo">
                     <img class="logo-icon mr-2"
-                         src="${pageContext.request.contextPath}/static/images/app-logo.svg"
+                         src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
                          alt="logo"></a></div>
                 <h2 class="auth-heading text-center mb-4">信息修改</h2>
                 <div class="auth-form-container text-left mx-auto">

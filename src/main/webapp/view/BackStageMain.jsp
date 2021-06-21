@@ -18,7 +18,7 @@
     <meta name="description" content="">
     <link rel="shortcut icon" href="favicon.ico">
     <!-- App CSS -->
-    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
+    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
     <!-- FontAwesome JS-->
     <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
 </head>

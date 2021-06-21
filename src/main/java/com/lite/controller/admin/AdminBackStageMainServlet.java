@@ -5,9 +5,12 @@ package com.lite.controller.admin; /**
 
 import com.lite.bean.AdminBean;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
 @WebServlet(name = "AdminBackStageMainServlet", value = "/AdminBackStageMainServlet.do")
@@ -17,7 +20,6 @@ public class AdminBackStageMainServlet extends HttpServlet {
         HttpSession session = request.getSession();
         AdminBean user = (AdminBean) session.getAttribute("user");
         session.setAttribute("adminName", user.getAdminName());
-//        request.getRequestDispatcher("view/BackStageMain.jsp").forward(request, response);
-        response.sendRedirect("view/BackStageMain.jsp");
+        request.getRequestDispatcher("view/BackStageMain.jsp").forward(request, response);
     }
 }

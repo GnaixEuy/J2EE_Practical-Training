@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>用户登录</title>
+    <title>用户注册</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -14,10 +14,10 @@
     <link rel="shortcut icon" href="favicon.ico">
 
     <!-- FontAwesome JS-->
-    <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>
+    <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
 
     <!-- App CSS -->
-    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
+    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
 
 
 </head>
@@ -28,7 +28,7 @@
         <div class="d-flex flex-column align-content-end site">
             <div class="app-auth-body mx-auto">
                 <div class="app-auth-branding mb-4"><a class="app-logo"><img class="logo-icon mr-2"
-                                                                             src="${pageContext.request.contextPath}/static/images/app-logo.svg"
+                                                                             src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
                                                                              alt="logo"></a></div>
                 <h2 class="auth-heading text-center mb-4">用户注册</h2>
 

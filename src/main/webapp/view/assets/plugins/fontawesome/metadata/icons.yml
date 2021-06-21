@@ -12355,7 +12355,7 @@ maxcdn:
 mdb:
   changes:
     - 5.11.0
-  label: Material Design for Bootstrap
+  label: MaterialDAO Design for Bootstrap
   search:
     terms: [ ]
   styles:

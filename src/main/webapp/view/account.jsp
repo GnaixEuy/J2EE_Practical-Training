@@ -17,11 +17,11 @@
     <meta name="description" content="">
     <link rel="shortcut icon" href="favicon.ico">
 
-    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/portal.css">
+    <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
 
     <%--    <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>--%>
-    <script src="static/js/jquery-3.6.0.min.js"></script>
-    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap-grid.min.css" rel="stylesheet">
+    <script src="view/assets/js/jquery-3.4.1.min.js"></script>
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/js/bootstrap.min.js"></script>
 
 </head>
