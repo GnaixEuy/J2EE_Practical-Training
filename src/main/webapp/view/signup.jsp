@@ -38,7 +38,7 @@
                           action="${pageContext.request.contextPath}/RegisterUserServlet.do">
                         <div class="email mb-3">
                             <label class="sr-only" for="signup-id">账号</label>
-                            <input id="signup-id" name="id" type="email" class="form-control signup-name"
+                            <input id="signup-id" name="id" type="text" class="form-control signup-name"
                                    placeholder="请输入账号" required="required">
                         </div>
                         <div class="email mb-3">
@@ -63,13 +63,13 @@
                 </div><!--//extra-->
 
                 <div class="text-center">
-                    <button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">注册
+                    <button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto" >注册
                     </button>
                 </div>
                 </form><!--//auth-form-->
 
                 <div class="auth-option text-center pt-5">已经有一个账户？ <a class="text-link"
-                                                                      href="${pageContext.request.contextPath}/view/adminlogin.jsp">登录</a>
+                                                                      href="${pageContext.request.contextPath}/view/UserLogin.jsp">登录</a>
                     <%--            后期加入登录页面的地址--%>
                 </div>
             </div><!--//auth-form-container-->

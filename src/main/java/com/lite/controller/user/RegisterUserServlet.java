@@ -1,7 +1,4 @@
-package com.lite.controller.user; /**
- * @author GnaixEuy
- * @date 2021/6/18 09:04
- */
+package com.lite.controller.user;
 
 import com.lite.service.UserService;
 import com.lite.service.impl.UserServiceImpl;
@@ -26,7 +23,7 @@ public class RegisterUserServlet extends HttpServlet {
         String telephone = request.getParameter("telephone");
         UserService userService = new UserServiceImpl();
         if ( userService.addUser(id, name, password, telephone, 0.0) ) {
-            response.sendRedirect("success.html");
+            response.sendRedirect("view/UserLogin.jsp");
         } else {
             response.sendRedirect("view/error.jsp");
         }

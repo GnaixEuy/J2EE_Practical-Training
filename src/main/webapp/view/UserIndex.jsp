@@ -89,7 +89,7 @@
         <!-- start side widget -->
         <div class="sidebar-widget logo-side">
             <a href="index.html">
-                <img src="${pageContext.request.contextPath}/view/assets/img/logo/logo.png" alt="logo">
+                <img src="${pageContext.request.contextPath}/view/assets/img/logo/bg.png" alt="logo">
             </a>
         </div>
         <!-- end side widget -->
@@ -140,7 +140,7 @@
                     <div class="breadcrumb-content">
                         <h3 class="title">Shop</h3>
                         <ul>
-                            <li><a href="index.html">Home</a></li>
+                            <li><a href="${pageContext.request.contextPath}/index.jsp">Home</a></li>
                             <li class="active">Shop</li>
                         </ul>
                     </div>
@@ -182,7 +182,7 @@
                             </select>
                         </form>
                     </div>
-                    <div class="mb-40">
+                    <div class="pro-filter mb-40">
                         <a href="${pageContext.request.contextPath}/view/ShoppingCar.jsp" class="a-btn"
                            target="shopcarframe" id="key">购物车<i class="fas fa-plus"></i></a>
                         <div class="open-mobile-menu" hidden><a id="openMenu"></a></div>
@@ -196,7 +196,7 @@
                         <div class="product-wrap">
                             <div class="product-thumb">
                                 <a href="shop.html"><img
-                                        src="${pageContext.request.contextPath}/view/assets/img/product/product-1.jpg"
+                                        src="${pageContext.request.contextPath}/view/assets/img/product/product-2.jpg"
                                         alt="product"></a>
                             </div>
                             <div class="product-details">
@@ -323,94 +323,6 @@
 </main>
 <!--    main-area end    -->
 
-<!--    footer-area start    -->
-<footer class="footer-area">
-    <div class="footer-area-wrap">
-        <div class="footer-top">
-            <div class="container">
-                <div class="row footer-wid-border-wrap">
-                    <div class="col-xl-4 col-lg-4 footer-wid-border">
-                        <div class="footer-widget about-widget">
-                            <div class="w-logo">
-                                <a href="index.html"><img
-                                        src="${pageContext.request.contextPath}/view/assets/img/logo/logo-white.png"
-                                        alt="logo"></a>
-                            </div>
-                            <p>
-                                Lorem ipsum dolor amet consesty
-                                adipisicing elit sed do eiusmod tem
-                                por incididunt ut labore et dolore
-                                magna aliqua ad minimsx
-                            </p>
-                            <div class="w-social">
-                                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#"><i class="fab fa-twitter"></i></a>
-                                <a href="#"><i class="fab fa-behance"></i></a>
-                                <a href="#"><i class="fab fa-instagram"></i></a>
-                                <a href="#"><i class="fab fa-youtube"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 footer-wid-border">
-                        <div class="footer-widget category-widget">
-                            <h3 class="widget-title">Quick Links</h3>
-                            <ul>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Our Services</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Portfolio</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Comapny History</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Faqs</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Latest Product</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Settings</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Team Member</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Need Jobs ?</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Tetimonials</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Payouts</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> Call To Action</a></li>
-                                <li><a href="#"><i class="far fa-arrow-right"></i> My Accounts</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 footer-wid-border">
-                        <div class="footer-widget newsletters-widget">
-                            <h3 class="widget-title">newsletters</h3>
-                            <p>
-                                Subscribe Our Newsletters
-                                To Get More Updates
-                            </p>
-                            <form action="#">
-                                <input type="text" placeholder="Enter Your Email">
-                                <button type="submit" class="a-btn">
-                                    subscribe now <i class="fas fa-plus"></i>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12 footer-bottom-wrap">
-					<span id="scrollUp">
-						<i class="far fa-angle-up"></i>
-					</span>
-                        <p class="copyright">Copyright &copy; 2020.Company name All rights reserved.<a target="_blank"
-                                                                                                       href="http://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="footer-shape"></div>
-    </div>
-    <div class="footer-thumb-1">
-        <img src="${pageContext.request.contextPath}/view/assets/img/thumb/thumb-3.png" alt="thumb">
-    </div>
-    <div class="footer-thumb-2">
-        <img src="${pageContext.request.contextPath}/view/assets/img/thumb/thumb-4.png" alt="thumb">
-    </div>
-</footer>
 <!--    footer-area end    -->
 
 <!-- Optional JavaScript -->

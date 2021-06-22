@@ -40,7 +40,7 @@
           <p class="text-5 text-light mb-3"></p>
 
           <form action="#" method="post" class="w3hny-subscribe-form">
-            <input type="email" name="subscribe-form-email" class="form-control required" required=""
+            <input type="text" name="subscribe-form-email" class="form-control required" required=""
                    placeholder="请输入您对我们的意见">
               <button class="btn btn-primary" type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i>
               </button>
@@ -55,12 +55,10 @@
                 <form action="${pageContext.request.contextPath}/UserLoginVerificationServlet.do" method="post"
                       class="signin-form">
                     <div class="input-grids">
-                        <input type="text" name="id" id="w3lName" placeholder="用户名" class="contact-input" autofocus
-                               required=""/>
+                        <input type="text" name="id" id="w3lName" placeholder="用户名" class="contact-input"
+                               autofocus required=""/>
                         <input type="text" name="password" id="w3lSender" placeholder="密码" class="contact-input"
-                               autofocus
-                               required=""/>
-                        <%--              <textarea name="w3lMessage" id="w3lMessage" placeholder="Your Query*" required="" autofocus></textarea>--%>
+                               autofocus required=""/>
                     </div>
                     <button class="btn" type="submit">登陆</button>
                     </br>
@@ -68,7 +66,7 @@
                 <div class="auth-option text-center pt-5">
                     <a class="app-link " href="${pageContext.request.contextPath}/view/signup.jsp"
                        style="margin-top: 30px">
-                        Sign up
+                        <button class="btn" type="submit" style="margin: 1px">注册</button>
                     </a>
                 </div>
             </div>
