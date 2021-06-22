@@ -236,9 +236,9 @@ public class DBUtil {
         Connection connection;
         while ( iterator.hasNext() ) {
             connection = iterator.next();
-            boolean isFree = connectionHashMap.get(connection);
+            boolean isFree = safeConnectionHashMap.get(connection);
             if ( isFree ) {
-                connectionHashMap.put(connection, false);
+                safeConnectionHashMap.put(connection, false);
                 return connection;
             }
         }

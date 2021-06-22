@@ -46,7 +46,7 @@
         </c:forEach>
     </table>
     <p>
-        <a href="#" class="btn btn-success center-block">
+        <a href="${pageContext.request.contextPath}/MakeOrderServlet.do" class="btn btn-success center-block">
             结算账单
         </a>
     </p>

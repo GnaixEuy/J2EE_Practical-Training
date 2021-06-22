@@ -9,6 +9,8 @@ import com.lite.utils.DBUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,8 +58,10 @@ public class OrderDAOImpl implements OrderDAO {
         try {
             String updateMaterialsSQL = "UPDATE material SET material_store = ? WHERE material_id = ?";
             String updateUserInfoSQL = "UPDATE users SET balance = ? WHERE Id = ?";
+            String makeOrderSql = "INSERT into orders (order_id, order_list, order_price, order_userId) VALUES(?,?,?,?)";
             PreparedStatement materialsPreparedStatement = safeCon.prepareStatement(updateMaterialsSQL);
             PreparedStatement userPreparedStatement = safeCon.prepareStatement(updateUserInfoSQL);
+            PreparedStatement makeOrderPreparedStatement = safeCon.prepareStatement(makeOrderSql);
             userPreparedStatement.setString(1, String.valueOf(userBean.getUserBalance()));
             userPreparedStatement.setString(2, userBean.getUserId());
             int useri = userPreparedStatement.executeUpdate();
@@ -67,7 +71,25 @@ public class OrderDAOImpl implements OrderDAO {
                 materialsPreparedStatement.setInt(2, materialBean.getMaterialId());
                 mi += materialsPreparedStatement.executeUpdate();
             }
-            if ( useri != 0 && mi > 0 ) {
+            //注册订单
+            StringBuffer orderId = new StringBuffer();
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyyMMdd");
+            String format = simpleDateFormat.format(new Date());
+            orderId.append(userBean.getUserId());
+            orderId.append(format);
+            orderId.append(userBean.getUserName());
+
+            StringBuffer orderList = new StringBuffer();
+            for ( ProductBean productBean : list ) {
+                orderList.append(productBean.getProductName()).append(",");
+            }
+            orderList.deleteCharAt(orderList.length() - 1);
+            makeOrderPreparedStatement.setString(1, orderId.toString());
+            makeOrderPreparedStatement.setString(2, orderList.toString());
+            makeOrderPreparedStatement.setDouble(3, needPay);
+            makeOrderPreparedStatement.setString(4, userBean.getUserName());
+            int z = makeOrderPreparedStatement.executeUpdate();
+            if ( useri != 0 && mi > 0 && z != 0 ) {
                 safeCon.commit();
             }
             dbUtil.restoreSafeCon(safeCon);
@@ -79,6 +101,7 @@ public class OrderDAOImpl implements OrderDAO {
             } catch ( SQLException throwables ) {
                 throwables.printStackTrace();
             }
+            return false;
         }
         return true;
     }

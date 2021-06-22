@@ -29,7 +29,8 @@ public class MakeOrderServlet extends HttpServlet {
         if ( b ) {
             response.sendRedirect("success.html");
         } else {
-            response.sendRedirect("view/error.jsp");
+            request.setAttribute("msg", "余额不足，支付失败");
+            request.getRequestDispatcher("view/error.jsp").forward(request, response);
         }
     }
 }

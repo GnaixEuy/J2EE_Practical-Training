@@ -18,6 +18,11 @@ public class OrderServiceImpl implements OrderService {
 
     @Override
     public boolean makeOrder(List<ProductBean> list, UserBean user) {
-        return orderDAO.makeOrder(list, user);
+        try {
+            return orderDAO.makeOrder(list, user);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        return false;
     }
 }

@@ -27,11 +27,17 @@
     window.location.href = "view/UserLogin.jsp"
 </script>
 <%
-} else {
+} else if ( "支付失败，余额不足".equals(msg) ) {
+%>
+<script type="text/javascript">
+    alert("余额不足，支付失败")
+    window.location.href = "view/ShoppingCar.jsp"
+</script>
+<%
 %>
 <script type="text/javascript">
     alert("错误处理")
-    window.location.href = "index1.jsp"
+    window.location.href = "index.jsp"
 </script>
 <%
     }
