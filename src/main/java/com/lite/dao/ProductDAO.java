@@ -21,4 +21,9 @@ public interface ProductDAO {
 
     public int addProduct(ProductBean productBean);
 
+    public List<String> getAllProductType();
+
+    public int updateProduct(ProductBean productBean);
+
+
 }

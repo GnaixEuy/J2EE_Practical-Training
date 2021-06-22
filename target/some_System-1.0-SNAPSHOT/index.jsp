@@ -40,21 +40,23 @@
 
 <!--    header-area start    -->
 <%--<header class="header-area">--%>
-    <div class="header-top d-none d-xl-block d-lg-block d-md-block">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-5 col-lg-6 col-md-7">
-                    <div class="header-info-wrap"> <div class="header-info">
-                                                    <i class="far fa-phone"></i>
-                                                    <a href="tel:+012 (345) 789">联系热线</a>
-                                              </div>
-
-                        <div class="header-info">
-                            <i class="far fa-envelope-open"></i>
-                            <a href="/cdn-cgi/l/email-protection#1c6f696c6c736e685c7b717d7570327f7371"><span
-                                    class="__cf_email__" data-cfemail="ed9e989d9d829f99ad8a808c8481c38e8280">[邮箱热线]</span></a>
-                        </div>
+<div class="header-top d-none d-xl-block d-lg-block d-md-block">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-xl-5 col-lg-6 col-md-7">
+                <div class="header-info-wrap" style="margin-left: 90px">
+                    <div class="header-info">
+                        <i class="far fa-phone"></i>
+                        <a href="tel:+012 (345) 789">联系热线</a>
                     </div>
+
+                    <div class="header-info">
+                        <i class="far fa-envelope-open"></i>
+                        <a href="/cdn-cgi/l/email-protection#1c6f696c6c736e685c7b717d7570327f7371"><span
+                                class="__cf_email__"
+                                data-cfemail="ed9e989d9d829f99ad8a808c8481c38e8280">[邮箱热线]</span></a>
+                    </div>
+                </div>
                 </div>
                 <div class="col-xl-5 col-lg-6 col-md-5">
                     <div class="header-social">
@@ -113,9 +115,9 @@
 <%--                                        <li><a href="team.html">Team</a></li>--%>
 <%--                                        <li><a href="shop.html">Shop</a></li>--%>
 <%--                                        <li><a href="gallery.html">Gallery</a></li>--%>
-<%--                                        <li><a href="gallery-details.html">Gallery Details</a></li>--%>
-<%--                                    </ul>--%>
-<%--                                </li>--%>
+                                <%--                                        <li><a href="gallery-details.html">Gallery Details</a></li>--%>
+                                <%--                                    </ul>--%>
+                                <%--                                </li>--%>
                                 <li><a href="contact.html">联系</a></li>
                             </ul>
                         </nav>
@@ -123,7 +125,8 @@
                 </div>
                 <div class="col-xl-2 col-lg-9 col-md-8 col-6 align-self-center">
                     <div class="header-btn">
-                        <a href="#" class="a-btn">购物 <i class="fas fa-plus"></i></a>
+                        <a href="${pageContext.request.contextPath}/view/UserLogin.jsp" class="a-btn">购物 <i
+                                class="fas fa-plus"></i></a>
                         <div class="open-mobile-menu">
                             <a href="javascript:void(0);">
                                 <i class="far fa-bars"></i>
@@ -140,7 +143,7 @@
 <!--    slide-bar Start   -->
 <aside class="slide-bar">
     <div class="close-mobile-menu">
-        <a href="javascript:void(0);"><i class="fas fa-times"></i></a>  
+        <a href="javascript:void(0);"><i class="fas fa-times"></i></a>
     </div>
     <!--    Mobile Menu Start   -->
 <%--    <nav class="side-mobile-menu">--%>
@@ -287,24 +290,25 @@
 <%--                                <div class="home-slide-cat" data-animation="fadeInDown" data-delay="0.5s">--%>
 <%--                                    <a href="blog.html">Food & Vegetables</a>--%>
 <%--                                </div>--%>
-                                <div class="home-slide-title" data-animation="fadeInDown" data-delay="0.8s">
-                                    <h3><span>好茶</span></h3>
-                                        <h4>激发一份好的灵感</h4>
+    <div class="home-slide-title" data-animation="fadeInDown" data-delay="0.8s">
+        <h3><span>好茶</span></h3>
+        <h4>激发一份好的灵感</h4>
 
-                                </div>
-                                <div class="home-slide-btn" data-animation="fadeInDown" data-delay="1.1s">
-                                    <a href="blog.html" class="a-btn">learn more <i class="fas fa-plus"></i></a>
-                                    <a href="#" class="play-btn popup-video">
-                                        <i class="far fa-play-circle"></i>
-                                        <span>watch videos</span>
-                                    </a>
-                                </div>
-                                <div class="home-slide-shape" data-animation="zoomIn" data-delay="0.2s">
-                                    <svg xmlns="http://www.w3.org/2000/svg"
-                                         width="659px" height="657px">
-                                        <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
-                                              d="M404.619,98.175 C435.465,137.384 470.409,169.818 506.015,194.454 C541.384,219.602 577.416,236.952 604.940,257.895 C632.599,278.653 651.758,302.991 656.547,337.786 C661.846,371.693 652.776,416.057 635.756,456.388 C562.446,626.457 369.620,701.287 201.054,630.161 C32.989,558.367 -44.639,362.971 27.363,195.425 C45.542,152.856 71.175,116.687 102.501,84.718 C133.643,53.202 170.478,25.887 206.801,11.504 C243.244,-3.033 279.180,-4.649 311.323,11.602 C343.892,27.086 372.668,60.438 404.619,98.175 L404.619,98.175 Z"/>
-                                    </svg>
+    </div>
+    <div class="home-slide-btn" data-animation="fadeInDown" data-delay="1.1s">
+        <a href="blog.html" class="a-btn">learn more <i class="fas fa-plus"></i></a>
+        <a href="https://www.bilibili.com/video/BV1Ws411u73k?from=search&seid=2232649222334745743"
+           class="play-btn popup-video">
+            <i class="far fa-play-circle"></i>
+            <span>watch videos</span>
+        </a>
+    </div>
+    <div class="home-slide-shape" data-animation="zoomIn" data-delay="0.2s">
+        <svg xmlns="http://www.w3.org/2000/svg"
+             width="659px" height="657px">
+            <path fill-rule="evenodd" fill="rgb(255, 255, 255)"
+                  d="M404.619,98.175 C435.465,137.384 470.409,169.818 506.015,194.454 C541.384,219.602 577.416,236.952 604.940,257.895 C632.599,278.653 651.758,302.991 656.547,337.786 C661.846,371.693 652.776,416.057 635.756,456.388 C562.446,626.457 369.620,701.287 201.054,630.161 C32.989,558.367 -44.639,362.971 27.363,195.425 C45.542,152.856 71.175,116.687 102.501,84.718 C133.643,53.202 170.478,25.887 206.801,11.504 C243.244,-3.033 279.180,-4.649 311.323,11.602 C343.892,27.086 372.668,60.438 404.619,98.175 L404.619,98.175 Z"/>
+        </svg>
                                 </div>
                             </div>
                         </div>
@@ -488,7 +492,7 @@
                                     <a href="team.html"><img src="view/assets/img/team/team-3.jpg" alt="team"></a>
                                 </div>
                                 <div class="team-details">
-                                    <h4><a href="team.html">徐域杰</a></h4>
+                                    <h4><a href="team.html">徐宇杰</a></h4>
 <%--                                    <p>Organic Farmer</p>--%>
                                     <div class="social">
                                         <a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a>
@@ -605,6 +609,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
     <!--    brand-area end    -->
 </main>

@@ -56,13 +56,18 @@
                                required="required">
                     </div>
                     <div class="password mb-3">
-                        <label class="sr-only" for="producttype">种类</label>
-                        <input id="producttype" name="producttype" type="text"
-                               class="form-control signup-password" placeholder="请输入商品种类"
-                               required="required">
+                        <select class="form-control" name="producttype">
+                            <option selected hidden disabled value="默认">请选择产品种类</option>
+                            <c:forEach items="${requestScope.allProductTypeList}" var="selecttype"
+                                       varStatus="i">
+                                <option value="${selecttype}">
+                                        ${selecttype}
+                                </option>
+                            </c:forEach>
+                        </select>
                     </div>
                     <div class="password mb-3">
-                        <label class="sr-only" for="productstore">种类</label>
+                        <label class="sr-only" for="productstore">数量</label>
                         <input id="productstore" name="productstore" type="text"
                                class="form-control signup-password" placeholder="请输入商品数量"
                                required="required">

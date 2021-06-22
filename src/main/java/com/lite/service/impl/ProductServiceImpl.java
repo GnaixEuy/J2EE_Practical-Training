@@ -64,5 +64,23 @@ public class ProductServiceImpl implements ProductService {
         return 1 == productDAO.addProduct(productBean);
     }
 
+    @Override
+    public List<String> getAllProductType() {
+        return productDAO.getAllProductType();
+    }
+
+    @Override
+    public List<ProductBean> queryProductByType(String type) {
+        List<ProductBean> productBeanList = this.queryAllProductInfo();
+        productBeanList.removeIf(productBean -> !type.equals(productBean.getProductType()));
+        return productBeanList;
+    }
+
+
+    @Override
+    public boolean updateProductInfo(String id, String name, Double price, Integer store, String type, List<String> productMaterialsList) {
+        ProductBean productBean = new ProductBean(id, name, price, store, type, productMaterialsList);
+        return 1 == productDAO.updateProduct(productBean);
+    }
 
 }
