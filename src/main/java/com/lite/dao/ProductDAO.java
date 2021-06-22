@@ -25,5 +25,4 @@ public interface ProductDAO {
 
     public int updateProduct(ProductBean productBean);
 
-
 }

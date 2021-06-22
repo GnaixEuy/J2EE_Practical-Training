@@ -54,5 +54,5 @@ public interface UserService {
      */
     public boolean updateUserInfo(String id, String userName, String userPassword, String userTelephone);
 
-
+    public int CountAllUsers();
 }

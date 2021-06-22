@@ -24,9 +24,13 @@ public class AllUserServlet extends HttpServlet {
         try {
             AdminBean adminBean = (AdminBean) session.getAttribute("user");
             if ( adminBean != null && !"".equals(adminBean.getAdminName()) ) {
+//                int Users = 0;
                 UserServiceImpl userService = new UserServiceImpl();
                 List<UserBean> allUser = userService.getAllUser();
-                request.setAttribute("list", allUser);
+//                Users = userService.CountAllUsers();
+                  request.setAttribute("list", allUser);
+//                request.setAttribute("Users",Users);
+//                request.getRequestDispatcher("/AdminBackStageMainServlet.do").forward(request, response);
                 request.getRequestDispatcher("/view/account.jsp").forward(request, response);
             } else {
                 response.sendRedirect("view/error.jsp");

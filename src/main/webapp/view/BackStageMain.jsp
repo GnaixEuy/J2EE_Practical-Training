@@ -21,9 +21,13 @@
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
     <!-- FontAwesome JS-->
     <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
+
+    <%--    红点--%>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/red-point.css">
 </head>
 
 <body class="app">
+
 <header class="app-header fixed-top">
     <div class="app-header-inner">
         <div class="container-fluid py-2">
@@ -330,7 +334,12 @@
                                 </li>
                                 <li class="submenu-item">
                                     <a class="submenu-link" href="${pageContext.request.contextPath}/AllUserServlet.do"
-                                       target="content">全体信息</a>
+                                       target="content">全体信息
+                                        <c:if test="${requestScope.UsersNum == 0}">
+                                            <span class="minicart-number-red">${requestScope.UsersNum}</span></c:if>
+                                        <c:if test="${requestScope.UsersNum != 0}">
+                                            <span class="minicart-number-green">${requestScope.UsersNum}</span></c:if>
+                                    </a>
                                 </li>
                                 <%--                                <li class="submenu-item">--%>
                                 <%--                                    <a class="submenu-link"--%>
@@ -373,9 +382,15 @@
                                 </li>
                                 <%--                                <li class="submenu-item"><a class="submenu-link" href="signup.html">删除商品</a>--%>
                                 <%--                                </li>--%>
-                                <li class="submenu-item"><a class="submenu-link"
+                                <li class="submenu-item"><a class="submenu-link minicart-title"
                                                             target="content"
-                                                            href="${pageContext.request.contextPath}/AllProductsServlet.do?type=all">所有商品</a>
+                                                            href="${pageContext.request.contextPath}/AllProductsServlet.do?type=all">所有商品
+                                    <c:if test="${requestScope.Account == 0}">
+                                        <span class="minicart-number-red">${requestScope.Account}</span></c:if>
+                                    <c:if test="${requestScope.Account != 0}">
+                                        <span class="minicart-number-green">${requestScope.Account}</span></c:if>
+                                </a>
+
                                 </li>
                                 <%--                                <li class="submenu-item"><a target="content" class="submenu-link" href="#">修改商品</a>--%>
                                 <%--                                </li>--%>

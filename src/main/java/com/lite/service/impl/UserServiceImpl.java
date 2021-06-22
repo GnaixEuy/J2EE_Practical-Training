@@ -73,4 +73,9 @@ public class UserServiceImpl implements UserService {
         user.setUserPhone(userTelephone);
         return 1 == userDao.update(user);
     }
+
+    @Override
+    public int CountAllUsers() {
+        return userDao.CountAllUser();
+    }
 }
