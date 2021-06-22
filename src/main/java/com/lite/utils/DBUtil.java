@@ -15,6 +15,7 @@ import java.util.ResourceBundle;
 public class DBUtil {
 
     private static HashMap<Connection, Boolean> connectionHashMap;
+    private static HashMap<Connection, Boolean> safeConnectionHashMap;
 
     /**
      * connectionHashMap放这
@@ -23,6 +24,10 @@ public class DBUtil {
      */
     public static void setConnectionHashMap(HashMap<Connection, Boolean> connectionHashMap) {
         DBUtil.connectionHashMap = connectionHashMap;
+    }
+
+    public static void setSafeConnectionHashMap(HashMap<Connection, Boolean> connectionHashMap) {
+        DBUtil.safeConnectionHashMap = connectionHashMap;
     }
 
     static ResourceBundle resourceBundle;
@@ -96,6 +101,14 @@ public class DBUtil {
     public void closeAllConnection() throws Exception {
         //遍历hashmap关闭所有连接
         for ( Connection connection : connectionHashMap.keySet() ) {
+            if ( connection != null ) {
+                if ( !closeConnection(connection) ) {
+                    System.out.println("关闭出现异常");
+                    throw new Exception();
+                }
+            }
+        }
+        for ( Connection connection : safeConnectionHashMap.keySet() ) {
             if ( connection != null ) {
                 if ( !closeConnection(connection) ) {
                     System.out.println("关闭出现异常");
@@ -204,6 +217,44 @@ public class DBUtil {
         if ( connection != null ) {
             try {
                 connectionHashMap.put(connection, true);
+            } catch ( Exception e ) {
+                e.printStackTrace();
+                return false;
+            }
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 获取不自动提交事务的连接
+     *
+     * @return connection
+     */
+    public Connection getSafeCon() {
+        Iterator<Connection> iterator = safeConnectionHashMap.keySet().iterator();
+        Connection connection;
+        while ( iterator.hasNext() ) {
+            connection = iterator.next();
+            boolean isFree = connectionHashMap.get(connection);
+            if ( isFree ) {
+                connectionHashMap.put(connection, false);
+                return connection;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * 归还安全Connection
+     *
+     * @param connection
+     * @return 成功与否
+     */
+    public boolean restoreSafeCon(Connection connection) {
+        if ( connection != null ) {
+            try {
+                safeConnectionHashMap.put(connection, true);
             } catch ( Exception e ) {
                 e.printStackTrace();
                 return false;

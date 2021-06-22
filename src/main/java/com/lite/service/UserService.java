@@ -28,7 +28,6 @@ public interface UserService {
      *
      * @param loginId
      * @param loginPassword
-     * @param userInfoToSession
      * @return boolean
      */
     public boolean userLoginVerification(String loginId, String loginPassword);

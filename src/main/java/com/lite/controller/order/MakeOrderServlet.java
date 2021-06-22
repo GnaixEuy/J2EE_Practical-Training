@@ -1,10 +1,12 @@
-package com.lite.controller.product; /**
+package com.lite.controller.order; /**
  * @author GnaixEuy
- * @date 2021/6/22 10:45
+ * @date 2021/6/22 14:29
  */
 
 import com.lite.bean.ProductBean;
-import com.lite.service.impl.ProductServiceImpl;
+import com.lite.bean.UserBean;
+import com.lite.dao.OrderDAO;
+import com.lite.dao.impl.OrderDAOImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,17 +17,19 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AddProductToShopCarServlet", value = "/AddProductToShopCarServlet.do")
-public class AddProductToShopCarServlet extends HttpServlet {
+@WebServlet(name = "MakeOrderServlet", value = "/MakeOrderServlet.do")
+public class MakeOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        ProductServiceImpl productService = new ProductServiceImpl();
-        ProductBean productBean = productService.queryProductInfoById(id);
         HttpSession session = request.getSession();
+        UserBean user = (UserBean) session.getAttribute("user");
         List<ProductBean> carList = (List<ProductBean>) session.getAttribute("carList");
-        carList.add(productBean);
-        session.setAttribute("carList", carList);
-        request.getRequestDispatcher("view/UserIndex.jsp").forward(request, response);
+        OrderDAO orderDAO = new OrderDAOImpl();
+        boolean b = orderDAO.makeOrder(carList, user);
+        if ( b ) {
+            response.sendRedirect("success.html");
+        } else {
+            response.sendRedirect("view/error.jsp");
+        }
     }
 }

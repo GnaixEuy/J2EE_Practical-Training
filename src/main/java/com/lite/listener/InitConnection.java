@@ -2,7 +2,6 @@ package com.lite.listener;
 
 import com.lite.utils.DBUtil;
 
-import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.sql.Connection;
@@ -28,6 +27,7 @@ public class InitConnection implements ServletContextListener {
     public void contextInitialized(ServletContextEvent sce) {
         // true为当前connection可用状态，false为已经被占用
         HashMap<Connection, Boolean> connectionHashMap = new HashMap<>(dbUtil.getConnectionNum());
+        HashMap<Connection, Boolean> safeConnectionHashMap = new HashMap<>(dbUtil.getConnectionNum());
         try {
             int connectionNum = dbUtil.getConnectionNum();
             Connection connection;
@@ -35,10 +35,17 @@ public class InitConnection implements ServletContextListener {
                 connection = dbUtil.getConnection();
                 connectionHashMap.put(connection, true);
             }
+            System.out.println("----------------------");
+            for ( int i = 0; i < connectionNum; i++ ) {
+                connection = dbUtil.getConnection();
+                connection.setAutoCommit(false);
+                safeConnectionHashMap.put(connection, true);
+            }
         } catch ( Exception e ) {
             e.printStackTrace();
         }
         DBUtil.setConnectionHashMap(connectionHashMap);
+        DBUtil.setSafeConnectionHashMap(safeConnectionHashMap);
     }
 
     /**

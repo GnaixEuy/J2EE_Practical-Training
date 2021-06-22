@@ -67,7 +67,7 @@
                             <li>材料ID：${material.materialId}</li>
                             <li><a href="#" class="__cf_email__"
                                    data-cfemail="c4a2b1a0a1a184a1bca5a9b4a8a1eaa7aba9">进货（未完成）</a></li>
-                            <li>库存余量：${material.materialPrice}<br> 进货价格：${material.materialStore}</li>
+                            <li>库存余量：${material.materialStore}<br> 进货价格：${material.materialPrice}</li>
                         </ul>
                     </div>
                 </div>

@@ -1,10 +1,10 @@
 package com.lite.controller.product; /**
  * @author GnaixEuy
- * @date 2021/6/22 10:45
+ * @date 2021/6/22 14:11
  */
 
 import com.lite.bean.ProductBean;
-import com.lite.service.impl.ProductServiceImpl;
+import com.lite.bean.UserBean;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,17 +15,16 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AddProductToShopCarServlet", value = "/AddProductToShopCarServlet.do")
-public class AddProductToShopCarServlet extends HttpServlet {
+@WebServlet(name = "DeleteProductFromShopCarServlet", value = "/DeleteProductFromShopCarServlet.do")
+public class DeleteProductFromShopCarServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String id = request.getParameter("id");
-        ProductServiceImpl productService = new ProductServiceImpl();
-        ProductBean productBean = productService.queryProductInfoById(id);
+        String deleteId = request.getParameter("deleteId");
         HttpSession session = request.getSession();
+        UserBean user = (UserBean) session.getAttribute("user");
         List<ProductBean> carList = (List<ProductBean>) session.getAttribute("carList");
-        carList.add(productBean);
+        carList.removeIf(productBean -> deleteId.equals(productBean.getId()));
         session.setAttribute("carList", carList);
-        request.getRequestDispatcher("view/UserIndex.jsp").forward(request, response);
+        request.getRequestDispatcher("view/ShoppingCar.jsp").forward(request, response);
     }
 }

@@ -25,21 +25,23 @@
 
     <table width="200px" class="table table-hover">
         <tr>
-            <th>#</th>
+<%--            <th>#</th>--%>
             <th>产品名称</th>
             <th>产品价格</th>
             <th>产品类型</th>
-            <th>产品配料</th>
+            <%--            <th>产品配料</th>--%>
             <th></th>
         </tr>
         <c:forEach items="${sessionScope.carList}" var="selectProduct" varStatus="i">
             <tr>
-                <td>${selectProduct.id}</td>
+                    <%--                <td>${selectProduct.id}</td>--%>
                 <td>${selectProduct.productName}</td>
                 <td>${selectProduct.productPrice}</td>
                 <td>${selectProduct.productType}</td>
-                <td>${selectProduct.productMaterialsList}</td>
-                <td><a>删除</a></td>
+                    <%--                <td>${selectProduct.productMaterialsList}</td>--%>
+                <td>
+                    <a href="${pageContext.request.contextPath}/DeleteProductFromShopCarServlet.do?deleteId=${selectProduct.id}">删除</a>
+                </td>
             </tr>
         </c:forEach>
     </table>

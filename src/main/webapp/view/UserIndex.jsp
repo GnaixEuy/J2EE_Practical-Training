@@ -105,15 +105,6 @@
         <!-- end side widget -->
 
         <!-- start side widget -->
-        <div class="sidebar-widget" style="top: auto;">
-            <div class="info-wdget">
-                <h4 class="widget-title">Phone Number</h4>
-                <p> +0989 7876 9865 9 </p>
-            </div>
-        </div>
-        <!-- end side widget -->
-
-        <!-- start side widget -->
         <div class="sidebar-widget" style="top: auto">
             <div class="social-widget">
                 <a href="#">
