@@ -35,10 +35,9 @@
                     <img class="logo-icon mr-2"
                          src="http://blog.GnaixEuy.cn/wp-content/uploads/2021/06/DAD20A172A1B097D1A9DE3E5D72D47E3.jpg"
                          alt="logo"></a></div>
-                <h2 class="auth-heading text-center mb-4">Password Reset</h2>
+                <h2 class="auth-heading text-center mb-4">重置密码</h2>
 
-                <div class="auth-intro mb-4 text-center">Enter your email address below. We'll email you a link to a
-                    page where you can easily create a new password.
+                <div class="auth-intro mb-4 text-center">
                 </div>
 
                 <div class="auth-form-container text-left">
@@ -57,31 +56,19 @@
                                    placeholder="确认密码" required="required">
                         </div>
                         <div class="text-center">
-                            <button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">Reset
-                                Password
+                            <button type="submit" class="btn app-btn-primary btn-block theme-btn mx-auto">修改密码
                             </button>
                         </div>
                     </form>
 
-                    <div class="auth-option text-center pt-5"><a class="app-link"
-                                                                 href="${pageContext.request.contextPath}/view/UserLogin.jsp">Log
-                        in</a> <span
-                            class="px-2">|</span> <a class="app-link"
-                                                     href="${pageContext.request.contextPath}/view/signup.jsp">Sign
-                        up</a></div>
                 </div><!--//auth-form-container-->
 
 
             </div><!--//auth-body-->
 
-            <footer class="app-auth-footer">
-                <div class="container text-center py-3">
-                    <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-                    <small class="copyright">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank"
-                                                                                                       href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></small>
+<%--            <footer class="app-auth-footer">--%>
 
-                </div>
-            </footer><!--//app-auth-footer-->
+<%--            </footer><!--//app-auth-footer-->--%>
         </div><!--//flex-column-->
     </div><!--//auth-main-col-->
     <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
@@ -90,14 +77,8 @@
         <div class="auth-background-mask"></div>
         <div class="auth-background-overlay p-3 p-lg-5">
             <div class="d-flex flex-column align-content-end h-100">
-                <div class="h-100"></div>
-                <div class="overlay-content p-3 p-lg-4 rounded">
-                    <h5 class="mb-3 overlay-title">Explore Portal Admin Template</h5>
-                    <div>Portal is a free Bootstrap 5 admin dashboard template. You can download and view the template
-                        license <a
-                                href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">here</a>.
-                    </div>
-                </div>
+                <div class="h-100"><img src="http://blog.GnaixEuy.cn/wp-content/uploads/2021/06/background-3.jpg" style="width: 100% ;height: 100%"></div>
+
             </div>
         </div><!--//auth-background-overlay-->
     </div><!--//auth-background-col-->

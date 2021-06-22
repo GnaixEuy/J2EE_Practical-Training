@@ -25,9 +25,10 @@ public class UpDealProductServlet extends HttpServlet {
         Double productPrice = Double.parseDouble(request.getParameter("product_price"));
         int productStore = Integer.parseInt(request.getParameter("product_store"));
         String productType = request.getParameter("product_type");
-        List<String> productMaterials = Arrays.asList(request.getParameterValues("product_materials"));
+        String[] productMaterials = request.getParameterValues("product_materials");
+        List<String> productMaterialsList = Arrays.asList(productMaterials);
         ProductService productService = new ProductServiceImpl();
-        if ( productService.updateProductInfo(productId, productName, productPrice, productStore, productType, productMaterials) ) {
+        if ( productService.updateProductInfo(productId, productName, productPrice, productStore, productType, productMaterialsList) ) {
             response.sendRedirect("success.html");
         } else {
             response.sendRedirect("view/error.jsp");

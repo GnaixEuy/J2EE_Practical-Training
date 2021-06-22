@@ -31,7 +31,7 @@ public interface UserService {
      * @param userInfoToSession
      * @return boolean
      */
-    public boolean userLoginVerification(String loginId, String loginPassword, UserBean userInfoToSession);
+    public boolean userLoginVerification(String loginId, String loginPassword);
 
     /**
      * 获取所有会员对象

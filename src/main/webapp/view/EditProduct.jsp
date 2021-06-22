@@ -47,7 +47,7 @@
                         </div>
 
                         <div class="password mb-3">
-                            <select class="form-control" name="producttype">
+                            <select class="form-control" name="product_type">
                                 <c:forEach items="${requestScope.allProductTypeList}" var="selecttype"
                                            varStatus="i">
                                     <c:if test="${requestScope.product.productType.equals(selecttype)}">
@@ -67,12 +67,12 @@
                             <c:forEach items="${requestScope.materialsList}" var="material" varStatus="i">
                                 <label class="checkbox-inline">
                                     <c:if test="${requestScope.product.productMaterials.contains(material.materialName)}">
-                                        <input type="checkbox" id="inlineCheckbox" checked name="productmaterials"
+                                        <input type="checkbox" id="inlineCheckbox" checked name="product_materials"
                                                value="${material.materialName}">
                                         ${material.materialName}
                                     </c:if>
                                     <c:if test="${!requestScope.product.productMaterials.contains(material.materialName)}">
-                                        <input type="checkbox" id="inlineCheckbox" name="productmaterials"
+                                        <input type="checkbox" id="inlineCheckbox" name="product_materials"
                                                value="${material.materialName}">
                                         ${material.materialName}
                                     </c:if>

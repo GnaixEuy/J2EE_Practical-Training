@@ -38,7 +38,7 @@
                           action="${pageContext.request.contextPath}/RegisterUserServlet.do">
                         <div class="email mb-3">
                             <label class="sr-only" for="signup-id">账号</label>
-                            <input id="signup-id" name="id" type="text" class="form-control signup-name"
+                            <input id="signup-id" name="id" type="email" class="form-control signup-name"
                                    placeholder="请输入账号" required="required">
                         </div>
                         <div class="email mb-3">
