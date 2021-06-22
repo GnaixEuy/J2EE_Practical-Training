@@ -65,10 +65,6 @@
                                 </option>
                             </c:forEach>
                         </select>
-                        <%--                        <label class="sr-only" for="producttype">种类</label>--%>
-                        <%--                        <input id="producttype" name="producttype" type="text"--%>
-                        <%--                               class="form-control signup-password" placeholder="请输入商品种类"--%>
-                        <%--                               required="required">--%>
                     </div>
                     <div class="password mb-3">
                         <label class="sr-only" for="productstore">数量</label>

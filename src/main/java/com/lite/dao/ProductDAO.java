@@ -23,4 +23,7 @@ public interface ProductDAO {
 
     public List<String> getAllProductType();
 
+    public int updateProduct(ProductBean productBean);
+
+
 }

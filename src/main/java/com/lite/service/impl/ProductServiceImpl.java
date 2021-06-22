@@ -76,4 +76,11 @@ public class ProductServiceImpl implements ProductService {
         return productBeanList;
     }
 
+
+    @Override
+    public boolean updateProductInfo(String id, String name, Double price, Integer store, String type, List<String> productMaterialsList) {
+        ProductBean productBean = new ProductBean(id, name, price, store, type, productMaterialsList);
+        return 1 == productDAO.updateProduct(productBean);
+    }
+
 }

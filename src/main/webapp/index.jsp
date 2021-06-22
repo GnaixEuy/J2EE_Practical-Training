@@ -23,10 +23,7 @@
 
     <title>咔咔西</title>
 </head>
-<script src="${pageContext.request.contextPath}/static/js/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-
-</script>
+<script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
 <body>
 
 <!-- preloader -->

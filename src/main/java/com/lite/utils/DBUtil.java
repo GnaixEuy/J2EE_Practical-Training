@@ -7,8 +7,6 @@ package com.lite.utils;
  * @date 2021/06/15
  */
 
-import javax.servlet.ServletContext;
-import javax.servlet.http.HttpServletRequest;
 import java.sql.*;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -138,6 +136,7 @@ public class DBUtil {
             ret = preparedStatement.executeUpdate();
         } catch ( Exception e ) {
             e.printStackTrace();
+            connection.rollback();
         } finally {
             if ( !this.restoreCon(connection) ) {
                 ret = 0;
@@ -155,6 +154,7 @@ public class DBUtil {
      */
     public ResultSet query(String sql, Object... params) {
         Connection connection = null;
+        resultSet = null;
         try {
             connection = this.getCon();
             preparedStatement = connection.prepareStatement(sql);
@@ -163,15 +163,9 @@ public class DBUtil {
                     preparedStatement.setObject(i + 1, params[i]);
                 }
             }
-            resultSet = null;
             resultSet = preparedStatement.executeQuery();
         } catch ( Exception e ) {
             e.printStackTrace();
-            try {
-                connection.rollback();
-            } catch ( SQLException throwables ) {
-                throwables.printStackTrace();
-            }
         } finally {
             this.restoreCon(connection);
         }

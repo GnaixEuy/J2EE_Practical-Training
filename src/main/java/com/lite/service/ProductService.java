@@ -33,4 +33,5 @@ public interface ProductService {
 
     public List<ProductBean> queryProductByType(String type);
 
+    public boolean updateProductInfo(String id, String name, Double price, Integer store, String type, List<String> productMaterialsList);
 }
