@@ -1,5 +1,6 @@
 package com.lite.dao;
 
+import com.lite.bean.OrderBean;
 import com.lite.bean.ProductBean;
 import com.lite.bean.UserBean;
 
@@ -12,4 +13,10 @@ import java.util.List;
 public interface OrderDAO {
 
     public boolean makeOrder(List<ProductBean> list, UserBean userBean);
+
+    public List<OrderBean> queryAllOrderList();
+
+    public OrderBean queryOrderInfo(String id);
+
+    public int updateOrderInfo(OrderBean orderBean);
 }

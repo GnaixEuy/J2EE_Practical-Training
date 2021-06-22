@@ -430,7 +430,7 @@
                             <div class="team-wrap">
                                 <div class="team-thumb">
                                     <a href="team.html">
-                                        <img src="view/assets/img/team/team-1.jpg" alt="team">
+                                        <img src="view/assets/img/team/t1.jpg" alt="team">
                                     </a>
                                 </div>
                                 <div class="team-details">
@@ -449,7 +449,7 @@
                             <div class="team-wrap">
                                 <div class="team-thumb">
                                     <a href="team.html">
-                                        <img src="view/assets/img/team/team-4.jpg" alt="team">
+                                        <img src="view/assets/img/team/t2.jpg" alt="team">
                                     </a>
                                 </div>
                                 <div class="team-details">
@@ -468,7 +468,7 @@
                             <div class="team-wrap">
                                 <div class="team-thumb">
                                     <a href="team.html">
-                                        <img src="view/assets/img/team/team-2.jpg" alt="team">
+                                        <img src="view/assets/img/team/t3.jpg" alt="team">
                                     </a>
                                 </div>
                                 <div class="team-details">
@@ -486,7 +486,7 @@
                         <div class="team-slide">
                             <div class="team-wrap">
                                 <div class="team-thumb">
-                                    <a href="team.html"><img src="view/assets/img/team/team-3.jpg" alt="team"></a>
+                                    <a href="team.html"><img src="view/assets/img/team/t4.jpg" alt="team"></a>
                                 </div>
                                 <div class="team-details">
                                     <h4><a href="team.html">徐宇杰</a></h4>

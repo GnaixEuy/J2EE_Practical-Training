@@ -1,5 +1,6 @@
 package com.lite.service.impl;
 
+import com.lite.bean.OrderBean;
 import com.lite.bean.ProductBean;
 import com.lite.bean.UserBean;
 import com.lite.dao.OrderDAO;
@@ -25,4 +26,17 @@ public class OrderServiceImpl implements OrderService {
         }
         return false;
     }
+
+    @Override
+    public List<OrderBean> queryAllOrder() {
+        return orderDAO.queryAllOrderList();
+    }
+
+    @Override
+    public boolean updateOrderStatus(String id, String status) {
+        OrderBean orderBean = orderDAO.queryOrderInfo(id);
+        orderBean.setStatus(status);
+        return 1 == orderDAO.updateOrderInfo(orderBean);
+    }
+
 }

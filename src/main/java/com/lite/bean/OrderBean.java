@@ -9,23 +9,43 @@ import java.util.Date;
  * @date 2021/6/17 00:00
  */
 public class OrderBean {
-    private Integer id;
+    private String id;
     private String productName;
     private Date puchaseTime;
     private Double puchasingPrice;
+    private String orderUserId;
+    private String status;
 
-    public OrderBean(Integer id, String productName, Date puchaseTime, Double puchasingPrice) {
+    public OrderBean(String id, String productName, Date puchaseTime, Double puchasingPrice, String orderUserId, String status) {
         this.id = id;
         this.productName = productName;
         this.puchaseTime = puchaseTime;
         this.puchasingPrice = puchasingPrice;
+        this.orderUserId = orderUserId;
+        this.status = status;
     }
 
-    public Integer getId() {
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public String getOrderUserId() {
+        return orderUserId;
+    }
+
+    public void setOrderUserId(String orderUserId) {
+        this.orderUserId = orderUserId;
+    }
+
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 

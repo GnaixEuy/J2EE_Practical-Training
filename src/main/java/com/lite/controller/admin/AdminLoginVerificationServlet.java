@@ -38,17 +38,14 @@ public class AdminLoginVerificationServlet extends HttpServlet {
             AdminBean adminBean = new AdminBean(id, password);
             int count = 0;
             int UsersNum = 0;
-
-
             if (adminService.LoginIsLegal(adminBean)) {
+                count = productService.getProductsNumInWareHourse();
                 UsersNum = userService.CountAllUsers();
                 request.setAttribute("UsersNum",UsersNum);
-//                request.getRequestDispatcher("/AdminBackStageMainServlet.do").forward(request, response);
-
-                count = productService.getProductsNumInWareHourse();
                 request.setAttribute("Account", count);
                 HttpSession session = request.getSession();
                 session.setAttribute("user", adminBean);
+                session.setAttribute("adminUserName", adminBean.getId());
                 request.getRequestDispatcher("/AdminBackStageMainServlet.do").forward(request, response);
             } else {
                 String msg = "管理员信息不存在";
