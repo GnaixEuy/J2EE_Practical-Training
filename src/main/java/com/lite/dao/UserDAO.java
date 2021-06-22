@@ -60,4 +60,6 @@ public interface UserDAO {
      */
     public boolean queryUserInfo(UserBean userBean);
 
+    public int CountAllUser();
+
 }

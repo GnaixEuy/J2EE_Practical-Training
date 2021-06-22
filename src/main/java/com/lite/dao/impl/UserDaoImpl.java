@@ -98,5 +98,20 @@ public class UserDaoImpl implements UserDAO {
         return isLive;
     }
 
+    @Override
+    public int CountAllUser() {
+        String sql = "select count(*) from users";
+        int UsersCount = 0;
+        try {
+            ResultSet resultSet = dbUtil.query(sql);
+            if ( resultSet.next() ) {
+                UsersCount = resultSet.getInt(1);
+            }
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        return UsersCount;
+    }
+
 
 }
