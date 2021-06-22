@@ -62,7 +62,9 @@
                         <div class="app-card app-card-doc shadow-sm  h-100">
                             <div class="app-card-thumb-holder p-3">
                                 <div class="app-card-thumb">
-                                    <img class="thumb-image" src="view/assets/images/doc-thumb-1.jpg" alt="">
+                                    <img class="thumb-image"
+                                         src="${pageContext.request.contextPath}/view/assets/images/doc-thumb-1.jpg"
+                                         alt="">
                                 </div>
                                 <a class="app-card-link-mask" href="#file-link"></a>
                             </div>
@@ -143,9 +145,7 @@
                                         </ul>
                                     </div><!--//dropdown-->
                                 </div><!--//app-card-actions-->
-
                             </div><!--//app-card-body-->
-
                         </div><!--//app-card-->
                     </div>
                     <!--//col-->

@@ -55,7 +55,7 @@
                 <form action="${pageContext.request.contextPath}/UserLoginVerificationServlet.do" method="post"
                       class="signin-form">
                     <div class="input-grids">
-                        <input type="email" name="id" id="w3lName" placeholder="用户名" class="contact-input" autofocus
+                        <input type="text" name="id" id="w3lName" placeholder="用户名" class="contact-input" autofocus
                                required=""/>
                         <input type="text" name="password" id="w3lSender" placeholder="密码" class="contact-input"
                                autofocus

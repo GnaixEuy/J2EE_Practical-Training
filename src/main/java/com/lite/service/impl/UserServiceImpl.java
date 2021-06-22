@@ -54,7 +54,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean userLoginVerification(String loginId, String loginPassword, UserBean userInfoToSession) {
+    public boolean userLoginVerification(String loginId, String loginPassword) {
         boolean ret = false;
         UserBean userBean = this.getUserBeanById(loginId);
         if ( userBean != null ) {

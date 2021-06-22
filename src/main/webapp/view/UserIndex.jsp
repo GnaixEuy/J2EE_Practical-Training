@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: GnaixEuy
@@ -178,7 +179,8 @@
 <main>
     <!--    breadcrumb-area start    -->
     <section class="breadcrumb-area pt-180 pb-180 pt-md-120 pb-md-120 pt-xs-100 pb-xs-100 bg-fix" data-overlay="dark"
-             data-opacity="7" style="background-image: url(assets/img/bg/breadcrumb-bg.jpg)">
+             data-opacity="7"
+             style="background-image: url(${pageContext.request.contextPath}/view/assets/img/bg/breadcrumb-bg.jpg)">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-lg-8 text-center">
@@ -201,7 +203,10 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-5 col-md-6 col-sm-7">
                     <div class="product-showing">
-                        <p style="display: inline;">Showing 1–22 of 32 results</p sty>
+                        <p style="display: inline;">欢迎你：${sessionScope.user.userName}(${sessionScope.user.userId})</p>
+                        <p style="display: inline;">本店产品共<span style="color: rgba(142,194,86,70); font-size: large">
+                            ${applicationScope.productnum}
+                        </span>件</p>
                     </div>
                     <%--            <div class="header-btn">--%>
 
@@ -210,11 +215,12 @@
                 <div class="col-xl-6 col-md-6 col-sm-5">
                     <div class="pro-filter mb-40 f-left">
                         <form action="#">
-                            <select name="pro-filter" id="pro-filter">
-                                <option value="1">Shop By</option>
-                                <option value="2">Top Sales</option>
-                                <option value="3">New Product</option>
-                                <option value="4">A to Z Product</option>
+                            <select name="pro-filter" id="pro-filter"
+                                    onchange="window.location=this.value;">
+                                <option selected>所有</option>
+                                <c:forEach items="${applicationScope.allProductType}" var="type" varStatus="t">
+                                    <option value="t">${type}</option>
+                                </c:forEach>
                             </select>
                         </form>
                     </div>
@@ -229,342 +235,39 @@
                 </div>
             </div>
             <div class="row product-filter-grid">
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-1.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Fresh Orange</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-2.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Fresh banana</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
+                <c:forEach items="${applicationScope.productList}" var="product" varStatus="i">
+                    <div class="col-xl-3 col-md-6">
+                        <div class="product-wrap">
+                            <div class="product-thumb">
+                                <a href="shop.html"><img
+                                        src="${pageContext.request.contextPath}/view/assets/img/product/product-1.jpg"
+                                        alt="product"></a>
+                            </div>
+                            <div class="product-details">
+                                <h5><a href="shop.html">${product.productName}</a></h5>
+                                <ul class="product-rating">
+                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                    <li><a href="#"><i class="far fa-star"></i></a></li>
+                                </ul>
+                                <span class="product-price"> 价格：${product.productPrice} </span>
+                            </div>
+                            <div class="product-hover">
+                                <ul class="product-btns">
+                                    <li><a href="#"><i class="far fa-expand"></i></a></li>
+                                    <li><a href="#"><i class="far fa-heart"></i></a></li>
+                                    <li><a href="#"><i class="far fa-repeat"></i></a></li>
+                                </ul>
+                                <a href="${pageContext.request.contextPath}/AddProductToShopCarServlet.do?id=${product.id}"
+                                   class="a-btn">
+                                    Add to cart <i class="fas fa-plus"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-3.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Seasoned Beans</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-4.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Organic Tomato</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-3.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Seasoned Beans</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-1.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Fresh Orange</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-2.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Fresh banana</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-4.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Organic Tomato</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-1.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Fresh Orange</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-2.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Fresh banana</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-3.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Seasoned Beans</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-md-6">
-                    <div class="product-wrap">
-                        <div class="product-thumb">
-                            <a href="shop.html"><img src="assets/img/product/product-4.jpg" alt="product"></a>
-                        </div>
-                        <div class="product-details">
-                            <h5><a href="shop.html">Organic Tomato</a></h5>
-                            <ul class="product-rating">
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                                <li><a href="#"><i class="far fa-star"></i></a></li>
-                            </ul>
-                            <span class="product-price"> $49.99 </span>
-                        </div>
-                        <div class="product-hover">
-                            <ul class="product-btns">
-                                <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                <li><a href="#"><i class="far fa-repeat"></i></a></li>
-                            </ul>
-                            <a href="shop.html" class="a-btn">
-                                Add to cart <i class="fas fa-plus"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                </c:forEach>
             </div>
             <div class="row">
                 <div class="col-xl-12">
@@ -585,59 +288,70 @@
     <!--    product-area end    -->
 
     <!--    brand-area start    -->
-    <div class="brand-area pt-80 pb-80 bg-fix" style="background-image: url(assets/img/bg/brand-bg.png)">
+    <div class="brand-area pt-80 pb-80 bg-fix"
+         style="background-image: url(${pageContext.request.contextPath}/view/assets/img/bg/brand-bg.png)">
         <div class="container">
             <div class="row">
                 <div class="col-xl-12">
                     <div class="brand-slider">
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-1.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-1.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-2.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-2.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-3.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-3.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-4.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-4.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-5.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-5.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-1.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-1.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-2.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-2.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-3.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-3.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-4.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-4.png"
+                                     alt="brand">
                             </div>
                         </div>
                         <div class="brand-slide">
                             <div class="brand-wrap">
-                                <img src="assets/img/brand/brand-5.png" alt="brand">
+                                <img src="${pageContext.request.contextPath}/view/assets/img/brand/brand-5.png"
+                                     alt="brand">
                             </div>
                         </div>
                     </div>
