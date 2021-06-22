@@ -28,15 +28,22 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/metisMenu.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/main.css">
 
-    <title>Fudee</title>
+    <script>
+        window.onload = function () {
+            $("#key").click(function () {
+                $("#openMenu").click()
+            })
+        }
+    </script>
+    <title>欢迎选购</title>
 </head>
 
 <body>
 <!--    slide-bar Start   -->
 <aside class="slide-bar">
-    <div class="close-mobile-menu">
-        <a href="javascript:void(0);"><i class="fas fa-times"></i></a>
-    </div>
+    <%--    <div class="close-mobile-menu">--%>
+    <%--        <a href="javascript:void(0);"><i class="fas fa-times"></i></a>--%>
+    <%--    </div>--%>
     <!--    Mobile Menu Start   -->
     <nav class="side-mobile-menu">
         <ul id="mobile-menu-active">
@@ -82,77 +89,32 @@
         <!-- start side widget -->
         <div class="sidebar-widget logo-side">
             <a href="index.html">
-                <img src="assets/img/logo/logo.png" alt="logo">
+                <img src="${pageContext.request.contextPath}/view/assets/img/logo/logo.png" alt="logo">
             </a>
         </div>
         <!-- end side widget -->
 
         <!-- start side widget -->
-        <div class="sidebar-widget">
-            <div class="info-wdget">
-                <h4 class="widget-title">Office Address</h4>
-                <p>
-                    23/A, Miranda City Likaoli Prikano, Dope
-                </p>
+        <div class="sidebar-widget" style="height: auto">
+            <div class="info-wdget" style="height: 550px">
+                <h4 class="widget-title">购物清单</h4>
+                <iframe frameborder="0" style="height: 100%; width: 100%" name="shopcarframe">
+                </iframe>
             </div>
         </div>
         <!-- end side widget -->
 
         <!-- start side widget -->
-        <div class="sidebar-widget">
+        <div class="sidebar-widget" style="top: auto;">
             <div class="info-wdget">
                 <h4 class="widget-title">Phone Number</h4>
                 <p> +0989 7876 9865 9 </p>
-                <p> +(090) 8765 86543 85 </p>
             </div>
         </div>
         <!-- end side widget -->
 
         <!-- start side widget -->
-        <div class="sidebar-widget">
-            <div class="info-wdget">
-                <h4 class="widget-title">Email Address</h4>
-                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                      data-cfemail="8be2e5ede4cbeef3eae6fbe7eea5e8e4e6">[email&#160;protected]</a></p>
-                <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
-                      data-cfemail="e18499808c918d84cf8c80888da189948ccf828e8c">[email&#160;protected]</a></p>
-            </div>
-        </div>
-        <!-- end side widget -->
-
-        <!-- start side widget -->
-        <div class="sidebar-widget">
-            <div class="instagram">
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/view/assets/img/widget/instagram-1.jpg"
-                         alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/view/assets/img/widget/instagram-2.jpg"
-                         alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/view/assets/img/widget/instagram-3.jpg"
-                         alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/view/assets/img/widget/instagram-4.jpg"
-                         alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/view/assets/img/widget/instagram-5.jpg"
-                         alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="${pageContext.request.contextPath}/view/assets/img/widget/instagram-6.jpg"
-                         alt="instagram">
-                </a>
-            </div>
-        </div>
-        <!-- end side widget -->
-
-        <!-- start side widget -->
-        <div class="sidebar-widget">
+        <div class="sidebar-widget" style="top: auto">
             <div class="social-widget">
                 <a href="#">
                     <i class="fab fa-facebook-f"></i>
@@ -203,17 +165,22 @@
             <div class="row">
                 <div class="col-xl-6 col-lg-5 col-md-6 col-sm-7">
                     <div class="product-showing">
-                        <p style="display: inline;">欢迎你：${sessionScope.user.userName}(${sessionScope.user.userId})</p>
+                        <p style="display: inline;">
+                            欢迎你：
+                            <span style="color: rgba(142,194,86,70); ">
+                                ${sessionScope.user.userName}
+                            </span>
+                            (<span style="color: rgba(142,194,86,70); ">
+                            ${sessionScope.user.userId}
+                        </span>)
+                        </p>
                         <p style="display: inline;">本店产品共<span style="color: rgba(142,194,86,70); font-size: large">
                             ${applicationScope.productnum}
                         </span>件</p>
                     </div>
-                    <%--            <div class="header-btn">--%>
-
-                    <%--            </div>--%>
                 </div>
                 <div class="col-xl-6 col-md-6 col-sm-5">
-                    <div class="pro-filter mb-40 f-left">
+                    <div class="pro-filter mb-40 ">
                         <form action="#">
                             <select name="pro-filter" id="pro-filter"
                                     onchange="window.location=this.value;">
@@ -225,14 +192,12 @@
                         </form>
                     </div>
                     <div class="mb-40">
-                        <a href="#" class="a-btn">shop now <i class="fas fa-plus"></i></a>
-                        <div class="open-mobile-menu" style="align-items: center;">
-                            <a href="javascript:void(0);">
-                                <i class="far fa-bars"></i>
-                            </a>
-                        </div>
+                        <a href="${pageContext.request.contextPath}/view/ShoppingCar.jsp" class="a-btn"
+                           target="shopcarframe" id="key">购物车<i class="fas fa-plus"></i></a>
+                        <div class="open-mobile-menu" hidden><a id="openMenu"></a></div>
                     </div>
                 </div>
+
             </div>
             <div class="row product-filter-grid">
                 <c:forEach items="${applicationScope.productList}" var="product" varStatus="i">
@@ -244,7 +209,11 @@
                                         alt="product"></a>
                             </div>
                             <div class="product-details">
-                                <h5><a href="shop.html">${product.productName}</a></h5>
+                                <h5>
+                                    <a href="${pageContext.request.contextPath}/AddProductToShopCarServlet.do?id=${product.id}">
+                                            ${product.productName}
+                                    </a>
+                                </h5>
                                 <ul class="product-rating">
                                     <li><a href="#"><i class="far fa-star"></i></a></li>
                                     <li><a href="#"><i class="far fa-star"></i></a></li>
