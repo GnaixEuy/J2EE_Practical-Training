@@ -22,6 +22,9 @@ public class AllProductsServlet extends HttpServlet {
         String type = request.getParameter("type");
         ProductService productService = new ProductServiceImpl();
         List<ProductBean> list;
+
+
+
         if ( !"all".equals(type) ) {
             list = productService.queryProductByType(type);
             request.setAttribute("type", type);
@@ -33,6 +36,8 @@ public class AllProductsServlet extends HttpServlet {
         request.setAttribute("ProductsList", list);
         request.setAttribute("allProductTypeList", allProductTypeList);
         request.getRequestDispatcher("view/queryProducts.jsp").forward(request, response);
+
+
     }
 
     @Override
