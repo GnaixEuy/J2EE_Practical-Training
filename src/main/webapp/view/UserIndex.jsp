@@ -288,9 +288,11 @@
                                     <li><a href="#"><i class="far fa-heart"></i></a></li>
                                     <li><a href="#"><i class="far fa-repeat"></i></a></li>
                                 </ul>
-                                <a href="${pageContext.request.contextPath}/AddProductToShopCarServlet.do?id=${product.id}"
-                                   class="a-btn">
-                                    Add to cart <i class="fas fa-plus"></i>
+                                <a href="javascript:void(0)"
+                                   class="a-btn"
+                                   onclick='{
+                                           $.ajax({url:"${pageContext.request.contextPath}/AddProductToShopCarServlet.do?id=${product.id}",async:false});
+                                           }'>Add to cart <i class="fas fa-plus"></i>
                                 </a>
                             </div>
                         </div>
