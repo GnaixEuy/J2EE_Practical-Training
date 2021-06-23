@@ -14,8 +14,8 @@
         <div class="d-flex flex-column align-content-end site">
             <div class="app-auth-body mx-auto">
                 <div class="app-auth-branding mb-4"><a class="app-logo">
-                    <img class="logo-icon mr-2"
-                         src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
+                    <img class="logo-icon mr-3"
+                         src="${pageContext.request.contextPath}/upload/${product.id}.jpg"
                          alt="logo"></a>
                 </div>
                 <h2 class="auth-heading text-center mb-4">信息修改</h2>

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.List;
 
 @WebServlet(name = "AddProductServlet", value = "/AddProductServlet.do")
@@ -21,49 +20,17 @@ public class AddProductServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//        if ( ServletFileUpload.isMultipartContent(request) ) {
-//            //创建 FileItemFactory 工厂实现类
-//            FileItemFactory fileItemFactory = new DiskFileItemFactory();
-//            // 2. 创建用于解析上传数据的工具类
-//            ServletFileUpload servletFileUpload = new ServletFileUpload(fileItemFactory);
-//            try {
-//                // 3. 解析 上传的数据，得到每一个表单项 FiltItem
-//                List<FileItem> list = servletFileUpload.parseRequest(request);
-//                //循环判断，每一个表单项，是普通类型，还是上传的文件
-//                for ( FileItem fileItem : list ) {
-//
-//                    // 是普通表单项
-//                    if ( fileItem.isFormField() ) {
-//                        String fieldName = fileItem.getFieldName();
-//                        String value = fileItem.getString("UTF-8");
-//
-//                        System.out.println("表单项的name属性值 = " + fieldName);
-//                        System.out.println("表单项的value属性值 = " + value);
-//                    } else {
-//                        //是上传的文件
-//                        String name = fileItem.getFieldName();
-//                        String fieldName = fileItem.getName();
-//
-//                        System.out.println("表单项的name属性值 = " + name);
-//                        System.out.println("上传的文件名 = " + fieldName);
-//
-//                        // 将数据写到指定的位置
-//                        fileItem.write(new File("F:\\" + fileItem.getName()));
-//                    }
-//                }
-//
-//            } catch ( Exception e ) {
-//                e.printStackTrace();
-//            }
-//        } else {
-        String productId = request.getParameter("productid");
-        String productName = request.getParameter("productname");
-        String productPrice = request.getParameter("productprice");
-        String productType = request.getParameter("producttype");
-        String productStore = request.getParameter("productstore");
-        String[] productmaterials = request.getParameterValues("productmaterials");
+        String productId = (String) request.getAttribute("product_id");
+        String productName = (String) request.getAttribute("product_name");
+        String productPrice = (String) request.getAttribute("product_price");
+        String productType = (String) request.getAttribute("product_type");
+        String productStore = (String) request.getAttribute("product_store");
+        List productmaterials = (List) request.getAttribute("product_materials");
         ProductServiceImpl productService = new ProductServiceImpl();
-        boolean b = productService.addProduct(productId, productName, Double.parseDouble(productPrice), Integer.parseInt(productStore), productType, Arrays.asList(productmaterials));
+//        System.out.println(productPrice);
+//        System.out.println(productStore);
+//        System.out.println(productmaterials);
+        boolean b = productService.addProduct(productId, productName, Double.valueOf(productPrice), Integer.parseInt(productStore), productType, productmaterials);
         if ( b ) {
             List<ProductBean> list = productService.queryAllProductInfo();
             ServletContext application = request.getServletContext();
@@ -72,8 +39,5 @@ public class AddProductServlet extends HttpServlet {
         } else {
             request.getRequestDispatcher("/view/error.jsp");
         }
-//        }
-
-
     }
 }

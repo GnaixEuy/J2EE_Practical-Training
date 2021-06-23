@@ -26,6 +26,6 @@ public class AddProductToShopCarServlet extends HttpServlet {
         List<ProductBean> carList = (List<ProductBean>) session.getAttribute("carList");
         carList.add(productBean);
         session.setAttribute("carList", carList);
-        request.getRequestDispatcher("view/UserIndex.jsp").forward(request, response);
+        response.sendRedirect("success.html");
     }
 }
