@@ -50,8 +50,7 @@ public class AdminLoginVerificationServlet extends HttpServlet {
             } else {
                 String msg = "管理员信息不存在";
                 request.setAttribute("msg", msg);
-                System.out.println("错误登入");
-                request.getRequestDispatcher("view/error.jsp").forward(request, response);
+                request.getRequestDispatcher("view/msg.jsp").forward(request, response);
             }
         } catch (Exception e) {
             e.printStackTrace();

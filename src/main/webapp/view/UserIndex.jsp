@@ -260,12 +260,31 @@
             </div>
             <div class="row product-filter-grid">
                 <c:forEach items="${applicationScope.productList}" var="product" varStatus="i">
+                    <div class="modal fade" id="myModal${product.id}" tabindex="-1" role="dialog"
+                         aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel${product.id}">货号：${product.id}</h4>
+                                </div>
+                                <div class="modal-body"><img
+                                        class="img-fluid"
+                                        src="${pageContext.request.contextPath}/upload/${product.id}.jpg">
+                                    <span class="h3">${product.productName}</span>
+                                    <span>${product.productMaterialsList}</span>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="product-wrap">
                             <div class="product-thumb">
-                                <a href="shop.html"><img
-                                        src="${pageContext.request.contextPath}/view/assets/img/product/product-2.jpg"
-                                        alt="product"></a>
+                                <a href="#"
+                                   data-toggle="modal" data-target="#myModal${product.id}"
+                                >
+                                    <img
+                                            src="${pageContext.request.contextPath}/upload/${product.id}.jpg"
+                                            alt="product"></a>
                             </div>
                             <div class="product-details">
                                 <h5>
@@ -284,9 +303,21 @@
                             </div>
                             <div class="product-hover">
                                 <ul class="product-btns">
-                                    <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                    <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="far fa-repeat"></i></a></li>
+                                    <li>
+                                        <a href="javascript:void(0)" onclick="{alert('想要吗，叫你工具人给你买')}">
+                                            <i class="far fa-expand"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" onclick="{alert('喜欢吗，叫你工具人给你买')}">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" onclick="{alert('想吃吗，叫你工具人给你买')}">
+                                            <i class="far fa-repeat"></i>
+                                        </a>
+                                    </li>
                                 </ul>
                                 <a href="javascript:void(0)"
                                    class="a-btn"

@@ -57,9 +57,9 @@ public class UserLoginVerificationServlet extends HttpServlet {
             session.setAttribute("carList", carList);
             response.sendRedirect("view/UserIndex.jsp");
         } else {
-            String msg = "用户信息不存在";
+            String msg = "用户信息不存在,请注册";
             request.setAttribute("msg", msg);
-            request.getRequestDispatcher("view/error.jsp").forward(request, response);
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         }
     }
 }
