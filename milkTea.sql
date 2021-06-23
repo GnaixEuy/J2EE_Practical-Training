@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 23/06/2021 08:20:06
+ Date: 24/06/2021 00:37:09
 */
 
 SET NAMES utf8mb4;
@@ -43,6 +43,27 @@ VALUES ('root', '超级用户', 'root');
 COMMIT;
 
 -- ----------------------------
+-- Table structure for appraises
+-- ----------------------------
+DROP TABLE IF EXISTS `appraises`;
+CREATE TABLE `appraises`
+(
+    `appraises_id`    varbinary(255) NOT NULL,
+    `appraises_value` varchar(255) DEFAULT NULL,
+    `appraises_date`  date         DEFAULT NULL,
+    PRIMARY KEY (`appraises_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+-- ----------------------------
+-- Records of appraises
+-- ----------------------------
+BEGIN;
+INSERT INTO `appraises`
+VALUES (0x31, '1', '2021-01-01');
+COMMIT;
+
+-- ----------------------------
 -- Table structure for material
 -- ----------------------------
 DROP TABLE IF EXISTS `material`;
@@ -65,9 +86,9 @@ BEGIN;
 INSERT INTO `material`
 VALUES (1, '奶茶粉', 1.00, 100);
 INSERT INTO `material`
-VALUES (2, '牛奶', 1.00, 98);
+VALUES (2, '牛奶', 1.00, 96);
 INSERT INTO `material`
-VALUES (3, '咖啡豆', 3.00, 49);
+VALUES (3, '咖啡豆', 3.00, 46);
 INSERT INTO `material`
 VALUES (4, '糖', 1.00, 100);
 INSERT INTO `material`
@@ -77,7 +98,7 @@ VALUES (6, '面粉', 1.00, 100);
 INSERT INTO `material`
 VALUES (7, '抹茶', 1.00, 100);
 INSERT INTO `material`
-VALUES (8, '芋泥', 1.00, 99);
+VALUES (8, '芋泥', 1.00, 97);
 INSERT INTO `material`
 VALUES (9, '芝士', 1.00, 100);
 INSERT INTO `material`
@@ -99,13 +120,13 @@ VALUES (17, '柠檬', 2.00, 50);
 INSERT INTO `material`
 VALUES (18, '西瓜', 2.00, 50);
 INSERT INTO `material`
-VALUES (19, '草莓', 1.00, 100);
+VALUES (19, '草莓', 1.00, 99);
 INSERT INTO `material`
 VALUES (20, '葡萄', 2.00, 50);
 INSERT INTO `material`
-VALUES (21, '沙棘', 3.00, 48);
+VALUES (21, '沙棘', 3.00, 40);
 INSERT INTO `material`
-VALUES (22, '菠萝', 2.00, 47);
+VALUES (22, '菠萝', 2.00, 46);
 INSERT INTO `material`
 VALUES (23, '橙子', 1.00, 50);
 INSERT INTO `material`
@@ -135,11 +156,21 @@ CREATE TABLE `orders`
 -- ----------------------------
 BEGIN;
 INSERT INTO `orders`
-VALUES ('202106221936342@3ojbk', '金菠萝果汁,沙棘汁,美式', 34.00, 'ojbk', '2021-06-22 00:00:00', 'Finish');
+VALUES ('202106221936342@3ojbk', '金菠萝果汁,沙棘汁,美式', 34.00, '2@3', '2021-06-22 00:00:00', 'Finish');
 INSERT INTO `orders`
-VALUES ('202106222103242@3ojbk', '金菠萝果汁,西米露牛奶', 22.00, 'ojbk', '2021-06-22 00:00:00', 'Pending');
+VALUES ('202106222103242@3ojbk', '金菠萝果汁,西米露牛奶', 22.00, '2@3', '2021-06-22 00:00:00', 'Cancelled');
 INSERT INTO `orders`
-VALUES ('7', '8', 9.00, '9', '2021-06-22 00:00:00', 'Cancelled');
+VALUES ('202106231006542@3ojbk', '沙棘汁,鲜芋牛奶', 25.00, 'ojbk', '2021-06-23 00:00:00', 'Pending');
+INSERT INTO `orders`
+VALUES ('202106231011142@3ojbk', '沙棘汁,鲜芋牛奶,莓莓果茶,金菠萝果汁', 45.00, 'ojbk', '2021-06-23 00:00:00', 'Pending');
+INSERT INTO `orders`
+VALUES ('202106231220232@3ojbk', '美式,沙棘汁', 26.00, '2@3', '2021-06-23 00:00:00', 'Cancelled');
+INSERT INTO `orders`
+VALUES ('202106231220532@3ojbk', '美式,沙棘汁,沙棘汁,沙棘汁', 48.00, '2@3', '2021-06-23 00:00:00', 'Cancelled');
+INSERT INTO `orders`
+VALUES ('202106231225412@3ojbk', '美式,沙棘汁,沙棘汁', 37.00, '2@3', '2021-06-23 00:00:00', 'Pending');
+INSERT INTO `orders`
+VALUES ('7', 'test', 9.00, '9', '2021-06-22 00:00:00', 'Cancelled');
 COMMIT;
 
 -- ----------------------------
@@ -205,26 +236,14 @@ INSERT INTO `products`
 VALUES ('8', '金桔柠檬', 5, 100, '果茶', '柠檬');
 INSERT INTO `products`
 VALUES ('9', '满杯葡萄', 8, 100, '果茶', '葡萄');
-COMMIT;
-
--- ----------------------------
--- Table structure for turnovers
--- ----------------------------
-DROP TABLE IF EXISTS `turnovers`;
-CREATE TABLE `turnovers`
-(
-    `id`            int(11)        NOT NULL AUTO_INCREMENT,
-    `turnover`      decimal(10, 0) NOT NULL COMMENT '营业额',
-    `turnover_date` date           NOT NULL COMMENT '营业日期',
-    PRIMARY KEY (`id`) USING BTREE
-) ENGINE = InnoDB
-  DEFAULT CHARSET = utf8
-  ROW_FORMAT = DYNAMIC;
-
--- ----------------------------
--- Records of turnovers
--- ----------------------------
-BEGIN;
+INSERT INTO `products`
+VALUES ('BOSS20210623173255', '32test', 23, 33, '牛奶', '抹茶,芋泥,红豆');
+INSERT INTO `products`
+VALUES ('BOSS20210623202147', '奥利奥奶茶', 14, 222, '醇香奶茶', '奶茶粉,牛奶,糖,奶油');
+INSERT INTO `products`
+VALUES ('BOSS2021062326', '2222', 2, 22, '牛奶', '珍珠,奶油,柠檬,橙子');
+INSERT INTO `products`
+VALUES ('BOSS2021062332', 'testt', 2, 33, '蛋糕甜点', '西米露,珍珠,燕麦');
 COMMIT;
 
 -- ----------------------------
@@ -275,7 +294,7 @@ CREATE TABLE `users`
 -- ----------------------------
 BEGIN;
 INSERT INTO `users`
-VALUES ('2@3', 'ojbk', '2', '23', 99910);
+VALUES ('2@3', 'ojbk', '2', '23', 99729);
 INSERT INTO `users`
 VALUES ('3', '3', '33333', '3', 99999);
 COMMIT;
