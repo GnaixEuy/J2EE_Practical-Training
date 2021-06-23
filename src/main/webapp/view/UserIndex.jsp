@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/metisMenu.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/main.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/bootstrap.min.css">
     <script>
         window.onload = function () {
             $("#key").click(function () {
@@ -39,6 +39,67 @@
 </head>
 
 <body>
+
+
+<div class="modal fade" id="myModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">欢迎你:${sessionScope.user.userName}</h4>
+            </div>
+            <div>
+                <table class="table col-auto">
+                    <thead>
+                    <tr>
+                        <th class="cell">Order</th>
+                        <th class="cell">Product</th>
+                        <th class="cell">Date</th>
+                        <th class="cell">Price</th>
+                        <th class="cell">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${sessionScope.historyOrder}" var="order" varStatus="orderi">
+                        <tr>
+                            <td style="writing-mode: vertical-lr">${order.id}</td>
+                            <td><span class="truncate">${order.productName}</span>
+                            </td>
+                            <td class="table-cell">
+                                <span>${order.puchaseTime.month+1}月${order.puchaseTime.date}日</span>
+                                <span class="note">${order.puchaseTime.year+1900}年</span>
+                            </td>
+                            <td>${order.puchasingPrice}</td>
+
+                            <c:if test="${'Pending'.equals(order.status)}">
+                                <td class="table-cell">
+                                    <span class="badge bg-warning">Pending...</span>
+                                    <a class="btn btn-warning app-btn-secondary align-content-center "
+                                       style="margin-top: 40px"
+                                       href="${pageContext.request.contextPath}/UserCloseOrderServlet.do?orderId=${order.id}&changeStatus=Cancelled">取消订单</a>
+                                </td>
+                            </c:if>
+                            <c:if test="${'Finish'.equals(order.status)}">
+                                <td class="table-cell">
+                                    <span class="badge bg-success">Finish</span>
+                                </td>
+                            </c:if>
+                            <c:if test="${'Cancelled'.equals(order.status)}">
+                                <td class="cell"><span class="badge bg-danger">Cancelled</span></td>
+                            </c:if>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
 <!--    slide-bar Start   -->
 <aside class="slide-bar">
     <%--    <div class="close-mobile-menu">--%>
@@ -131,7 +192,8 @@
 <!--    main-area start    -->
 <main>
     <!--    breadcrumb-area start    -->
-    <section class="breadcrumb-area pt-180 pb-180 pt-md-120 pb-md-120 pt-xs-100 pb-xs-100 bg-fix" data-overlay="dark"
+    <section class="breadcrumb-area pt-180 pb-180 pt-md-120 pb-md-120 pt-xs-100 pb-xs-100 bg-fix"
+             data-overlay="dark"
              data-opacity="7"
              style="background-image: url(${pageContext.request.contextPath}/view/assets/img/bg/breadcrumb-bg.jpg)">
         <div class="container">
@@ -172,12 +234,13 @@
                     <div class="open-mobile-menu" hidden>
                         <a id="openMenu"></a>
                     </div>
-
                     <a href="${pageContext.request.contextPath}/view/ShoppingCar.jsp" class="a-btn"
                        target="shopcarframe" id="key">
                         购物车
                         <i class="fas fa-plus"></i>
                     </a>
+                    <button class="a-btn" style="border: unset" data-toggle="modal" data-target="#myModal">查看订单
+                    </button>
                 </div>
                 <%--                <div class="col-xl-6 col-md-6 col-sm-5">--%>
                 <%--                    <div class="pro-filter mb-40 ">--%>
