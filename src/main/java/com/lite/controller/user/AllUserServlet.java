@@ -1,7 +1,4 @@
-package com.lite.controller.user; /**
- * @author GnaixEuy
- * @date 2021/6/18 11:15
- */
+package com.lite.controller.user;
 
 import com.lite.bean.AdminBean;
 import com.lite.bean.UserBean;

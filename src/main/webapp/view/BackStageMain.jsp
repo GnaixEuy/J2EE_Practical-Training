@@ -389,7 +389,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Uth", "⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽", "( 。ớ ₃ờ) ", "(⑅˃◡˂⑅)(╹⚇╹?) ", "ฅ⁽͑ ˚̀ ˙̭ ˚́ ⁾̉", "( ง⁼̴̀ω⁼̴́)ง⁼³₌₃ ( ˃᷄˶˶̫˶˂᷅ )", "(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)", "Ծ‸Ծ", "=͟͟͞͞(꒪⌓꒪*)", "(;-_-)ᴇᴍᴍᴍ");
+        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
@@ -401,7 +401,7 @@
             "z_index": 100,
             "position": "absolute",
             "font-weight": "bold",
-            "color": "#ff6651"
+            "color": "#38b848"
         });
         $("body").append($i);
         $i.animate({
