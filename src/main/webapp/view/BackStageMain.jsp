@@ -61,17 +61,16 @@
 
                     <div class="app-utilities col-auto">
                         <div class="aplayer"
-                             data-id="3752913142"
+                             data-id="8043500645"
                                  data-fixed="true"
                              data-server="tencent"
                              data-volume="0.7"
                              data-type="playlist"
                              data-autoplay="true"
+                             id="aplayermusic"
                         >
                         </div>
                         <script src="${pageContext.request.contextPath}/view/assets/js/Meting.min.js"></script>
-
-                        <%--                        在这加入--%>
 
                         <div class="app-utility-item app-user-dropdown dropdown">
                             <a class="dropdown-toggle" id="user-dropdown-toggle" data-toggle="dropdown" href="#"
@@ -297,7 +296,7 @@
                                                     d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 										</svg>
 									</span>
-                            <span class="nav-link-text">帮助</span>
+                            <span class="nav-link-text">用户反馈</span>
                         </a>
                         <!--//nav-link-->
                     </li>
@@ -327,9 +326,7 @@
                         </li>
                         <!--//nav-item-->
                         <li class="nav-item">
-
-                            <a class="nav-link"
-                               href="${pageContext.request.contextPath}/view/changeAdminPassword.jsp" target="content">
+                            <a class="nav-link" id="showMusic" onclick="changStatusMusic()">
 										<span class="nav-icon">
 											<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download"
                                                  fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -339,7 +336,7 @@
                                                       d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
 											</svg>
 										</span>
-                                <span class="nav-link-text">下载</span>
+                                <span class="nav-link-text">显示音乐播放器</span>
                             </a>
                             <!--//nav-link-->
                         </li>
@@ -356,7 +353,7 @@
 												<path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 											</svg>
 										</span>
-                                <span class="nav-link-text">修改管理员密码(${sessionScope.user.adminName})</span>
+                                <span class="nav-link-text">修改管理员密码(${sessionScope.adminName})</span>
                             </a>
                             <!--//nav-link-->
                         </li>
@@ -401,7 +398,7 @@
             "z_index": 100,
             "position": "absolute",
             "font-weight": "bold",
-            "color": "#ff6651"
+            "color": "#61e084"
         });
         $("body").append($i);
         $i.animate({
@@ -417,6 +414,17 @@
 
 <!-- Page Specific JS -->
 <script src="${pageContext.request.contextPath}/view/assets/js/app.js"></script>
+
+<script>
+    window.onload = function () {
+        var musicflag = false
+        changStatusMusic = function () {
+            $("#aplayermusic").hidden = !musicflag
+            musicflag = !musicflag
+        }
+    }
+
+</script>
 
 
 

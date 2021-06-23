@@ -98,7 +98,7 @@
                                     </td>
                                     <td class="cell">${sessionScope.adminUserName}</td>
                                     <td class="cell"><span>
-                                            ${order.puchaseTime.month}月${order.puchaseTime.day}日
+                                            ${order.puchaseTime.month+1}月${order.puchaseTime.date}日
                                             </span>
                                         <span class="note">
                                                 ${order.puchaseTime.year+1900}年
@@ -174,7 +174,7 @@
                                         </td>
                                         <td class="cell">${sessionScope.adminUserName}</td>
                                         <td class="cell"><span>
-                                            ${order.puchaseTime.month}月${order.puchaseTime.day}日
+                                            ${order.puchaseTime.month+1}月${order.puchaseTime.date}日
                                             </span>
                                             <span class="note">
                                                 ${order.puchaseTime.year+1900}年
@@ -218,7 +218,7 @@
                                         </td>
                                         <td class="cell">${sessionScope.adminUserName}</td>
                                         <td class="cell"><span>
-                                            ${order.puchaseTime.month}月${order.puchaseTime.day}日
+                                            ${order.puchaseTime.month+1}月${order.puchaseTime.date}日
                                             </span>
                                             <span class="note">
                                                 ${order.puchaseTime.year+1900}年
@@ -266,7 +266,7 @@
                                         </td>
                                         <td class="cell">${sessionScope.adminUserName}</td>
                                         <td class="cell"><span>
-                                            ${order.puchaseTime.month}月${order.puchaseTime.day}日
+                                            ${order.puchaseTime.month+1}月${order.puchaseTime.date}日
                                             </span>
                                             <span class="note">
                                                 ${order.puchaseTime.year+1900}年

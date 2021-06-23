@@ -19,4 +19,5 @@ public interface OrderDAO {
     public OrderBean queryOrderInfo(String id);
 
     public int updateOrderInfo(OrderBean orderBean);
+    
 }

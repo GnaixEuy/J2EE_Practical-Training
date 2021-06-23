@@ -20,6 +20,7 @@
 
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <%
     long date = Long.parseLong(new SimpleDateFormat("yyyyMMddss").format(new Date().getTime()));
@@ -30,12 +31,21 @@
     <div class="m-12 md-7 g-6 auth-main text-center p-5">
         <div class="d-flex flex-column align-content-end site">
             <div class="app-auth-body mx-auto">
-                <div class="app-auth-branding mb-4"><a class="app-logo"><img class="logo-icon mr-2"
-                                                                             src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
-                                                                             alt="logo"></a></div>
-                <h2 class="auth-heading text-center mb-4">新增商品</h2>
                 <form class="auth-form auth-signup-form" method="post"
-                      action="${pageContext.request.contextPath}/AddProductServlet.do">
+                      action="${pageContext.request.contextPath}/AddProductServlet.do"
+                <%--                      enctype="multipart/form-data"--%>
+                >
+                    <div class="app-auth-branding mb-4">
+                        <a class="app-logo">
+                            <label for="photoFile">
+                                <img class="logo-icon mr-2"
+                                     src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
+                                     alt="logo">
+                            </label>
+                            <input type="file" class="img-circle" id="photoFile" name="productphoto" hidden>
+                        </a>
+                    </div>
+                    <h2 class="auth-heading text-center mb-4">新增商品</h2>
                     <div class="email mb-3">
                         <label class="sr-only" for="productid">商品id</label>
                         <input id="productid" name="productid" type="text" class="form-control signup-name"

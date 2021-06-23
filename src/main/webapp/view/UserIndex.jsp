@@ -169,26 +169,31 @@
                             ${applicationScope.productnum}
                         </span>件</p>
                     </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-sm-5">
-                    <div class="pro-filter mb-40 ">
-                        <form action="#">
-                            <select name="pro-filter" id="pro-filter"
-                                    onchange="window.location=this.value;">
-                                <option selected>所有</option>
-                                <c:forEach items="${applicationScope.allProductType}" var="type" varStatus="t">
-                                    <option value="t">${type}</option>
-                                </c:forEach>
-                            </select>
-                        </form>
+                    <div class="open-mobile-menu" hidden>
+                        <a id="openMenu"></a>
                     </div>
-                    <div class="pro-filter mb-40">
-                        <a href="${pageContext.request.contextPath}/view/ShoppingCar.jsp" class="a-btn"
-                           target="shopcarframe" id="key">购物车<i class="fas fa-plus"></i></a>
-                        <div class="open-mobile-menu" hidden><a id="openMenu"></a></div>
-                    </div>
-                </div>
 
+                    <a href="${pageContext.request.contextPath}/view/ShoppingCar.jsp" class="a-btn"
+                       target="shopcarframe" id="key">
+                        购物车
+                        <i class="fas fa-plus"></i>
+                    </a>
+                </div>
+                <%--                <div class="col-xl-6 col-md-6 col-sm-5">--%>
+                <%--                    <div class="pro-filter mb-40 ">--%>
+                <%--                        <form action="#">--%>
+                <%--                            <select name="pro-filter" id="pro-filter"--%>
+                <%--                                    onchange="window.location=this.value;">--%>
+                <%--                                <option selected>所有</option>--%>
+                <%--                                <c:forEach items="${applicationScope.allProductType}" var="type" varStatus="t">--%>
+                <%--                                    <option value="t">${type}</option>--%>
+                <%--                                </c:forEach>--%>
+                <%--                            </select>--%>
+                <%--                        </form>--%>
+                <%--                    </div>--%>
+                <%--                    <div class="pro-filter mb-40">--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
             </div>
             <div class="row product-filter-grid">
                 <c:forEach items="${applicationScope.productList}" var="product" varStatus="i">
