@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 21/06/2021 16:20:10
+ Date: 23/06/2021 08:20:06
 */
 
 SET NAMES utf8mb4;
@@ -54,7 +54,7 @@ CREATE TABLE `material`
     `material_store` int(11)       NOT NULL,
     PRIMARY KEY (`material_id`) USING BTREE
 ) ENGINE = InnoDB
-  AUTO_INCREMENT = 4445
+  AUTO_INCREMENT = 7778
   DEFAULT CHARSET = utf8
   ROW_FORMAT = DYNAMIC;
 
@@ -65,9 +65,9 @@ BEGIN;
 INSERT INTO `material`
 VALUES (1, '奶茶粉', 1.00, 100);
 INSERT INTO `material`
-VALUES (2, '牛奶', 1.00, 100);
+VALUES (2, '牛奶', 1.00, 98);
 INSERT INTO `material`
-VALUES (3, '咖啡豆', 3.00, 50);
+VALUES (3, '咖啡豆', 3.00, 49);
 INSERT INTO `material`
 VALUES (4, '糖', 1.00, 100);
 INSERT INTO `material`
@@ -77,14 +77,17 @@ VALUES (6, '面粉', 1.00, 100);
 INSERT INTO `material`
 VALUES (7, '抹茶', 1.00, 100);
 INSERT INTO `material`
-VALUES (8, '芋泥', 1.00, 100);
+VALUES (8, '芋泥', 1.00, 99);
 INSERT INTO `material`
 VALUES (9, '芝士', 1.00, 100);
 INSERT INTO `material`
-VALUES (10, '西米露', 1.00, 100);
-INSERT INTO `material` VALUES (11, '珍珠', 1.00, 100);
-INSERT INTO `material` VALUES (12, '焦糖', 1.00, 100);
-INSERT INTO `material` VALUES (13, '红豆', 1.00, 100);
+VALUES (10, '西米露', 1.00, 99);
+INSERT INTO `material`
+VALUES (11, '珍珠', 1.00, 100);
+INSERT INTO `material`
+VALUES (12, '焦糖', 1.00, 100);
+INSERT INTO `material`
+VALUES (13, '红豆', 1.00, 100);
 INSERT INTO `material`
 VALUES (14, '椰果', 1.00, 100);
 INSERT INTO `material`
@@ -100,11 +103,43 @@ VALUES (19, '草莓', 1.00, 100);
 INSERT INTO `material`
 VALUES (20, '葡萄', 2.00, 50);
 INSERT INTO `material`
-VALUES (21, '沙棘', 3.00, 50);
+VALUES (21, '沙棘', 3.00, 48);
 INSERT INTO `material`
-VALUES (22, '菠萝', 2.00, 50);
+VALUES (22, '菠萝', 2.00, 47);
 INSERT INTO `material`
 VALUES (23, '橙子', 1.00, 50);
+INSERT INTO `material`
+VALUES (332, 'yyy', 9.00, 10000);
+INSERT INTO `material`
+VALUES (7777, 'yyy', 9.00, 10000);
+COMMIT;
+
+-- ----------------------------
+-- Table structure for orders
+-- ----------------------------
+DROP TABLE IF EXISTS `orders`;
+CREATE TABLE `orders`
+(
+    `order_id`     varchar(255)  NOT NULL,
+    `order_list`   varchar(255)  NOT NULL,
+    `order_price`  double(10, 2) NOT NULL,
+    `order_userid` varchar(255)  NOT NULL,
+    `order_date`   datetime DEFAULT NULL,
+    `order_status` varchar(255)  NOT NULL,
+    PRIMARY KEY (`order_id`)
+) ENGINE = InnoDB
+  DEFAULT CHARSET = utf8;
+
+-- ----------------------------
+-- Records of orders
+-- ----------------------------
+BEGIN;
+INSERT INTO `orders`
+VALUES ('202106221936342@3ojbk', '金菠萝果汁,沙棘汁,美式', 34.00, 'ojbk', '2021-06-22 00:00:00', 'Finish');
+INSERT INTO `orders`
+VALUES ('202106222103242@3ojbk', '金菠萝果汁,西米露牛奶', 22.00, 'ojbk', '2021-06-22 00:00:00', 'Pending');
+INSERT INTO `orders`
+VALUES ('7', '8', 9.00, '9', '2021-06-22 00:00:00', 'Cancelled');
 COMMIT;
 
 -- ----------------------------
@@ -129,7 +164,7 @@ CREATE TABLE `products`
 -- ----------------------------
 BEGIN;
 INSERT INTO `products`
-VALUES ('1', '珍珠奶茶', 10, 100, '醇香奶茶', '奶茶粉,珍珠,糖');
+VALUES ('1', '珍珠奶茶', 10, 100, '醇香奶茶', '奶茶粉,糖,珍珠,椰果');
 INSERT INTO `products`
 VALUES ('10', '金菠萝果汁', 8, 100, '果茶', '菠萝');
 INSERT INTO `products`
@@ -165,11 +200,11 @@ VALUES ('6', '西瓜果茶', 13, 100, '果茶', '西瓜');
 INSERT INTO `products`
 VALUES ('7', '鲜橙多多', 12, 100, '果茶', '橙子');
 INSERT INTO `products`
+VALUES ('777', 'test', 77.5, 3, 'test', '8,8');
+INSERT INTO `products`
 VALUES ('8', '金桔柠檬', 5, 100, '果茶', '柠檬');
 INSERT INTO `products`
 VALUES ('9', '满杯葡萄', 8, 100, '果茶', '葡萄');
-INSERT INTO `products`
-VALUES ('BOSS2021062129', '测试咖啡', 13, 5, '咖啡', '牛奶,咖啡豆,珍珠');
 COMMIT;
 
 -- ----------------------------
@@ -240,9 +275,9 @@ CREATE TABLE `users`
 -- ----------------------------
 BEGIN;
 INSERT INTO `users`
-VALUES ('2', 'ojbk', '2222', '23', 2);
+VALUES ('2@3', 'ojbk', '2', '23', 99910);
 INSERT INTO `users`
-VALUES ('3', '3', '3', '3', 3);
+VALUES ('3', '3', '33333', '3', 99999);
 COMMIT;
 
 SET FOREIGN_KEY_CHECKS = 1;

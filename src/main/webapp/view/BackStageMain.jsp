@@ -61,9 +61,9 @@
 
                     <div class="app-utilities col-auto">
                         <div class="aplayer"
-                             data-id="6703724141"
+                             data-id="3752913142"
                                  data-fixed="true"
-                             data-server="netease"
+                             data-server="tencent"
                              data-volume="0.7"
                              data-type="playlist"
                              data-autoplay="true"
@@ -398,6 +398,7 @@
             "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
             "top": y - 20,
             "left": x,
+            "z_index": 100,
             "position": "absolute",
             "font-weight": "bold",
             "color": "#ff6651"
