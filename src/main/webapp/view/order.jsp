@@ -28,6 +28,17 @@
 
     <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
 
+    <script type="text/javascript">
+        window.onload = function () {
+
+            setTimeout(
+                function () {
+                    window.location.href = "${pageContext.request.contextPath}/QueryOrderServlet.do"
+                }, 10000);
+
+        }
+    </script>
+
 </head>
 
 <body class="app">
@@ -317,7 +328,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var a = ["欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ", "祖安人", "达咩", "小丑竟是我自己"];
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
