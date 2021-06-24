@@ -17,9 +17,9 @@ import java.io.IOException;
 public class ToShopServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        UserBean user = (UserBean) session.getAttribute("user");
         try {
+            HttpSession session = request.getSession();
+            UserBean user = (UserBean) session.getAttribute("user");
             user.getUserName();
             request.getRequestDispatcher("view/UserIndex.jsp").forward(request, response);
         } catch ( Exception e ) {

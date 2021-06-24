@@ -22,9 +22,18 @@ public class UpDealServlet extends HttpServlet {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         String telephone = request.getParameter("telephone");
+        String balance = request.getParameter("balance");
+
+
         UserService userService = new UserServiceImpl();
-        boolean b = userService.updateUserInfo(id, name, password, telephone);
+        boolean b = false;
+        try {
+            b = userService.updateUserInfo(id, name, password, telephone, Double.valueOf(balance));
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
         if ( b ) {
+            request.setAttribute("msg", "修改会员信息成功");
             response.sendRedirect("success.html");
         } else {
             request.getRequestDispatcher("/view/error.jsp");

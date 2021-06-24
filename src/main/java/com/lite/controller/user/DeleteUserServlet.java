@@ -21,11 +21,12 @@ public class DeleteUserServlet extends HttpServlet {
             UserService userService = new UserServiceImpl();
             boolean b = userService.deleteUserById(deleteId);
             if ( b ) {
-                request.getRequestDispatcher("/AllUserservlet.do");
+                request.setAttribute("msg", "删除用户成功");
+                request.getRequestDispatcher("view/msg.jsp").forward(request, response);
             } else {
                 String msg = "删除失败";
                 request.setAttribute("msg", msg);
-                request.getRequestDispatcher("/view/error.jsp").forward(request, response);
+                request.getRequestDispatcher("view/error.jsp").forward(request, response);
             }
     }
 

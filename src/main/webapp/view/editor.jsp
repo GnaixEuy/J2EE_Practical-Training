@@ -47,6 +47,12 @@
                                    class="form-control signup-password" placeholder="请输入电话"
                                    required="required" value="${requestScope.edituser.userPhone}">
                         </div>
+                        <div class="password mb-3">
+                            <label class="sr-only" for="signup-balance">积分</label>
+                            <input id="signup-balance" name="balance" type="text"
+                                   class="form-control signup-password" placeholder="请输入积分"
+                                   required="required" value="${requestScope.edituser.userBalance}">
+                        </div>
 
                         <%--              </div>--%>
                 </div><!--//extra-->
@@ -71,7 +77,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var a = ["欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ", "祖安人", "达咩", "小丑竟是我自己"];
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,

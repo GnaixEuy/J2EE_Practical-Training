@@ -61,61 +61,68 @@
         <div class="row">
             <c:forEach items="${requestScope.materialsList}" var="material" varStatus="i">
                 <%--                <input type="hidden" id="Mid" value="${material.materialId}" />--%>
-                <c:if test="${material.materialStore == 0}"><div class="col-xl-4 col-lg-4 col-md-6" >
-                    <div class="contact-address-wrapper mb-30" style="background: rgba(255,77,77,60%)">
-                        <div class="contact-address-title">
-                            <h3>${material.materialName}</h3>
+                <c:if test="${material.materialStore <= 30}">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="contact-address-wrapper mb-30" style="background: rgba(255,77,77,0.6)">
+                            <div class="contact-address-title">
+                                <h3>${material.materialName}</h3>
+                            </div>
+                            <ul class="contact-link">
+                                <li>材料ID：${material.materialId}</li>
+                                <li>
+
+                                        <%--                                <input type="submit" style="width: 100px" min="0" value="0" id="${material.materialId}"/>--%>
+                                        <%--&lt;%&ndash;                                <input type="submit" onclick="sub();" value="添加" name="sub">&ndash;%&gt;--%>
+                                        <%--                                                                    <a href="${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do?id=${material.materialId}" onclick="sub();">添加</a>--%>
+                                    <form method="post"
+                                          action="${pageContext.request.contextPath}/AddMaterialsServlet.do">
+                                        <input type="hidden" id="id" name="id" value="${material.materialId}">
+                                        <input type="hidden" id="name" name="name" value="${material.materialName}">
+                                        <input type="hidden" id="price" name="price" value="${material.materialPrice}">
+                                        <input type="hidden" id="store" name="store" value="${material.materialStore}">
+
+                                        <input type="text" style="width: 100px" id="Num" name="Num" value=""
+                                               oninput="inputNumber(this)">
+                                            <%--                                    <a type="submit" href="${pageContext.request.contextPath}/AddMaterialsServlet.do?id=${material.materialId}&name=${material.materialName}&price=${material.materialPrice}&store=${material.materialStore}">添加</a>--%>
+                                        <button type="submit">添加</button>
+                                    </form>
+                                </li>
+                                <li>库存余量：${material.materialStore}<br> 进货价格：${material.materialPrice}</li>
+                            </ul>
                         </div>
-                        <ul class="contact-link">
-                            <li>材料ID：${material.materialId}</li>
-                            <li>
-
-                                    <%--                                <input type="submit" style="width: 100px" min="0" value="0" id="${material.materialId}"/>--%>
-                                    <%--&lt;%&ndash;                                <input type="submit" onclick="sub();" value="添加" name="sub">&ndash;%&gt;--%>
-                                    <%--                                                                    <a href="${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do?id=${material.materialId}" onclick="sub();">添加</a>--%>
-                                <form method="post" action="${pageContext.request.contextPath}/AddMaterialsServlet.do">
-                                    <input type="hidden" id="id" name="id" value="${material.materialId}">
-                                    <input type="hidden" id="name" name="name" value="${material.materialName}">
-                                    <input type="hidden" id="price" name="price" value="${material.materialPrice}">
-                                    <input type="hidden" id="store" name="store" value="${material.materialStore}">
-
-                                    <input type="text" style="width: 100px" id="Num" name="Num" value="" oninput="inputNumber(this)">
-                                        <%--                                    <a type="submit" href="${pageContext.request.contextPath}/AddMaterialsServlet.do?id=${material.materialId}&name=${material.materialName}&price=${material.materialPrice}&store=${material.materialStore}">添加</a>--%>
-                                    <button type="submit">添加</button>
-                                </form>
-                            </li>
-                            <li>库存余量：${material.materialStore}<br> 进货价格：${material.materialPrice}</li>
-                        </ul>
                     </div>
-                </div>
                 </c:if>
-                <c:if test="${material.materialStore != 0}"><div class="col-xl-4 col-lg-4 col-md-6">
-                    <div class="contact-address-wrapper mb-30">
-                        <div class="contact-address-title">
-                            <h3>${material.materialName}</h3>
+                <c:if test="${material.materialStore != 0}">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="contact-address-wrapper mb-30">
+                            <div class="contact-address-title">
+                                <h3>${material.materialName}</h3>
+                            </div>
+                            <ul class="contact-link">
+                                <li>材料ID：${material.materialId}</li>
+                                <li>
+
+                                        <%--                                <input type="submit" style="width: 100px" min="0" value="0" id="${material.materialId}"/>--%>
+                                        <%--&lt;%&ndash;                                <input type="submit" onclick="sub();" value="添加" name="sub">&ndash;%&gt;--%>
+                                        <%--                                                                    <a href="${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do?id=${material.materialId}" onclick="sub();">添加</a>--%>
+                                    <form method="post"
+                                          action="${pageContext.request.contextPath}/AddMaterialsServlet.do">
+                                        <input type="hidden" id="id" name="id" value="${material.materialId}">
+                                        <input type="hidden" id="name" name="name" value="${material.materialName}">
+                                        <input type="hidden" id="price" name="price" value="${material.materialPrice}">
+                                        <input type="hidden" id="store" name="store" value="${material.materialStore}">
+
+                                        <input type="text" style="width: 100px" id="Num" name="Num" value=""
+                                               oninput="inputNumber(this)">
+                                            <%--                                    <a type="submit" href="${pageContext.request.contextPath}/AddMaterialsServlet.do?id=${material.materialId}&name=${material.materialName}&price=${material.materialPrice}&store=${material.materialStore}">添加</a>--%>
+                                        <button type="submit">添加</button>
+                                    </form>
+                                </li>
+                                <li>库存余量：${material.materialStore}<br> 进货价格：${material.materialPrice}</li>
+                            </ul>
                         </div>
-                        <ul class="contact-link">
-                            <li>材料ID：${material.materialId}</li>
-                            <li>
-
-                                    <%--                                <input type="submit" style="width: 100px" min="0" value="0" id="${material.materialId}"/>--%>
-                                    <%--&lt;%&ndash;                                <input type="submit" onclick="sub();" value="添加" name="sub">&ndash;%&gt;--%>
-                                    <%--                                                                    <a href="${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do?id=${material.materialId}" onclick="sub();">添加</a>--%>
-                                <form method="post" action="${pageContext.request.contextPath}/AddMaterialsServlet.do">
-                                    <input type="hidden" id="id" name="id" value="${material.materialId}">
-                                    <input type="hidden" id="name" name="name" value="${material.materialName}">
-                                    <input type="hidden" id="price" name="price" value="${material.materialPrice}">
-                                    <input type="hidden" id="store" name="store" value="${material.materialStore}">
-
-                                    <input type="text" style="width: 100px" id="Num" name="Num" value="" oninput="inputNumber(this)">
-                                        <%--                                    <a type="submit" href="${pageContext.request.contextPath}/AddMaterialsServlet.do?id=${material.materialId}&name=${material.materialName}&price=${material.materialPrice}&store=${material.materialStore}">添加</a>--%>
-                                    <button type="submit">添加</button>
-                                </form>
-                            </li>
-                            <li>库存余量：${material.materialStore}<br> 进货价格：${material.materialPrice}</li>
-                        </ul>
                     </div>
-                </div></c:if>
+                </c:if>
             </c:forEach>
 
 
@@ -125,7 +132,7 @@
 <!--    contact-address-area end    -->
 <script>
     function inputNumber(e) {
-        e.value = e.value.replace(/[^0-9]/g,"")  // 不可输入数字和小数点以外的
+        e.value = e.value.replace(/[^0-9]/g, "")  // 不可输入数字和小数点以外的
     }
 </script>
 

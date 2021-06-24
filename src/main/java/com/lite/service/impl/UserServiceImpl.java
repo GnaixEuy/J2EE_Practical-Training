@@ -13,7 +13,7 @@ import java.util.List;
  */
 public class UserServiceImpl implements UserService {
 
-    private UserDAO userDao = new UserDaoImpl();
+    private final UserDAO userDao = new UserDaoImpl();
 
     @Override
     public boolean addUser(String id, String name, String password, String telephone, Double balance) {
@@ -30,10 +30,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserBean> getAllUser() {
         List<UserBean> userBeans = userDao.queryAllUser();
-        if ( userBeans != null ) {
-            return userBeans;
-        }
-        return null;
+        return userBeans;
     }
 
     /**
@@ -66,11 +63,12 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean updateUserInfo(String id, String userName, String userPassword, String userTelephone) {
+    public boolean updateUserInfo(String id, String userName, String userPassword, String userTelephone, Double balance) {
         UserBean user = this.getUserBeanById(id);
         user.setUserName(userName);
         user.setUserPassword(userPassword);
         user.setUserPhone(userTelephone);
+        user.setUserBalance(balance);
         return 1 == userDao.update(user);
     }
 

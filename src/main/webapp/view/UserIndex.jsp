@@ -50,7 +50,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">欢迎你:${sessionScope.user.userName}</h4>
+                <h4 class="modal-title" id="myModalLabel">欢迎你:${sessionScope.user.userName} &emsp;
+                    你的余额积分为：${sessionScope.user.userBalance}</h4>
             </div>
             <div>
                 <table class="table col-auto">
@@ -229,7 +230,7 @@
                         </p>
                         <p style="display: inline;">本店产品共<span style="color: rgba(142,194,86,70); font-size: large">
                             ${applicationScope.productnum}
-                        </span>件</p>
+                        </span>件 &emsp; <span>你的余额积分为：${sessionScope.user.userBalance}</span></p>
                     </div>
                     <div class="open-mobile-menu" hidden>
                         <a id="openMenu"></a>
@@ -447,7 +448,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var a = ["欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ", "祖安人", "达咩", "小丑竟是我自己"];
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
