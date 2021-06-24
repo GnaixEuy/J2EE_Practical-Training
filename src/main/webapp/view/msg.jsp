@@ -36,6 +36,10 @@
     alert('建议成功，希望你多读书多看报少吃零食多睡觉')
     window.location.href = "${pageContext.request.contextPath}/view/UserLogin.jsp"
     </c:if>
+    <c:if test="${'删除商品成功'.equals(requestScope.msg)}">
+    alert('删除商品成功')
+    window.location.href = "${pageContext.request.contextPath}/AllProductsServlet.do?type=all"
+    </c:if>
 </script>
 </body>
 </html>
