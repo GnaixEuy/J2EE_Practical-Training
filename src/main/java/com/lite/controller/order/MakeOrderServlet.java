@@ -37,7 +37,8 @@ public class MakeOrderServlet extends HttpServlet {
             session.setAttribute("user", user);
             session.setAttribute("carList", carList);
             session.setAttribute("historyOrder", historyOrderList);
-            response.sendRedirect("success.html");
+            request.setAttribute("msg", "下单成功");
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         } else {
             request.setAttribute("msg", "余额不足，支付失败");
             request.getRequestDispatcher("view/error.jsp").forward(request, response);
