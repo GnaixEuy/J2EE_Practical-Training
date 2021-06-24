@@ -11,7 +11,7 @@
  Target Server Version : 50731
  File Encoding         : 65001
 
- Date: 24/06/2021 00:37:09
+ Date: 24/06/2021 10:15:10
 */
 
 SET NAMES utf8mb4;
@@ -244,6 +244,8 @@ INSERT INTO `products`
 VALUES ('BOSS2021062326', '2222', 2, 22, '牛奶', '珍珠,奶油,柠檬,橙子');
 INSERT INTO `products`
 VALUES ('BOSS2021062332', 'testt', 2, 33, '蛋糕甜点', '西米露,珍珠,燕麦');
+INSERT INTO `products`
+VALUES ('BOSS20210624083011', '测试', 44, 22, '蛋糕甜点', '奶茶粉,芋泥,红豆');
 COMMIT;
 
 -- ----------------------------
