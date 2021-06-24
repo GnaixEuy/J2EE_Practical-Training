@@ -22,9 +22,7 @@ public class QueryShoppingCarServlet extends HttpServlet {
         HttpSession session = request.getSession();
         UserBean user = (UserBean) session.getAttribute("user");
         List<ProductBean> carList = (List<ProductBean>) session.getAttribute("carList");
-        for ( ProductBean productBean : carList ) {
-            System.out.println(productBean.getProductName());
-        }
+        request.getRequestDispatcher("view/ShoppingCar.jsp").forward(request, response);
     }
 
     @Override

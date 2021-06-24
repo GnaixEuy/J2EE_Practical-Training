@@ -44,22 +44,22 @@
                 <div class="header-info-wrap" style="margin-left: 90px">
                     <div class="header-info">
                         <i class="far fa-phone"></i>
-                        <a href="tel:+012 (345) 789">联系热线</a>
+                        <a href="tel:+8613365917711">联系热线</a>
                     </div>
 
                     <div class="header-info">
                         <i class="far fa-envelope-open"></i>
-                        <a href="/cdn-cgi/l/email-protection#1c6f696c6c736e685c7b717d7570327f7371"><span
+                        <a href="mailto: sgghcj@live.com"><span
                                 class="__cf_email__"
                                 data-cfemail="ed9e989d9d829f99ad8a808c8481c38e8280">[邮箱热线]</span></a>
                     </div>
                 </div>
-                </div>
-                <div class="col-xl-5 col-lg-6 col-md-5">
-                    <div class="header-social">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-behance"></i></a>
+            </div>
+            <div class="col-xl-5 col-lg-6 col-md-5">
+                <div class="header-social">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-behance"></i></a>
                         <a href="#"><i class="fab fa-instagram"></i></a>
                         <a href="#"><i class="fab fa-youtube"></i></a>
                     </div>
@@ -293,7 +293,8 @@
 
     </div>
     <div class="home-slide-btn" data-animation="fadeInDown" data-delay="1.1s">
-        <a href="blog.html" class="a-btn">learn more <i class="fas fa-plus"></i></a>
+        <a href="https://github.com/GnaixEuy/J2EE_Practical-Training" class="a-btn">learn more <i
+                class="fas fa-plus"></i></a>
         <a href="https://www.bilibili.com/video/BV1Ws411u73k?from=search&seid=2232649222334745743"
            class="play-btn popup-video">
             <i class="far fa-play-circle"></i>

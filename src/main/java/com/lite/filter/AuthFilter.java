@@ -21,9 +21,10 @@ public class AuthFilter implements Filter {
         HttpSession session = ((HttpServletRequest) request).getSession();
         Object user = session.getAttribute("user");
         if ( user == null ) {
-            String msg = "非法访问";
             System.out.println("拦截到非法访问");
-            request.getRequestDispatcher("view/adminlogin.jsp");
+            request.setAttribute("msg", "管理员信息不存在");
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
+
         } else {
             chain.doFilter(request, response);
         }

@@ -14,14 +14,14 @@ public interface UserService {
      *
      * @return boolean
      */
-    public boolean addUser(String id, String name, String password, String telephone, Double balance);
+    boolean addUser(String id, String name, String password, String telephone, Double balance);
 
     /**
      * 清除会员信息
      *
      * @return boolean
      */
-    public boolean deleteUserById(String id);
+    boolean deleteUserById(String id);
 
     /**
      * 用户登入验证
@@ -30,14 +30,14 @@ public interface UserService {
      * @param loginPassword
      * @return boolean
      */
-    public boolean userLoginVerification(String loginId, String loginPassword);
+    boolean userLoginVerification(String loginId, String loginPassword);
 
     /**
      * 获取所有会员对象
      *
      * @return List<UserBean>
      */
-    public List<UserBean> getAllUser();
+    List<UserBean> getAllUser();
 
     /**
      * 通过id 获取会员信息
@@ -45,14 +45,14 @@ public interface UserService {
      * @param id
      * @return
      */
-    public UserBean getUserBeanById(String id);
+    UserBean getUserBeanById(String id);
 
     /**
      * 更新会员信息
      *
      * @return boolean
      */
-    public boolean updateUserInfo(String id, String userName, String userPassword, String userTelephone);
+    boolean updateUserInfo(String id, String userName, String userPassword, String userTelephone, Double balance);
 
-    public int CountAllUsers();
+    int CountAllUsers();
 }

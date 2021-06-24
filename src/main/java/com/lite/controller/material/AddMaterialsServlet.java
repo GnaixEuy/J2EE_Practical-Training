@@ -22,29 +22,23 @@ public class AddMaterialsServlet extends HttpServlet {
 
         //        更新
         String Id = request.getParameter("id");
-
-        System.out.println("要进去了");
         if (Id != null) {
-            System.out.println("进来了");
-
-            Integer id = (Integer) Integer.parseInt(Id);
+            Integer id = Integer.parseInt(Id);
             String Name = request.getParameter("name");
             String price = request.getParameter("price");
-            Double Price = (Double)Double.parseDouble(price);
+            Double Price = Double.parseDouble(price);
             String store = request.getParameter("store");
-            Integer Store = (Integer) Integer.parseInt(store);
+            Integer Store = Integer.parseInt(store);
 
             String Num = request.getParameter("Num");
 
-            MaterialBean materialBean = new MaterialBean(id,Name,Price,Store);
+            MaterialBean materialBean = new MaterialBean(id, Name, Price, Store);
             int AddStore = Integer.parseInt(Num);
 
             materialService.updateAllMaterials(materialBean, AddStore);
-            System.out.println(Store);
-
-            request.getRequestDispatcher("/view/AddMaterialSuccess.jsp").forward(request, response);
+            request.setAttribute("msg", "原料增加成功");
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         }
-//
     }
 
 

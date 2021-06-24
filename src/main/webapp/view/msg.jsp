@@ -44,8 +44,27 @@
     alert('下单成功')
     window.location.href = "${pageContext.request.contextPath}/QueryShoppingCarServlet.do"
     </c:if>
+    <c:if test="${'余额不足，支付失败'.equals(requestScope.msg)}">
+    alert('余额不足，支付失败')
+    window.location.href = "${pageContext.request.contextPath}/QueryShoppingCarServlet.do"
+    </c:if>
+    <c:if test="${'修改会员信息成功'.equals(requestScope.msg)}">
+    alert('修改会员信息成功')
+    window.location.href = "${pageContext.request.contextPath}/${pageContext.request.contextPath}/AllUserServlet.do"
+    </c:if>
 
-
+    <c:if test="${'删除用户成功'.equals(requestScope.msg)}">
+    alert('删除用户成功')
+    window.location.href = "${pageContext.request.contextPath}/AllUserServlet.do"
+    </c:if>
+    <c:if test="${'原料增加成功'.equals(requestScope.msg)}">
+    alert('原料增加成功')
+    window.location.href = "${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do"
+    </c:if>
+    <c:if test="${'下单失败，店内原料不足或你的余额不足'.equals(requestScope.msg)}">
+    alert('下单失败，店内原料不足或你的余额不足')
+    window.location.href = "${pageContext.request.contextPath}/view/ShoppingCar.jsp"
+    </c:if>
 </script>
 </body>
 </html>

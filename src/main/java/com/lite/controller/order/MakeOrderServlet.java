@@ -24,24 +24,30 @@ import java.util.List;
 public class MakeOrderServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession();
-        UserBean user = (UserBean) session.getAttribute("user");
-        List<ProductBean> carList = (List<ProductBean>) session.getAttribute("carList");
-        OrderService orderService = new OrderServiceImpl();
-        UserService userService = new UserServiceImpl();
-        boolean b = orderService.makeOrder(carList, user);
-        if ( b ) {
-            carList.clear();
-            List<OrderBean> historyOrderList = orderService.queryOrdersByUser(user);
-            user = userService.getUserBeanById(user.getUserId());
-            session.setAttribute("user", user);
-            session.setAttribute("carList", carList);
-            session.setAttribute("historyOrder", historyOrderList);
-            request.setAttribute("msg", "下单成功");
-            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
-        } else {
-            request.setAttribute("msg", "余额不足，支付失败");
-            request.getRequestDispatcher("view/error.jsp").forward(request, response);
+        try {
+
+            HttpSession session = request.getSession();
+            UserBean user = (UserBean) session.getAttribute("user");
+            List<ProductBean> carList = (List<ProductBean>) session.getAttribute("carList");
+            OrderService orderService = new OrderServiceImpl();
+            UserService userService = new UserServiceImpl();
+            boolean b = orderService.makeOrder(carList, user);
+            if ( b ) {
+                carList.clear();
+                List<OrderBean> historyOrderList = orderService.queryOrdersByUser(user);
+                user = userService.getUserBeanById(user.getUserId());
+                session.setAttribute("user", user);
+                session.setAttribute("carList", carList);
+                session.setAttribute("historyOrder", historyOrderList);
+                request.setAttribute("msg", "下单成功");
+                request.getRequestDispatcher("view/msg.jsp").forward(request, response);
+            } else {
+                request.setAttribute("msg", "下单失败，店内原料不足或你的余额不足");
+                request.getRequestDispatcher("view/msg.jsp").forward(request, response);
+            }
+        } catch ( Exception e ) {
+            e.printStackTrace();
         }
+
     }
 }

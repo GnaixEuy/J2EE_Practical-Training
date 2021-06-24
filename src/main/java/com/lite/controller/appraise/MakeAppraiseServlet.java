@@ -30,7 +30,8 @@ public class MakeAppraiseServlet extends HttpServlet {
             request.setAttribute("msg", "建议成功，希望你多读书多看报少吃零食多睡觉");
             request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         } else {
-            response.sendRedirect("view/error.jsp");
+            request.setAttribute("msg", "建议失败");
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         }
     }
 }
