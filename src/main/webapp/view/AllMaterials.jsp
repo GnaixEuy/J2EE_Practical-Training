@@ -30,32 +30,7 @@
 
     <title>所有原料</title>
 
-    <script type="text/javascript">
-        // var id = null;
-
-        function GetValue() {
-            var num =
-            ${'Number'}.
-            value();
-            // id = document.getElementById("Id").toString();
-            alert(num);
-
-            $.ajax({
-                url: "QueryMaterialsInfoServlet.do",
-                type: "post",
-                //传递单个数据
-                Num: num,
-
-                success: function (data) {
-                    console.log(num)
-                },
-                error: function (xhr, errorMessage, e) {
-                    alert("系统异常！！");
-                }
-            });
-
-        }
-    </script>
+    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
 </head>
 <body>
 
@@ -154,7 +129,5 @@
     }
 </script>
 
-
-<%--</script>--%>
 </body>
 </html>

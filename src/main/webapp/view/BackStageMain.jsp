@@ -9,14 +9,13 @@
 <html>
 <head>
     <title>卡卡西奶茶店管理系统后台</title>
-    <%--    卡卡西奶茶店管理系统后台--%>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/view/assets/img/icon/icon-2.png">
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
     <!-- FontAwesome JS-->
@@ -24,7 +23,6 @@
     <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
     <%--    红点--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/red-point.css">
-
     <%--    音乐--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/APlayer.min.css">
     <script src="${pageContext.request.contextPath}/view/assets/js/APlayer.min.js"></script>
@@ -61,17 +59,17 @@
 
                     <div class="app-utilities col-auto">
                         <div class="aplayer"
-                             data-id="3752913142"
+                             data-id="8043500645"
                                  data-fixed="true"
                              data-server="tencent"
                              data-volume="0.7"
                              data-type="playlist"
                              data-autoplay="true"
+                             order="random"
+                             id="aplayermusic"
                         >
                         </div>
                         <script src="${pageContext.request.contextPath}/view/assets/js/Meting.min.js"></script>
-
-                        <%--                        在这加入--%>
 
                         <div class="app-utility-item app-user-dropdown dropdown">
                             <a class="dropdown-toggle" id="user-dropdown-toggle" data-toggle="dropdown" href="#"
@@ -104,9 +102,10 @@
         <div class="sidepanel-inner d-flex flex-column">
             <a href="#" id="sidepanel-close" class="sidepanel-close d-xl-none">&times;</a>
             <div class="app-branding">
-                <a class="app-logo" href="index.html"><img class="logo-icon mr-2"
-                                                           src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
-                                                           alt="logo"><span class="logo-text">PORTAL</span></a>
+                <a class="app-logo" href="index.jsp">
+                    <img class="logo-icon mr-2"
+                         src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
+                         alt="logo"><span class="logo-text">KaKaxi</span></a>
 
             </div>
             <!--//app-branding-->
@@ -132,7 +131,8 @@
                     <!--//nav-item-->
                     <li class="nav-item">
 
-                        <a class="nav-link" href="docs.html">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/QueryAllAppraiseServlet.do"
+                           target="content">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -142,7 +142,7 @@
                                                   d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
 										</svg>
 									</span>
-                            <span class="nav-link-text">文档</span>
+                            <span class="nav-link-text">用户反馈</span>
                         </a>
                         <!--//nav-link-->
                     </li>
@@ -287,7 +287,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="help.html">
+                        <a class="nav-link" href="tencent://message/?uin=1259409073&Site=Sambow&Menu=yes">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -297,7 +297,7 @@
                                                     d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 										</svg>
 									</span>
-                            <span class="nav-link-text">帮助</span>
+                            <span class="nav-link-text">联系支持</span>
                         </a>
                         <!--//nav-link-->
                     </li>
@@ -309,40 +309,6 @@
             <div class="app-sidepanel-footer">
                 <nav class="app-nav app-nav-footer">
                     <ul class="app-menu footer-menu list-unstyled">
-                        <li class="nav-item">
-
-                            <a class="nav-link" href="settings.html">
-										<span class="nav-icon">
-											<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear"
-                                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd"
-                                                      d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
-												<path fill-rule="evenodd"
-                                                      d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
-											</svg>
-										</span>
-                                <span class="nav-link-text">设置</span>
-                            </a>
-                            <!--//nav-link-->
-                        </li>
-                        <!--//nav-item-->
-                        <li class="nav-item">
-
-                            <a class="nav-link"
-                               href="${pageContext.request.contextPath}/view/changeAdminPassword.jsp" target="content">
-										<span class="nav-icon">
-											<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download"
-                                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-												<path fill-rule="evenodd"
-                                                      d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
-												<path fill-rule="evenodd"
-                                                      d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
-											</svg>
-										</span>
-                                <span class="nav-link-text">下载</span>
-                            </a>
-                            <!--//nav-link-->
-                        </li>
                         <!--//nav-item-->
                         <li class="nav-item">
 
@@ -356,7 +322,37 @@
 												<path fill-rule="evenodd" d="M8 10a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
 											</svg>
 										</span>
-                                <span class="nav-link-text">修改管理员密码(${sessionScope.user.adminName})</span>
+                                <span class="nav-link-text">修改管理员密码(${sessionScope.adminName})</span>
+                            </a>
+                            <!--//nav-link-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="settings.html" target="content">
+										<span class="nav-icon">
+											<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-gear"
+                                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd"
+                                                      d="M8.837 1.626c-.246-.835-1.428-.835-1.674 0l-.094.319A1.873 1.873 0 0 1 4.377 3.06l-.292-.16c-.764-.415-1.6.42-1.184 1.185l.159.292a1.873 1.873 0 0 1-1.115 2.692l-.319.094c-.835.246-.835 1.428 0 1.674l.319.094a1.873 1.873 0 0 1 1.115 2.693l-.16.291c-.415.764.42 1.6 1.185 1.184l.292-.159a1.873 1.873 0 0 1 2.692 1.116l.094.318c.246.835 1.428.835 1.674 0l.094-.319a1.873 1.873 0 0 1 2.693-1.115l.291.16c.764.415 1.6-.42 1.184-1.185l-.159-.291a1.873 1.873 0 0 1 1.116-2.693l.318-.094c.835-.246.835-1.428 0-1.674l-.319-.094a1.873 1.873 0 0 1-1.115-2.692l.16-.292c.415-.764-.42-1.6-1.185-1.184l-.291.159A1.873 1.873 0 0 1 8.93 1.945l-.094-.319zm-2.633-.283c.527-1.79 3.065-1.79 3.592 0l.094.319a.873.873 0 0 0 1.255.52l.292-.16c1.64-.892 3.434.901 2.54 2.541l-.159.292a.873.873 0 0 0 .52 1.255l.319.094c1.79.527 1.79 3.065 0 3.592l-.319.094a.873.873 0 0 0-.52 1.255l.16.292c.893 1.64-.902 3.434-2.541 2.54l-.292-.159a.873.873 0 0 0-1.255.52l-.094.319c-.527 1.79-3.065 1.79-3.592 0l-.094-.319a.873.873 0 0 0-1.255-.52l-.292.16c-1.64.893-3.433-.902-2.54-2.541l.159-.292a.873.873 0 0 0-.52-1.255l-.319-.094c-1.79-.527-1.79-3.065 0-3.592l.319-.094a.873.873 0 0 0 .52-1.255l-.16-.292c-.892-1.64.902-3.433 2.541-2.54l.292.159a.873.873 0 0 0 1.255-.52l.094-.319z"/>
+												<path fill-rule="evenodd"
+                                                      d="M8 5.754a2.246 2.246 0 1 0 0 4.492 2.246 2.246 0 0 0 0-4.492zM4.754 8a3.246 3.246 0 1 1 6.492 0 3.246 3.246 0 0 1-6.492 0z"/>
+											</svg>
+										</span>
+                                <span class="nav-link-text">开发人员</span>
+                            </a>
+                            <!--//nav-link-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="showMusic" onclick="changStatusMusic()">
+										<span class="nav-icon">
+											<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-download"
+                                                 fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+												<path fill-rule="evenodd"
+                                                      d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+												<path fill-rule="evenodd"
+                                                      d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+											</svg>
+										</span>
+                                <span class="nav-link-text">显示音乐播放器</span>
                             </a>
                             <!--//nav-link-->
                         </li>
@@ -389,7 +385,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Uth", "⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽", "( 。ớ ₃ờ) ", "(⑅˃◡˂⑅)(╹⚇╹?) ", "ฅ⁽͑ ˚̀ ˙̭ ˚́ ⁾̉", "( ง⁼̴̀ω⁼̴́)ง⁼³₌₃ ( ˃᷄˶˶̫˶˂᷅ )", "(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)", "Ծ‸Ծ", "=͟͟͞͞(꒪⌓꒪*)", "(;-_-)ᴇᴍᴍᴍ");
+        var a = ["欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ", "祖安人", "达咩", "小丑竟是我自己"];
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
@@ -401,7 +397,7 @@
             "z_index": 100,
             "position": "absolute",
             "font-weight": "bold",
-            "color": "#ff6651"
+            "color": "#61e084"
         });
         $("body").append($i);
         $i.animate({
@@ -417,6 +413,17 @@
 
 <!-- Page Specific JS -->
 <script src="${pageContext.request.contextPath}/view/assets/js/app.js"></script>
+
+<script>
+    window.onload = function () {
+        var musicflag = false
+        changStatusMusic = function () {
+            $("#aplayermusic").hidden = !musicflag
+            musicflag = !musicflag
+        }
+    }
+
+</script>
 
 
 

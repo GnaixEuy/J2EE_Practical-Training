@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 @WebServlet(name = "QueryOrderServlet", value = "/QueryOrderServlet.do")
@@ -21,6 +22,9 @@ public class QueryOrderServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         OrderService orderService = new OrderServiceImpl();
         List<OrderBean> list = orderService.queryAllOrder();
+        if ( list == null ) {
+            list = new ArrayList<>();
+        }
         request.setAttribute("orderList", list);
         request.getRequestDispatcher("view/order.jsp").forward(request, response);
     }

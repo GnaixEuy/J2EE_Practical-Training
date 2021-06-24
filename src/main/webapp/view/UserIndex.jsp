@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/magnific-popup.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/metisMenu.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/main.css">
-
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/bootstrap.min.css">
     <script>
         window.onload = function () {
             $("#key").click(function () {
@@ -39,6 +39,67 @@
 </head>
 
 <body>
+
+
+<div class="modal fade" id="myModal"
+     tabindex="-1"
+     role="dialog"
+     aria-labelledby="myModalLabel"
+     aria-hidden="true"
+>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel">欢迎你:${sessionScope.user.userName}</h4>
+            </div>
+            <div>
+                <table class="table col-auto">
+                    <thead>
+                    <tr>
+                        <th class="cell">Order</th>
+                        <th class="cell">Product</th>
+                        <th class="cell">Date</th>
+                        <th class="cell">Price</th>
+                        <th class="cell">Status</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${sessionScope.historyOrder}" var="order" varStatus="orderi">
+                        <tr>
+                            <td style="writing-mode: vertical-lr">${order.id}</td>
+                            <td><span class="truncate">${order.productName}</span>
+                            </td>
+                            <td class="table-cell">
+                                <span>${order.puchaseTime.month+1}月${order.puchaseTime.date}日</span>
+                                <span class="note">${order.puchaseTime.year+1900}年</span>
+                            </td>
+                            <td>${order.puchasingPrice}</td>
+
+                            <c:if test="${'Pending'.equals(order.status)}">
+                                <td class="table-cell">
+                                    <span class="badge bg-warning">Pending...</span>
+                                    <a class="btn btn-warning app-btn-secondary align-content-center "
+                                       style="margin-top: 40px"
+                                       href="${pageContext.request.contextPath}/UserCloseOrderServlet.do?orderId=${order.id}&changeStatus=Cancelled">取消订单</a>
+                                </td>
+                            </c:if>
+                            <c:if test="${'Finish'.equals(order.status)}">
+                                <td class="table-cell">
+                                    <span class="badge bg-success">Finish</span>
+                                </td>
+                            </c:if>
+                            <c:if test="${'Cancelled'.equals(order.status)}">
+                                <td class="cell"><span class="badge bg-danger">Cancelled</span></td>
+                            </c:if>
+                        </tr>
+                    </c:forEach>
+                    </tbody>
+                </table>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal -->
+    </div>
+</div>
+
 <!--    slide-bar Start   -->
 <aside class="slide-bar">
     <%--    <div class="close-mobile-menu">--%>
@@ -131,7 +192,8 @@
 <!--    main-area start    -->
 <main>
     <!--    breadcrumb-area start    -->
-    <section class="breadcrumb-area pt-180 pb-180 pt-md-120 pb-md-120 pt-xs-100 pb-xs-100 bg-fix" data-overlay="dark"
+    <section class="breadcrumb-area pt-180 pb-180 pt-md-120 pb-md-120 pt-xs-100 pb-xs-100 bg-fix"
+             data-overlay="dark"
              data-opacity="7"
              style="background-image: url(${pageContext.request.contextPath}/view/assets/img/bg/breadcrumb-bg.jpg)">
         <div class="container">
@@ -169,35 +231,60 @@
                             ${applicationScope.productnum}
                         </span>件</p>
                     </div>
-                </div>
-                <div class="col-xl-6 col-md-6 col-sm-5">
-                    <div class="pro-filter mb-40 ">
-                        <form action="#">
-                            <select name="pro-filter" id="pro-filter"
-                                    onchange="window.location=this.value;">
-                                <option selected>所有</option>
-                                <c:forEach items="${applicationScope.allProductType}" var="type" varStatus="t">
-                                    <option value="t">${type}</option>
-                                </c:forEach>
-                            </select>
-                        </form>
+                    <div class="open-mobile-menu" hidden>
+                        <a id="openMenu"></a>
                     </div>
-                    <div class="pro-filter mb-40">
-                        <a href="${pageContext.request.contextPath}/view/ShoppingCar.jsp" class="a-btn"
-                           target="shopcarframe" id="key">购物车<i class="fas fa-plus"></i></a>
-                        <div class="open-mobile-menu" hidden><a id="openMenu"></a></div>
-                    </div>
+                    <a href="${pageContext.request.contextPath}/view/ShoppingCar.jsp" class="a-btn"
+                       target="shopcarframe" id="key">
+                        购物车
+                        <i class="fas fa-plus"></i>
+                    </a>
+                    <button class="a-btn" style="border: unset" data-toggle="modal" data-target="#myModal">查看订单
+                    </button>
                 </div>
-
+                <%--                <div class="col-xl-6 col-md-6 col-sm-5">--%>
+                <%--                    <div class="pro-filter mb-40 ">--%>
+                <%--                        <form action="#">--%>
+                <%--                            <select name="pro-filter" id="pro-filter"--%>
+                <%--                                    onchange="window.location=this.value;">--%>
+                <%--                                <option selected>所有</option>--%>
+                <%--                                <c:forEach items="${applicationScope.allProductType}" var="type" varStatus="t">--%>
+                <%--                                    <option value="t">${type}</option>--%>
+                <%--                                </c:forEach>--%>
+                <%--                            </select>--%>
+                <%--                        </form>--%>
+                <%--                    </div>--%>
+                <%--                    <div class="pro-filter mb-40">--%>
+                <%--                    </div>--%>
+                <%--                </div>--%>
             </div>
             <div class="row product-filter-grid">
                 <c:forEach items="${applicationScope.productList}" var="product" varStatus="i">
+                    <div class="modal fade" id="myModal${product.id}" tabindex="-1" role="dialog"
+                         aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h4 class="modal-title" id="myModalLabel${product.id}">货号：${product.id}</h4>
+                                </div>
+                                <div class="modal-body"><img
+                                        class="img-fluid"
+                                        src="${pageContext.request.contextPath}/upload/${product.id}.jpg">
+                                    <span class="h3">${product.productName}</span>
+                                    <span>${product.productMaterialsList}</span>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
+                    </div>
                     <div class="col-xl-3 col-md-6">
                         <div class="product-wrap">
                             <div class="product-thumb">
-                                <a href="shop.html"><img
-                                        src="${pageContext.request.contextPath}/view/assets/img/product/product-2.jpg"
-                                        alt="product"></a>
+                                <a href="#"
+                                   data-toggle="modal" data-target="#myModal${product.id}"
+                                >
+                                    <img
+                                            src="${pageContext.request.contextPath}/upload/${product.id}.jpg"
+                                            alt="product"></a>
                             </div>
                             <div class="product-details">
                                 <h5>
@@ -216,13 +303,27 @@
                             </div>
                             <div class="product-hover">
                                 <ul class="product-btns">
-                                    <li><a href="#"><i class="far fa-expand"></i></a></li>
-                                    <li><a href="#"><i class="far fa-heart"></i></a></li>
-                                    <li><a href="#"><i class="far fa-repeat"></i></a></li>
+                                    <li>
+                                        <a href="javascript:void(0)" onclick="{alert('想要吗，叫你工具人给你买')}">
+                                            <i class="far fa-expand"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" onclick="{alert('喜欢吗，叫你工具人给你买')}">
+                                            <i class="far fa-heart"></i>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0)" onclick="{alert('想吃吗，叫你工具人给你买')}">
+                                            <i class="far fa-repeat"></i>
+                                        </a>
+                                    </li>
                                 </ul>
-                                <a href="${pageContext.request.contextPath}/AddProductToShopCarServlet.do?id=${product.id}"
-                                   class="a-btn">
-                                    Add to cart <i class="fas fa-plus"></i>
+                                <a href="javascript:void(0)"
+                                   class="a-btn"
+                                   onclick='{
+                                           $.ajax({url:"${pageContext.request.contextPath}/AddProductToShopCarServlet.do?id=${product.id}",async:false});
+                                           }'>Add to cart <i class="fas fa-plus"></i>
                                 </a>
                             </div>
                         </div>
@@ -342,3 +443,32 @@
 </body>
 
 </html>
+<script type="text/javascript">
+    /* 鼠标特效 */
+    var a_idx = 0;
+    $("body").click(function (e) {
+        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var $i = $("<span />").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+            y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "z_index": 100,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "#38b848"
+        });
+        $("body").append($i);
+        $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function () {
+                $i.remove();
+            });
+    });
+</script>

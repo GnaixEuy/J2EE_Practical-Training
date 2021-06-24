@@ -23,6 +23,9 @@
 
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
+
+
+    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
 </head>
 
 <body class="app app-login p-0">
@@ -89,13 +92,13 @@
         <div class="auth-background-overlay p-3 p-lg-5">
             <div class="d-flex flex-column align-content-end h-100">
                 <div class="h-100"></div>
-                <div class="overlay-content p-3 p-lg-4 rounded">
-                    <h5 class="mb-3 overlay-title">Explore Portal Admin Template</h5>
-                    <div>Portal is a free Bootstrap 5 admin dashboard template. You can download and view the template
-                        license <a
-                                href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">here</a>.
-                    </div>
-                </div>
+<%--                <div class="overlay-content p-3 p-lg-4 rounded">--%>
+<%--                    <h5 class="mb-3 overlay-title">Explore Portal Admin Template</h5>--%>
+<%--                    <div>Portal is a free Bootstrap 5 admin dashboard template. You can download and view the template--%>
+<%--                        license <a--%>
+<%--                                href="https://themes.3rdwavemedia.com/bootstrap-templates/admin-dashboard/portal-free-bootstrap-admin-dashboard-template-for-developers/">here</a>.--%>
+<%--                    </div>--%>
+<%--                </div>--%>
             </div>
         </div><!--//auth-background-overlay-->
     </div><!--//auth-background-col-->
@@ -103,4 +106,33 @@
 </div><!--//row-->
 </body>
 </html>
+<script type="text/javascript">
+    /* 鼠标特效 */
+    var a_idx = 0;
+    $("body").click(function (e) {
+        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var $i = $("<span />").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+            y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "z_index": 100,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "#38b848"
+        });
+        $("body").append($i);
+        $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function () {
+                $i.remove();
+            });
+    });
+</script>
 

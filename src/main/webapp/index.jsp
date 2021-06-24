@@ -84,18 +84,18 @@
                                 <li class="has-dropdown">
                                     <a href="#">登入</a>
                                     <ul class="sub-menu">
-                                        <li><a href="${pageContext.request.contextPath}/view/adminlogin.jsp">管理员模块</a>
+                                        <li><a href="${pageContext.request.contextPath}/view/adminlogin.jsp">管理员登陆</a>
                                         </li>
-                                        <li><a href="${pageContext.request.contextPath}/view/UserLogin.jsp">会员模块</a>
+                                        <li><a href="${pageContext.request.contextPath}/view/UserLogin.jsp">会员登陆</a>
                                         </li>
                                     </ul>
                                 </li>
-                                <li><a href="about.html">关于</a></li>
+                                <li><a href="${pageContext.request.contextPath}/view/about.jsp">关于</a></li>
                                 <li class="has-dropdown">
-                                    <a href="service.html">服务</a>
+                                    <a href="">服务</a>
                                     <ul class="sub-menu">
-                                        <li><a href="service.html">服务</a></li>
-                                        <li><a href="service-details.html">服务细节</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/view/service.jsp">服务</a></li>
+                                        <li><a href="${pageContext.request.contextPath}/view/service-details.jsp">服务细节</a></li>
                                     </ul>
                                 </li>
 <%--                                <li class="has-dropdown">--%>
@@ -115,14 +115,14 @@
                                 <%--                                        <li><a href="gallery-details.html">Gallery Details</a></li>--%>
                                 <%--                                    </ul>--%>
                                 <%--                                </li>--%>
-                                <li><a href="contact.html">联系</a></li>
+                                <li><a href="${pageContext.request.contextPath}/view/contact.jsp">联系</a></li>
                             </ul>
                         </nav>
                     </div>
                 </div>
                 <div class="col-xl-2 col-lg-9 col-md-8 col-6 align-self-center">
                     <div class="header-btn">
-                        <a href="${pageContext.request.contextPath}/view/UserLogin.jsp" class="a-btn">购物 <i
+                        <a href="${pageContext.request.contextPath}/ToShopServlet.do" class="a-btn">购物 <i
                                 class="fas fa-plus"></i></a>
                         <div class="open-mobile-menu">
                             <a href="javascript:void(0);">

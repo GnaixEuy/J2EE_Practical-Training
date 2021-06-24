@@ -26,6 +26,8 @@
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
 
+    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
+
 </head>
 
 <body class="app">
@@ -98,7 +100,7 @@
                                     </td>
                                     <td class="cell">${sessionScope.adminUserName}</td>
                                     <td class="cell"><span>
-                                            ${order.puchaseTime.month}月${order.puchaseTime.day}日
+                                            ${order.puchaseTime.month+1}月${order.puchaseTime.date}日
                                             </span>
                                         <span class="note">
                                                 ${order.puchaseTime.year+1900}年
@@ -174,7 +176,7 @@
                                         </td>
                                         <td class="cell">${sessionScope.adminUserName}</td>
                                         <td class="cell"><span>
-                                            ${order.puchaseTime.month}月${order.puchaseTime.day}日
+                                            ${order.puchaseTime.month+1}月${order.puchaseTime.date}日
                                             </span>
                                             <span class="note">
                                                 ${order.puchaseTime.year+1900}年
@@ -218,7 +220,7 @@
                                         </td>
                                         <td class="cell">${sessionScope.adminUserName}</td>
                                         <td class="cell"><span>
-                                            ${order.puchaseTime.month}月${order.puchaseTime.day}日
+                                            ${order.puchaseTime.month+1}月${order.puchaseTime.date}日
                                             </span>
                                             <span class="note">
                                                 ${order.puchaseTime.year+1900}年
@@ -266,7 +268,7 @@
                                         </td>
                                         <td class="cell">${sessionScope.adminUserName}</td>
                                         <td class="cell"><span>
-                                            ${order.puchaseTime.month}月${order.puchaseTime.day}日
+                                            ${order.puchaseTime.month+1}月${order.puchaseTime.date}日
                                             </span>
                                             <span class="note">
                                                 ${order.puchaseTime.year+1900}年
@@ -311,5 +313,33 @@
 
 </body>
 </html>
-
+<script type="text/javascript">
+    /* 鼠标特效 */
+    var a_idx = 0;
+    $("body").click(function (e) {
+        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var $i = $("<span />").text(a[a_idx]);
+        a_idx = (a_idx + 1) % a.length;
+        var x = e.pageX,
+            y = e.pageY;
+        $i.css({
+            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
+            "top": y - 20,
+            "left": x,
+            "z_index": 100,
+            "position": "absolute",
+            "font-weight": "bold",
+            "color": "#38b848"
+        });
+        $("body").append($i);
+        $i.animate({
+                "top": y - 180,
+                "opacity": 0
+            },
+            1500,
+            function () {
+                $i.remove();
+            });
+    });
+</script>
 

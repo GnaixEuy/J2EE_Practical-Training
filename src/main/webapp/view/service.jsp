@@ -8,7 +8,7 @@ Time: 13:31
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>找不到</title>
+    <title>服务</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -37,14 +37,15 @@ Time: 13:31
                     <img class="logo-icon mr-2"
                          src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
                          alt="logo"><span
-                        class="logo-text">PORTAL</span></a>
+                        class="logo-text">咔咔西</span></a>
 
             </div><!--//app-branding-->
             <div class="app-card p-5 text-center shadow-sm">
-                <h1 class="page-title mb-4">404<br><span class="font-weight-light">Page Not Found</span></h1>
-                <div class="mb-4">
-                    Sorry, we can't find the page you're looking for.
-                </div>
+                <h1 class="page-title mb-4">服务宗旨<br><span class="font-weight-light">我们一直坚信我们一切的成功和进步都来源于我们勤奋专业的伙伴（员工），以及我们尊敬的顾客。
+                    虽然这些年来我们经历了令人瞩目的成长，但我们仍将继续为中国顾客提供热情周到的服务，并且和这些珍贵的顾客一起，分享我们引以为豪的咖啡文化！</span></h1>
+<%--                <div class="mb-4">--%>
+<%--                    Sorry, we can't find the page you're looking for.--%>
+<%--                </div>--%>
                 <a class="btn app-btn-primary" href="${pageContext.request.contextPath}/index.jsp">返回首页</a>
             </div>
         </div><!--//col-->
@@ -55,7 +56,7 @@ Time: 13:31
 <footer class="app-footer">
     <div class="container text-center py-3">
         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-        <small class="copyright">Copyright &copy; 2021.Company name All rights reserved.
+        <small class="copyright">
             <a target="_blank"
                href="http://blog.GnaixEuy.cn">加钱升级</a></small>
 

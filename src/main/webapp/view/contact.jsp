@@ -8,7 +8,7 @@ Time: 13:31
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>找不到</title>
+    <title>联系</title>
 
     <!-- Meta -->
     <meta charset="utf-8">
@@ -22,6 +22,7 @@ Time: 13:31
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
     <!-- FontAwesome JS-->
     <script defer src="${pageContext.request.contextPath}/static/js/all.min.js"></script>
+
 
     <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
 
@@ -37,14 +38,20 @@ Time: 13:31
                     <img class="logo-icon mr-2"
                          src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
                          alt="logo"><span
-                        class="logo-text">PORTAL</span></a>
+                        class="logo-text">咔咔西</span></a>
 
             </div><!--//app-branding-->
             <div class="app-card p-5 text-center shadow-sm">
-                <h1 class="page-title mb-4">404<br><span class="font-weight-light">Page Not Found</span></h1>
-                <div class="mb-4">
-                    Sorry, we can't find the page you're looking for.
-                </div>
+                <h1 class="page-title mb-4">联系方式<br>
+                    <span class="font-weight-light"></br>
+                    <h4>侍云鹏：2693319057</h4>
+                    <h4>苏粤翔：1259409073</h4>
+                    <h4>王鹏伟：1423328589</h4>
+                    <h4>徐宇杰：1195435623</h4>
+                </span></h1>
+<%--                <div class="mb-4">--%>
+<%--                    Sorry, we can't find the page you're looking for.--%>
+<%--                </div>--%>
                 <a class="btn app-btn-primary" href="${pageContext.request.contextPath}/index.jsp">返回首页</a>
             </div>
         </div><!--//col-->
@@ -55,7 +62,7 @@ Time: 13:31
 <footer class="app-footer">
     <div class="container text-center py-3">
         <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-        <small class="copyright">Copyright &copy; 2021.Company name All rights reserved.
+        <small class="copyright">
             <a target="_blank"
                href="http://blog.GnaixEuy.cn">加钱升级</a></small>
 

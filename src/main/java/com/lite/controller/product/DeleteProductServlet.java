@@ -7,9 +7,11 @@ import com.lite.bean.ProductBean;
 import com.lite.service.ProductService;
 import com.lite.service.impl.ProductServiceImpl;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 @WebServlet(name = "DeleteProductServlet", value = "/DeleteProductServlet.do")
@@ -33,7 +35,8 @@ public class DeleteProductServlet extends HttpServlet {
             e.printStackTrace();
         }
         if ( isSuccess ) {
-            request.getRequestDispatcher("/success.html").forward(request, response);
+            request.setAttribute("msg", "删除商品成功");
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         } else {
             response.sendRedirect("view/error.jsp");
         }
