@@ -19,9 +19,10 @@ public class ToShopServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         HttpSession session = request.getSession();
         UserBean user = (UserBean) session.getAttribute("user");
-        if ( user.getUserName() != null ) {
+        try {
+            user.getUserName();
             request.getRequestDispatcher("view/UserIndex.jsp").forward(request, response);
-        } else {
+        } catch ( Exception e ) {
             request.setAttribute("msg", "session未查询到用户信息");
             request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         }

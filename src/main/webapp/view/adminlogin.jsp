@@ -16,7 +16,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="">
-    <meta name="author" content="Xiaoying Riley at 3rd Wave Media">
 
     <!-- FontAwesome JS-->
     <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
@@ -75,14 +74,6 @@
 
             </div><!--//auth-body-->
 
-            <footer class="app-auth-footer">
-                <div class="container text-center py-3">
-                    <!--/* This template is free as long as you keep the footer attribution link. If you'd like to use the template without the attribution link, you can buy the commercial license via our website: themes.3rdwavemedia.com Thank you for your support. :) */-->
-                    <small class="copyright">Copyright &copy; 2021.Company name All rights reserved.<a target="_blank"
-                                                                                                       href="https://sc.chinaz.com/moban/">&#x7F51;&#x9875;&#x6A21;&#x677F;</a></small>
-
-                </div>
-            </footer><!--//app-auth-footer-->
         </div><!--//flex-column-->
     </div><!--//auth-main-col-->
     <div class="col-12 col-md-5 col-lg-6 h-100 auth-background-col">
@@ -110,7 +101,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var a = ["欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ", "祖安人", "达咩", "小丑竟是我自己"];
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,

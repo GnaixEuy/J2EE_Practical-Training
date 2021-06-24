@@ -42,7 +42,7 @@
     </c:if>
     <c:if test="${'下单成功'.equals(requestScope.msg)}">
     alert('下单成功')
-    window.location.href = "${pageContext.request.contextPath}/ToShopServlet.do"
+    window.location.href = "${pageContext.request.contextPath}/QueryShoppingCarServlet.do"
     </c:if>
 
 

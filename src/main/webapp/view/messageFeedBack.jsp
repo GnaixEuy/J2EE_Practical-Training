@@ -24,9 +24,9 @@
         </tr>
         <c:forEach items="${requestScope.AppraisesList}" var="message" varStatus="i">
             <tr>
-                <td rowspan="2">${message.apId}</td>
-                <td rowspan="2">${message.apVal}</td>
-                <td rowspan="2">${message.apDate}</td>
+                <td>${message.apId}</td>
+                <td>${message.apVal}</td>
+                <td>${message.apDate}</td>
             </tr>
         </c:forEach>
     </table>

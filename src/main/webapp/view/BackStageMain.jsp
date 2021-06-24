@@ -114,7 +114,8 @@
                 <ul class="app-menu list-unstyled accordion" id="menu-accordion">
                     <li class="nav-item">
 
-                        <a class="nav-link active" href="${pageContext.request.contextPath}/UpdateUserServlet.do">
+                        <a class="nav-link active" href="${pageContext.request.contextPath}/view/info.jsp"
+                           target="content">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-house-door"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -372,6 +373,7 @@
 
 <div class="app-wrapper">
     <iframe frameborder="0" width="100%" height="100%" name="content">
+
     </iframe>
 </div>
 
