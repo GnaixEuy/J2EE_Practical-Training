@@ -17,6 +17,7 @@ public class MaterialDAOImpl implements MaterialDAO {
 
     DBUtil dbUtil = new DBUtil();
 
+
     @Override
     public int getMaterialTypeNum() {
         String sql = "SELECT COUNT(material_id) FROM material";
@@ -43,6 +44,22 @@ public class MaterialDAOImpl implements MaterialDAO {
         }
         return null;
     }
+
+    @Override
+    public int updateAllMaterials(MaterialBean materialBean,int Store) {
+        String sql = "update material set material_store = ? where material_id = ?";
+        int RStore = materialBean.getMaterialStore();
+        int id = 0;
+        id = materialBean.getMaterialId();
+        RStore += Store;
+        try {
+            return dbUtil.update(sql,RStore,id);
+        } catch ( Exception e ) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
 
     private List<MaterialBean> resultToList(ResultSet resultSet, List<MaterialBean> list) throws SQLException {
         MaterialBean materialBean;

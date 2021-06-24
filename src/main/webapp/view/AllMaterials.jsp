@@ -60,19 +60,62 @@
     <div class="container">
         <div class="row">
             <c:forEach items="${requestScope.materialsList}" var="material" varStatus="i">
-                <div class="col-xl-4 col-lg-4 col-md-6">
+                <%--                <input type="hidden" id="Mid" value="${material.materialId}" />--%>
+                <c:if test="${material.materialStore == 0}"><div class="col-xl-4 col-lg-4 col-md-6" >
+                    <div class="contact-address-wrapper mb-30" style="background: rgba(255,77,77,60%)">
+                        <div class="contact-address-title">
+                            <h3>${material.materialName}</h3>
+                        </div>
+                        <ul class="contact-link">
+                            <li>材料ID：${material.materialId}</li>
+                            <li>
+
+                                    <%--                                <input type="submit" style="width: 100px" min="0" value="0" id="${material.materialId}"/>--%>
+                                    <%--&lt;%&ndash;                                <input type="submit" onclick="sub();" value="添加" name="sub">&ndash;%&gt;--%>
+                                    <%--                                                                    <a href="${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do?id=${material.materialId}" onclick="sub();">添加</a>--%>
+                                <form method="post" action="${pageContext.request.contextPath}/AddMaterialsServlet.do">
+                                    <input type="hidden" id="id" name="id" value="${material.materialId}">
+                                    <input type="hidden" id="name" name="name" value="${material.materialName}">
+                                    <input type="hidden" id="price" name="price" value="${material.materialPrice}">
+                                    <input type="hidden" id="store" name="store" value="${material.materialStore}">
+
+                                    <input type="text" style="width: 100px" id="Num" name="Num" value="" oninput="inputNumber(this)">
+                                        <%--                                    <a type="submit" href="${pageContext.request.contextPath}/AddMaterialsServlet.do?id=${material.materialId}&name=${material.materialName}&price=${material.materialPrice}&store=${material.materialStore}">添加</a>--%>
+                                    <button type="submit">添加</button>
+                                </form>
+                            </li>
+                            <li>库存余量：${material.materialStore}<br> 进货价格：${material.materialPrice}</li>
+                        </ul>
+                    </div>
+                </div>
+                </c:if>
+                <c:if test="${material.materialStore != 0}"><div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="contact-address-wrapper mb-30">
                         <div class="contact-address-title">
                             <h3>${material.materialName}</h3>
                         </div>
                         <ul class="contact-link">
                             <li>材料ID：${material.materialId}</li>
-                            <li><a href="#" class="__cf_email__"
-                                   data-cfemail="c4a2b1a0a1a184a1bca5a9b4a8a1eaa7aba9">进货（未完成）</a></li>
+                            <li>
+
+                                    <%--                                <input type="submit" style="width: 100px" min="0" value="0" id="${material.materialId}"/>--%>
+                                    <%--&lt;%&ndash;                                <input type="submit" onclick="sub();" value="添加" name="sub">&ndash;%&gt;--%>
+                                    <%--                                                                    <a href="${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do?id=${material.materialId}" onclick="sub();">添加</a>--%>
+                                <form method="post" action="${pageContext.request.contextPath}/AddMaterialsServlet.do">
+                                    <input type="hidden" id="id" name="id" value="${material.materialId}">
+                                    <input type="hidden" id="name" name="name" value="${material.materialName}">
+                                    <input type="hidden" id="price" name="price" value="${material.materialPrice}">
+                                    <input type="hidden" id="store" name="store" value="${material.materialStore}">
+
+                                    <input type="text" style="width: 100px" id="Num" name="Num" value="" oninput="inputNumber(this)">
+                                        <%--                                    <a type="submit" href="${pageContext.request.contextPath}/AddMaterialsServlet.do?id=${material.materialId}&name=${material.materialName}&price=${material.materialPrice}&store=${material.materialStore}">添加</a>--%>
+                                    <button type="submit">添加</button>
+                                </form>
+                            </li>
                             <li>库存余量：${material.materialStore}<br> 进货价格：${material.materialPrice}</li>
                         </ul>
                     </div>
-                </div>
+                </div></c:if>
             </c:forEach>
 
 
@@ -80,35 +123,11 @@
     </div>
 </div>
 <!--    contact-address-area end    -->
+<script>
+    function inputNumber(e) {
+        e.value = e.value.replace(/[^0-9]/g,"")  // 不可输入数字和小数点以外的
+    }
+</script>
 
 </body>
 </html>
-<script type="text/javascript">
-    /* 鼠标特效 */
-    var a_idx = 0;
-    $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
-        var $i = $("<span />").text(a[a_idx]);
-        a_idx = (a_idx + 1) % a.length;
-        var x = e.pageX,
-            y = e.pageY;
-        $i.css({
-            "z-index": 999999999999999999999999999999999999999999999999999999999999999999999,
-            "top": y - 20,
-            "left": x,
-            "z_index": 100,
-            "position": "absolute",
-            "font-weight": "bold",
-            "color": "#38b848"
-        });
-        $("body").append($i);
-        $i.animate({
-                "top": y - 180,
-                "opacity": 0
-            },
-            1500,
-            function () {
-                $i.remove();
-            });
-    });
-</script>

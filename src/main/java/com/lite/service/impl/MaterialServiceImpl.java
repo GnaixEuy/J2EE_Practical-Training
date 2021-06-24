@@ -15,7 +15,6 @@ public class MaterialServiceImpl implements MaterialService {
 
     MaterialDAO materialDAO = new MaterialDAOImpl();
 
-
     @Override
     public int getMaterialTypeNumInWebhourse() {
         return materialDAO.getMaterialTypeNum();
@@ -25,4 +24,6 @@ public class MaterialServiceImpl implements MaterialService {
     public List<MaterialBean> queryAllMaterials() {
         return materialDAO.queryAllMaterials();
     }
+
+    public void updateAllMaterials(MaterialBean materialBean,int store) {materialDAO.updateAllMaterials(materialBean,store);}
 }
