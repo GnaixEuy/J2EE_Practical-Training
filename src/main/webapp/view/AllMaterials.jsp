@@ -29,6 +29,33 @@
     <link rel="stylesheet" href="view/assets/css/main.css">
 
     <title>所有原料</title>
+
+    <script type="text/javascript">
+        // var id = null;
+
+        function GetValue() {
+            var num =
+            ${'Number'}.
+            value();
+            // id = document.getElementById("Id").toString();
+            alert(num);
+
+            $.ajax({
+                url: "QueryMaterialsInfoServlet.do",
+                type: "post",
+                //传递单个数据
+                Num: num,
+
+                success: function (data) {
+                    console.log(num)
+                },
+                error: function (xhr, errorMessage, e) {
+                    alert("系统异常！！");
+                }
+            });
+
+        }
+    </script>
 </head>
 <body>
 
@@ -58,6 +85,7 @@
     <div class="container">
         <div class="row">
             <c:forEach items="${requestScope.materialsList}" var="material" varStatus="i">
+                <%--                <input type="hidden" id="Mid" value="${material.materialId}" />--%>
                 <div class="col-xl-4 col-lg-4 col-md-6">
                     <div class="contact-address-wrapper mb-30">
                         <div class="contact-address-title">
@@ -65,8 +93,22 @@
                         </div>
                         <ul class="contact-link">
                             <li>材料ID：${material.materialId}</li>
-                            <li><a href="#" class="__cf_email__"
-                                   data-cfemail="c4a2b1a0a1a184a1bca5a9b4a8a1eaa7aba9">进货（未完成）</a></li>
+                            <li>
+
+                                    <%--                                <input type="submit" style="width: 100px" min="0" value="0" id="${material.materialId}"/>--%>
+                                    <%--&lt;%&ndash;                                <input type="submit" onclick="sub();" value="添加" name="sub">&ndash;%&gt;--%>
+                                    <%--                                                                    <a href="${pageContext.request.contextPath}/QueryMaterialsInfoServlet.do?id=${material.materialId}" onclick="sub();">添加</a>--%>
+                                <form method="post" action="${pageContext.request.contextPath}/AddMaterialsServlet.do">
+                                    <input type="hidden" id="id" name="id" value="${material.materialId}">
+                                    <input type="hidden" id="name" name="name" value="${material.materialName}">
+                                    <input type="hidden" id="price" name="price" value="${material.materialPrice}">
+                                    <input type="hidden" id="store" name="store" value="${material.materialStore}">
+
+                                    <input type="text" style="width: 100px" id="Num" name="Num" value="">
+<%--                                    <a type="submit" href="${pageContext.request.contextPath}/AddMaterialsServlet.do?id=${material.materialId}&name=${material.materialName}&price=${material.materialPrice}&store=${material.materialStore}">添加</a>--%>
+                                    <button type="submit">添加</button>
+                                </form>
+                            </li>
                             <li>库存余量：${material.materialStore}<br> 进货价格：${material.materialPrice}</li>
                         </ul>
                     </div>
@@ -78,6 +120,30 @@
     </div>
 </div>
 <!--    contact-address-area end    -->
+<%--<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>--%>
+<%--<script type="text/javascript">--%>
+<%--        function sub(){--%>
+<%--            var num = $("#Number").val();--%>
+<%--            alert("有");--%>
+<%--            alert(num);--%>
+<%--            $.ajax({--%>
+<%--                url:"/AddMaterialsServlet.do",--%>
+<%--                dataType: "json",--%>
+<%--                type:"post",--%>
+<%--                //传递单个数据--%>
+<%--                Num:num,--%>
 
+<%--                success:function(Num){--%>
+<%--                    alert("成功！");--%>
+<%--                },--%>
+<%--                error:function(xhr,errorMessage,e){--%>
+<%--                     alert("系统异常！！");--%>
+<%--                }--%>
+<%--            });--%>
+
+<%--    }--%>
+
+
+<%--</script>--%>
 </body>
 </html>

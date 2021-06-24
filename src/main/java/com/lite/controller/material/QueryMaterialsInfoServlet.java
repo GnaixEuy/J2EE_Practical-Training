@@ -21,7 +21,7 @@ public class QueryMaterialsInfoServlet extends HttpServlet {
         MaterialServiceImpl materialService = new MaterialServiceImpl();
         List<MaterialBean> list = materialService.queryAllMaterials();
         request.setAttribute("materialsList", list);
-        request.getRequestDispatcher("view/AllMaterials.jsp").forward(request, response);
+        request.getRequestDispatcher("/view/AllMaterials.jsp").forward(request, response);
     }
 
     @Override

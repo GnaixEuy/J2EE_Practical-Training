@@ -13,4 +13,7 @@ public interface MaterialDAO {
     public int getMaterialTypeNum();
 
     public List<MaterialBean> queryAllMaterials();
+
+    public int updateAllMaterials(MaterialBean materialBean,int Store);
+
 }
