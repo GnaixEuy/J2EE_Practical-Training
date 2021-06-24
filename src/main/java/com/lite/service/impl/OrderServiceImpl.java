@@ -7,6 +7,7 @@ import com.lite.dao.OrderDAO;
 import com.lite.dao.impl.OrderDAOImpl;
 import com.lite.service.OrderService;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -39,4 +40,16 @@ public class OrderServiceImpl implements OrderService {
         return 1 == orderDAO.updateOrderInfo(orderBean);
     }
 
+    @Override
+    public List<OrderBean> queryOrdersByUser(UserBean user) {
+        List<OrderBean> list = orderDAO.queryAllOrderList();
+        String userId = user.getUserId();
+        List<OrderBean> retList = new ArrayList<OrderBean>();
+        for ( OrderBean orderBean : list ) {
+            if ( userId.equals(orderBean.getOrderUserId()) ) {
+                retList.add(orderBean);
+            }
+        }
+        return retList;
+    }
 }

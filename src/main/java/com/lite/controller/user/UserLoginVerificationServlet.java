@@ -3,9 +3,13 @@ package com.lite.controller.user; /**
  * @date 2021/6/18 13:31
  */
 
+import com.lite.bean.OrderBean;
 import com.lite.bean.ProductBean;
 import com.lite.bean.UserBean;
+import com.lite.service.OrderService;
+import com.lite.service.ProductService;
 import com.lite.service.UserService;
+import com.lite.service.impl.OrderServiceImpl;
 import com.lite.service.impl.ProductServiceImpl;
 import com.lite.service.impl.UserServiceImpl;
 
@@ -32,7 +36,8 @@ public class UserLoginVerificationServlet extends HttpServlet {
         String id = request.getParameter("id");
         String password = request.getParameter("password");
         UserService userService = new UserServiceImpl();
-        ProductServiceImpl productService = new ProductServiceImpl();
+        ProductService productService = new ProductServiceImpl();
+        OrderService orderService = new OrderServiceImpl();
         List<String> allProductType = productService.getAllProductType();
         List<ProductBean> carList = new ArrayList<>();
         List<ProductBean> productList = productService.queryAllProductInfo();
@@ -46,13 +51,15 @@ public class UserLoginVerificationServlet extends HttpServlet {
         if ( userService.userLoginVerification(id, password) ) {
             HttpSession session = request.getSession();
             userInfoToSession = userService.getUserBeanById(id);
+            List<OrderBean> orderList = orderService.queryOrdersByUser(userInfoToSession);
+            session.setAttribute("historyOrder", orderList);
             session.setAttribute("user", userInfoToSession);
             session.setAttribute("carList", carList);
             response.sendRedirect("view/UserIndex.jsp");
         } else {
-            String msg = "用户信息不存在";
+            String msg = "用户信息不存在,请注册";
             request.setAttribute("msg", msg);
-            request.getRequestDispatcher("view/error.jsp").forward(request, response);
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         }
     }
 }

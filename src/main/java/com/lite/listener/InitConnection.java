@@ -35,7 +35,6 @@ public class InitConnection implements ServletContextListener {
                 connection = dbUtil.getConnection();
                 connectionHashMap.put(connection, true);
             }
-            System.out.println("----------------------");
             for ( int i = 0; i < connectionNum; i++ ) {
                 connection = dbUtil.getConnection();
                 connection.setAutoCommit(false);

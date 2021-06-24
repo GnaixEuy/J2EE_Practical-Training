@@ -92,7 +92,7 @@ public class OrderDAOImpl implements OrderDAO {
             makeOrderPreparedStatement.setString(1, orderId.toString());
             makeOrderPreparedStatement.setString(2, orderList.toString());
             makeOrderPreparedStatement.setDouble(3, needPay);
-            makeOrderPreparedStatement.setString(4, userBean.getUserName());
+            makeOrderPreparedStatement.setString(4, userBean.getUserId());
             makeOrderPreparedStatement.setDate(5, java.sql.Date.valueOf(orderDate));
             makeOrderPreparedStatement.setString(6, "Pending");
             int z = makeOrderPreparedStatement.executeUpdate();

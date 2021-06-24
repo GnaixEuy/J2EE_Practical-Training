@@ -122,7 +122,7 @@
                 </div>
                 <div class="col-xl-2 col-lg-9 col-md-8 col-6 align-self-center">
                     <div class="header-btn">
-                        <a href="${pageContext.request.contextPath}/view/UserLogin.jsp" class="a-btn">购物 <i
+                        <a href="${pageContext.request.contextPath}/ToShopServlet.do" class="a-btn">购物 <i
                                 class="fas fa-plus"></i></a>
                         <div class="open-mobile-menu">
                             <a href="javascript:void(0);">

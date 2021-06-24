@@ -18,4 +18,6 @@ public interface OrderService {
 
     public boolean updateOrderStatus(String id, String status);
 
+    public List<OrderBean> queryOrdersByUser(UserBean user);
+
 }
