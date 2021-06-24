@@ -131,7 +131,8 @@
                     <!--//nav-item-->
                     <li class="nav-item">
 
-                        <a class="nav-link" href="${pageContext.request.contextPath}/QueryAllAppraiseServlet.do">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/QueryAllAppraiseServlet.do"
+                           target="content">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -141,7 +142,7 @@
                                                   d="M13.81 4H2.19a1 1 0 0 0-.996 1.09l.637 7a1 1 0 0 0 .995.91h10.348a1 1 0 0 0 .995-.91l.637-7A1 1 0 0 0 13.81 4zM2.19 3A2 2 0 0 0 .198 5.181l.637 7A2 2 0 0 0 2.826 14h10.348a2 2 0 0 0 1.991-1.819l.637-7A2 2 0 0 0 13.81 3H2.19z"/>
 										</svg>
 									</span>
-                            <span class="nav-link-text">文档</span>
+                            <span class="nav-link-text">用户反馈</span>
                         </a>
                         <!--//nav-link-->
                     </li>
@@ -286,7 +287,7 @@
 
                     <li class="nav-item">
 
-                        <a class="nav-link" href="help.html">
+                        <a class="nav-link" href="tencent://message/?uin=1259409073&Site=Sambow&Menu=yes">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-question-circle"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -296,7 +297,7 @@
                                                     d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286zm1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94z"/>
 										</svg>
 									</span>
-                            <span class="nav-link-text">用户反馈</span>
+                            <span class="nav-link-text">联系支持</span>
                         </a>
                         <!--//nav-link-->
                     </li>
@@ -384,7 +385,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var a = ["欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ", "祖安人", "达咩", "小丑竟是我自己"];
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,
