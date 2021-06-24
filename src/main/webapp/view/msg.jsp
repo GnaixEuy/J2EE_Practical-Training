@@ -40,6 +40,12 @@
     alert('删除商品成功')
     window.location.href = "${pageContext.request.contextPath}/AllProductsServlet.do?type=all"
     </c:if>
+    <c:if test="${'下单成功'.equals(requestScope.msg)}">
+    alert('下单成功')
+    window.location.href = "${pageContext.request.contextPath}/ToShopServlet.do"
+    </c:if>
+
+
 </script>
 </body>
 </html>

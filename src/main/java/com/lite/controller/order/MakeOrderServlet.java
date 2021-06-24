@@ -3,6 +3,7 @@ package com.lite.controller.order; /**
  * @date 2021/6/22 14:29
  */
 
+import com.lite.bean.OrderBean;
 import com.lite.bean.ProductBean;
 import com.lite.bean.UserBean;
 import com.lite.service.OrderService;
@@ -31,10 +32,13 @@ public class MakeOrderServlet extends HttpServlet {
         boolean b = orderService.makeOrder(carList, user);
         if ( b ) {
             carList.clear();
+            List<OrderBean> historyOrderList = orderService.queryOrdersByUser(user);
             user = userService.getUserBeanById(user.getUserId());
             session.setAttribute("user", user);
             session.setAttribute("carList", carList);
-            response.sendRedirect("success.html");
+            session.setAttribute("historyOrder", historyOrderList);
+            request.setAttribute("msg", "下单成功");
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         } else {
             request.setAttribute("msg", "余额不足，支付失败");
             request.getRequestDispatcher("view/error.jsp").forward(request, response);
