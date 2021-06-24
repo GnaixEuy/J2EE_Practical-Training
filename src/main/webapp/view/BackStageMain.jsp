@@ -9,14 +9,13 @@
 <html>
 <head>
     <title>卡卡西奶茶店管理系统后台</title>
-    <%--    卡卡西奶茶店管理系统后台--%>
     <!-- Meta -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="description" content="">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="shortcut icon" href="${pageContext.request.contextPath}/view/assets/img/icon/icon-2.png">
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
     <!-- FontAwesome JS-->
@@ -24,7 +23,6 @@
     <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
     <%--    红点--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/red-point.css">
-
     <%--    音乐--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/APlayer.min.css">
     <script src="${pageContext.request.contextPath}/view/assets/js/APlayer.min.js"></script>
@@ -133,7 +131,7 @@
                     <!--//nav-item-->
                     <li class="nav-item">
 
-                        <a class="nav-link" href="docs.html">
+                        <a class="nav-link" href="${pageContext.request.contextPath}/QueryAllAppraiseServlet.do">
 									<span class="nav-icon">
 										<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-folder"
                                              fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -386,7 +384,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Uth", "⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽", "( 。ớ ₃ờ) ", "(⑅˃◡˂⑅)(╹⚇╹?) ", "ฅ⁽͑ ˚̀ ˙̭ ˚́ ⁾̉", "( ง⁼̴̀ω⁼̴́)ง⁼³₌₃ ( ˃᷄˶˶̫˶˂᷅ )", "(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)", "Ծ‸Ծ", "=͟͟͞͞(꒪⌓꒪*)", "(;-_-)ᴇᴍᴍᴍ");
+        var a = ["欢迎光临", "GnaixEuy", "Uth", "⁽(◍˃̵͈̑ᴗ˂̵͈̑)⁽", "( 。ớ ₃ờ) ", "(⑅˃◡˂⑅)(╹⚇╹?) ", "ฅ⁽͑ ˚̀ ˙̭ ˚́ ⁾̉", "( ง⁼̴̀ω⁼̴́)ง⁼³₌₃ ( ˃᷄˶˶̫˶˂᷅ )", "(๑ᵒ̴̶̷͈᷄ᗨᵒ̴̶̷͈᷅)", "Ծ‸Ծ", "=͟͟͞͞(꒪⌓꒪*)", "(;-_-)ᴇᴍᴍᴍ"];
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,

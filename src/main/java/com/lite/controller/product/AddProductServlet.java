@@ -25,17 +25,15 @@ public class AddProductServlet extends HttpServlet {
         String productPrice = (String) request.getAttribute("product_price");
         String productType = (String) request.getAttribute("product_type");
         String productStore = (String) request.getAttribute("product_store");
-        List productmaterials = (List) request.getAttribute("product_materials");
+        List productmaterials = (List<String>) request.getAttribute("product_materials");
         ProductServiceImpl productService = new ProductServiceImpl();
-//        System.out.println(productPrice);
-//        System.out.println(productStore);
-//        System.out.println(productmaterials);
         boolean b = productService.addProduct(productId, productName, Double.valueOf(productPrice), Integer.parseInt(productStore), productType, productmaterials);
         if ( b ) {
             List<ProductBean> list = productService.queryAllProductInfo();
             ServletContext application = request.getServletContext();
             application.setAttribute("productList", list);
-            response.sendRedirect("success.html");
+            request.setAttribute("msg", "新增商品成功");
+            request.getRequestDispatcher("view/msg.jsp").forward(request, response);
         } else {
             request.getRequestDispatcher("/view/error.jsp");
         }

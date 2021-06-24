@@ -21,6 +21,7 @@
     <!-- App CSS -->
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
 </head>
 <%
     long date = Long.parseLong(new SimpleDateFormat("yyyyMMddHHmmss").format(new Date().getTime()));
@@ -31,19 +32,37 @@
     <div class="m-12 md-7 g-6 auth-main text-center p-5">
         <div class="d-flex flex-column align-content-end site">
             <div class="app-auth-body mx-auto">
+                <script>
+
+                    window.onload = function () {
+                        $('#photoFile').change(function () {
+                            // var get = $('#photoFile')[0].src;
+                            // $('#showImg').attr('src', get)
+
+                            var pic = document.getElementById('photoFile').files[0];
+                            console.log(pic);
+                            //在pic的文件里抓取该文件用于显示二进制信息
+                            var sr = window.URL.createObjectURL(pic);
+                            console.log(sr);
+                            //设置src属性，显示图片
+                            document.getElementsByTagName('photoFile')[0].src = sr
+                        })
+                    }
+                </script>
                 <form class="auth-form auth-signup-form" method="post"
                       action="${pageContext.request.contextPath}/NewAddProductServlet.do"
                       enctype="multipart/form-data"
                 >
                     <div class="app-auth-branding mb-4">
-                        <a class="app-logo">
-                            <label for="photoFile">
+                        <div class="app-logo">
+                            <label for="photoFile" id="showImg">
                                 <img class="logo-icon mr-2"
                                      src="${pageContext.request.contextPath}/view/assets/images/app-logo.svg"
                                      alt="logo">
                             </label>
-                            <input type="file" class="img-circle" id="photoFile" name="productphoto" hidden>
-                        </a>
+                            <input type="file" class="img-circle" id="photoFile" name="productphoto"
+                                   style="display: none">
+                        </div>
                     </div>
                     <h2 class="auth-heading text-center mb-4">新增商品</h2>
                     <div class="email mb-3">
@@ -107,3 +126,4 @@
 </div>
 </body>
 </html>
+

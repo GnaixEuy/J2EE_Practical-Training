@@ -39,13 +39,11 @@
                     <h1>您的满意是我们<br>永恒的追求</h1>
                     <p class="text-5 text-light mb-3"></p>
 
-                    <form action="#" method="post" class="w3hny-subscribe-form">
-                        <input type="text" name="subscribe-form-email" class="form-control required" required=""
+                    <form action="${pageContext.request.contextPath}/MakeAppraiseServlet.do" method="post"
+                          class="w3hny-subscribe-form">
+                        <input type="text" name="thinking" class="form-control required" required=""
                                placeholder="请输入您对我们的意见">
-                        <button class="btn btn-primary" type="submit"
-                                onclick="{alert('有意见欢迎联系我，不要发了，我要复习了我没时间做了求求你给高分')
-                window.location.href='tencent://message/?uin=1259409073&Site=Sambow&Menu=yes'
-              }">
+                        <button class="btn btn-primary" type="submit">
                             <i class="fa fa-paper-plane" aria-hidden="true"></i>
                         </button>
                     </form>

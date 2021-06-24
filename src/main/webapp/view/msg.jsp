@@ -28,8 +28,14 @@
     alert('session未查询到用户信息,请重新登入')
     window.location.href = "view/UserLogin.jsp"
     </c:if>
-
-
+    <c:if test="${'新增商品成功'.equals(requestScope.msg)}">
+    alert('新增商品成功')
+    window.location.href = "${pageContext.request.contextPath}/AllProductsServlet.do?type=all"
+    </c:if>
+    <c:if test="${'建议成功，希望你多读书多看报少吃零食多睡觉'.equals(requestScope.msg)}">
+    alert('建议成功，希望你多读书多看报少吃零食多睡觉')
+    window.location.href = "${pageContext.request.contextPath}/view/UserLogin.jsp"
+    </c:if>
 </script>
 </body>
 </html>
