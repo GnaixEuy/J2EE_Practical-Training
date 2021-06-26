@@ -50,7 +50,7 @@
     </c:if>
     <c:if test="${'修改会员信息成功'.equals(requestScope.msg)}">
     alert('修改会员信息成功')
-    window.location.href = "${pageContext.request.contextPath}/${pageContext.request.contextPath}/AllUserServlet.do"
+    window.location.href = "${pageContext.request.contextPath}/AllUserServlet.do"
     </c:if>
 
     <c:if test="${'删除用户成功'.equals(requestScope.msg)}">
