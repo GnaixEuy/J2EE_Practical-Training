@@ -1,19 +1,24 @@
-### **本次项目正式开始，目前readme文档仅作为开发记录使用，等待后期更新**
+### 实训结束，本次项目已基本完善，后续详细说明等待假期更新
+
+### ***不提供数据库！ 不提供数据库！ 不提供数据库！ 项目仅作交流学习***
+
+~~### **本次项目正式开始，目前readme文档仅作为开发记录使用，等待后期更新**~~
 
 ---
 #### 开发环境
 
 > JDK:
->> JetBrains Runtime OpenJDK 11.0.5 update
+> > JetBrains Runtime OpenJDK 11.0.5 update
 >
->Database System:
->> MySQL Community Server 5.7.33
+> Database System:
+> > MySQL Community Server 5.7.33
 >
 > Application Server
->> apache-tomcat-8.5.66
+> > apache-tomcat-8.5.66
 >
 > IDE
->> IntelliJ IDEA 2021.1.2 (Ultimate Edition)
+>
+> > IntelliJ IDEA 2021.1.2 (Ultimate Edition)
 ---
 
 #### 代码规范标注
@@ -61,3 +66,18 @@
 
 ---
 2021年 6月21日 更新了许多功能 修复了初始页面的jqurey导入异常 更新了编辑商品功能
+
+---
+
+2021年 6月没写文档的日子里
+
+加入了ajax，修复了大量交互错误
+
+加入了处理事务的连接池设计，姑且叫他连接池吧
+
+----
+
+2021年 6月25日
+
+基本上完工，演示
+
