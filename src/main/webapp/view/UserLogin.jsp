@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/fontawesome.min.css" type="text/css"
           media="all">
 
-<%--    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>--%>
 </head>
 
 <body>
@@ -112,7 +111,7 @@
 </div>
 <!-- //form section start -->
 <!-- js -->
-<script src="${pageContext.request.contextPath}/view/assets/js/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- //js -->
 <script src="${pageContext.request.contextPath}/view/assets/js/jquery.vide.js"></script>
 <script>

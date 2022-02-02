@@ -20,7 +20,7 @@
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
     <!-- FontAwesome JS-->
     <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
-    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <%--    红点--%>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/red-point.css">
     <%--    音乐--%>
@@ -372,7 +372,7 @@
 <!--//app-header-->
 
 <div class="app-wrapper">
-    <iframe frameborder="0" width="100%" height="100%" name="content">
+    <iframe frameborder="0" width="100%" height="100%" name="content" src="view/info.jsp">
 
     </iframe>
 </div>

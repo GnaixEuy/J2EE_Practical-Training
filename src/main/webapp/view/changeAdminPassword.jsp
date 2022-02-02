@@ -10,7 +10,7 @@
     <title>管理员密码修改</title>
     <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/view/assets/css/portal.css"/>
     <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.css" rel="stylesheet">
-    <script src="${pageContext.request.contextPath}/static/js/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
         $(document).ready(function () {
             $("#changePassword").click(function () {
@@ -25,7 +25,7 @@
         });
     </script>
 
-    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 

@@ -11,19 +11,20 @@
           href="${pageContext.request.contextPath}/view/assets/img/logo/favicon.png">
 
     <!-- All CSS -->
-    <link rel="stylesheet" href="view/assets/css/animate.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/animate.css/3.7.2/animate.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/slick-carousel/1.9.0/slick.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" rel="stylesheet">
+    <link href="https://cdn.bootcdn.net/ajax/libs/metisMenu/3.0.7/metisMenu.css" rel="stylesheet">
+
     <link rel="stylesheet" href="view/assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="view/assets/icon-fonts/flaticon.css">
-    <link rel="stylesheet" href="view/assets/css/bootstrap.min.css">
-    <link rel="stylesheet" href="view/assets/css/slick.css">
     <link rel="stylesheet" href="view/assets/css/spacing.css">
-    <link rel="stylesheet" href="view/assets/css/magnific-popup.css">
-    <link rel="stylesheet" href="view/assets/css/metisMenu.css">
     <link rel="stylesheet" href="view/assets/css/main.css">
 
     <title>咔咔西</title>
 </head>
-<script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <body>
 
 <!-- preloader -->
@@ -615,7 +616,7 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="${pageContext.request.contextPath}/view/assets/js/popper.min.js"></script>
 <script src="${pageContext.request.contextPath}/view/assets/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/view/assets/js/metisMenu.min.js"></script>
