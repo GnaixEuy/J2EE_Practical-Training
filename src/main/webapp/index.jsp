@@ -12,12 +12,12 @@
 
     <!-- All CSS -->
     <link rel="stylesheet" href="view/assets/css/animate.css">
-    <link rel="stylesheet" href="view/assets/css/fontawesome.min.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="view/assets/icon-fonts/flaticon.css">
-    <link rel="stylesheet" href="view/assets/css/bootstrap.min.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.6.1/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="view/assets/css/slick.css">
     <link rel="stylesheet" href="view/assets/css/spacing.css">
-    <link rel="stylesheet" href="view/assets/css/magnific-popup.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css" rel="stylesheet">
     <link rel="stylesheet" href="view/assets/css/metisMenu.css">
     <link rel="stylesheet" href="view/assets/css/main.css">
 

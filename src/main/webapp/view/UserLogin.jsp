@@ -22,9 +22,7 @@
     <!--/Style-CSS -->
     <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/style.css" type="text/css"
           media="all"/>
-    <!--//Style-CSS -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/fontawesome.min.css" type="text/css"
-          media="all">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" media="all">
 
 <%--    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>--%>
 </head>
