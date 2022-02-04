@@ -24,7 +24,6 @@
           media="all"/>
     <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet" media="all">
 
-<%--    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>--%>
 </head>
 
 <body>
@@ -110,7 +109,7 @@
 </div>
 <!-- //form section start -->
 <!-- js -->
-<script src="${pageContext.request.contextPath}/view/assets/js/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- //js -->
 <script src="${pageContext.request.contextPath}/view/assets/js/jquery.vide.js"></script>
 <script>

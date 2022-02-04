@@ -6,7 +6,7 @@
     <title>修改信息</title>
     <link id="theme-style" rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/portal.css">
 
-    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <c:set var="doubleyin" value='" "'/>
 <c:set var="air" value='""'/>
@@ -97,7 +97,7 @@
     /* 鼠标特效 */
     var a_idx = 0;
     $("body").click(function (e) {
-        var a = new Array("欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己");
+        var a = ["欢迎光临", "GnaixEuy", "Utah", "元芳，你怎么看？", "针不戳 ", "什么是快乐星球 ",  "祖安人", "达咩",  "小丑竟是我自己"];
         var $i = $("<span />").text(a[a_idx]);
         a_idx = (a_idx + 1) % a.length;
         var x = e.pageX,

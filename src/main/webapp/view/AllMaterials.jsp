@@ -30,7 +30,7 @@
 
     <title>所有原料</title>
 
-    <script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 

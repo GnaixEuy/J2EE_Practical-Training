@@ -23,7 +23,7 @@
 
     <title>咔咔西</title>
 </head>
-<script src="${pageContext.request.contextPath}/view/assets/js/jquery-3.4.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <body>
 
 <!-- preloader -->
@@ -221,31 +221,6 @@
                       data-cfemail="9ef7f0f8f1defbe6fff3eef2fbb0fdf1f3">[email&#160;protected]</a></p>
                 <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__"
                       data-cfemail="a8cdd0c9c5d8c4cd86c5c9c1c4e8c0ddc586cbc7c5">[email&#160;protected]</a></p>
-            </div>
-        </div>
-        <!-- end side widget -->
-
-        <!-- start side widget -->
-        <div class="sidebar-widget">
-            <div class="instagram">
-                <a href="#">
-                    <img src="view/assets/img/widget/instagram-1.jpg" alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="view/assets/img/widget/instagram-2.jpg" alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="view/assets/img/widget/instagram-3.jpg" alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="view/assets/img/widget/instagram-4.jpg" alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="view/assets/img/widget/instagram-5.jpg" alt="instagram">
-                </a>
-                <a href="#">
-                    <img src="view/assets/img/widget/instagram-6.jpg" alt="instagram">
-                </a>
             </div>
         </div>
         <!-- end side widget -->
