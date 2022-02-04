@@ -21,11 +21,74 @@
     <!-- FontAwesome JS-->
     <script defer src="${pageContext.request.contextPath}/view/assets/plugins/fontawesome/js/all.min.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <%--    红点--%>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/red-point.css">
     <%--    音乐--%>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/view/assets/css/APlayer.min.css">
-    <script src="${pageContext.request.contextPath}/view/assets/js/APlayer.min.js"></script>
+    <link rel="stylesheet" href="http://blog.gnaixeuy.cn/wp-content/themes/master-blog/css/APlayer.min.css">
+    <script src="http://blog.gnaixeuy.cn/wp-content/themes/master-blog/js/APlayer.min.js"></script>
+    <style>
+        .minicart-number-red {
+            position: absolute;
+            top: 10px;
+            right: 120px;
+            display: flex;
+            min-width: 18px;
+            height: 18px;
+            justify-content: center;
+            align-items: center;
+            padding: 0 3px;
+            border-radius: 50%;
+            background-color: #e52e06;
+            font-size: 8px;
+            color: #fff;
+        }
+
+        .minicart-number-green{
+            position: absolute;
+            top: 10px;
+            right: 120px;
+            display: flex;
+            min-width: 18px;
+            height: 18px;
+            justify-content: center;
+            align-items: center;
+            padding: 0 3px;
+            border-radius: 50%;
+            background-color: #01cb06;
+            font-size: 8px;
+            color: #fff;
+        }
+
+        .folk-but-red{
+            position: absolute;
+            top: 10px;
+            right: 120px;
+            display: flex;
+            min-width: 18px;
+            height: 18px;
+            justify-content: center;
+            align-items: center;
+            padding: 0 3px;
+            border-radius: 50%;
+            background-color: #e52e06;
+            font-size: 8px;
+            color: #fff;
+        }
+
+        .folk-but-green{
+            position: absolute;
+            top: 10px;
+            right: 120px;
+            display: flex;
+            min-width: 18px;
+            height: 18px;
+            justify-content: center;
+            align-items: center;
+            padding: 0 3px;
+            border-radius: 50%;
+            background-color: #01cb06;
+            font-size: 8px;
+            color: #fff;
+        }
+    </style>
 </head>
 
 <body class="app">
@@ -69,7 +132,7 @@
                              id="aplayermusic"
                         >
                         </div>
-                        <script src="${pageContext.request.contextPath}/view/assets/js/Meting.min.js"></script>
+                        <script src="http://blog.gnaixeuy.cn/wp-content/themes/master-blog/js/Meting.min.js"></script>
 
                         <div class="app-utility-item app-user-dropdown dropdown">
                             <a class="dropdown-toggle" id="user-dropdown-toggle" data-toggle="dropdown" href="#"
